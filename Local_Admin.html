@@ -3,8 +3,50 @@
 <head>
     <title>Local Admin Page</title>
 </head>
+
 <body>
 
+<!-- Menu Bar  --><!-- to change to reg. css. + some restyling -->
+<div class="w3-bar w3-card" style="background-image: linear-gradient(to right,#0067a0, #0067a0); color:white;">
+
+ <div class="w3-bar-item w3-hover-teal "><img src="static\Lineage-Shield-RGB-White.png" alt="lineage-Logo" height="80" class="w3-round"></div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\clipboard.png" alt="tasks" height="80">
+        <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a onclick="open_add_task_modal()" class="w3-bar-item lineage_green_button">add Task</a>
+            <a class="w3-bar-item lineage_green_button">manage re-occurring tasks</a>
+            <a class="w3-bar-item lineage_green_button">verify tasks</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\line-chart.png" alt="finished_tasks" height="80">
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">finished task list</a>
+            <a class="w3-bar-item lineage_green_button">Dashboard & metrics</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\user.png" alt="users" height="80">
+         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Add User</a>
+            <a class="w3-bar-item lineage_green_button">Manage Users</a>
+            <a class="w3-bar-item lineage_green_button">add/edit roles</a>
+            <a class="w3-bar-item lineage_green_button">User-info</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\settings.png" alt="settings" height="80">
+          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Log out</a>
+            <a class="w3-bar-item lineage_green_button">Local admin</a>
+            <a class="w3-bar-item lineage_green_button">Email settings</a>
+        </div>
+    </div>
+</div>
 
 
 <h3>Buildings:</h3>

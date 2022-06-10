@@ -66,7 +66,7 @@ def local_admin():
         # retrieve info needed to create roles/users (user the rights list also for roles)
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
         rights = DbCon(db).unpack_first_result('SELECT role_name from ROLE_TABLE')
-        return render_template('local_admin.html', buildings=buildings, rights=rights)
+        return render_template('Local_Admin.html', buildings=buildings, rights=rights)
 
     # it there is a post request it means either a building,role,zone or user should be added
     if request.method == 'POST':
