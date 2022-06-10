@@ -11,7 +11,6 @@ def home():
     # try to get user if fails go to log in , otherwise go to homepage
     if request.method == 'GET':
         if not session.get('user'):
-
             return redirect('log_in')
 
         # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
