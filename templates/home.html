@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="\static\styles\style.css">
+
+
+</head>
+<body>
+<!-- Menu Bar  --><!-- to change to reg. css -->
+<div class="w3-bar w3-card" style="background-image: linear-gradient(to right,#0067a0, #0067a0); color:white;">
+
+ <div class="w3-bar-item w3-hover-teal "><img src="static\Lineage-Shield-RGB-White.png" alt="lineage-Logo" height="80" class="w3-round"></div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\clipboard.png" alt="tasks" height="80">
+        <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a onclick="open_add_task_modal()" class="w3-bar-item lineage_green_button">add Task</a>
+            <a class="w3-bar-item lineage_green_button">manage re-occurring tasks</a>
+            <a class="w3-bar-item lineage_green_button">verify tasks</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\line-chart.png" alt="finished_tasks" height="80">
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">finished task list</a>
+            <a class="w3-bar-item lineage_green_button">Dashboard & metrics</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\user.png" alt="users" height="80">
+         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Add User</a>
+            <a class="w3-bar-item lineage_green_button">Manage Users</a>
+            <a class="w3-bar-item lineage_green_button">add/edit roles</a>
+            <a class="w3-bar-item lineage_green_button">User-info</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\settings.png" alt="settings" height="80">
+          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Log out</a>
+            <a class="w3-bar-item lineage_green_button">Local admin</a>
+            <a class="w3-bar-item lineage_green_button">Email settings</a>
+        </div>
+    </div>
+</div>
+
+<!-- Task List -->
+<div class="task_container">
+
+    <!-- holds an task row, this one is to be repeated in a for loop -->
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong class="zone_header">PICK</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:#0067a0" class="zone_color"></div>
+        <!-- Task description (width(incl.)54%) -->
+        <div class="task_description" style="width:50%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">Check Broken Glass</strong></div>
+        <!-- responsible -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >responsible:</small>
+            <strong class="lineage_font_semi_bold" >Night Shift</strong>
+        </div>
+        <!-- Due Date -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >22-14-22</strong>
+        </div>
+        <!-- Status -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold">status: </small>
+            <strong class="lineage_font_semi_bold">in progress</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal();">Open Task</a>
+        </div>
+        <!-- task options, for now teal color maybe change to grey -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+
+    </div>
+    <!-- just some changed copies for the look and feel -->
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong style="color:#009681;" class="zone_header">EXP</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:#009681" class="zone_color"></div>
+        <!-- Task description (width(incl.)54%) -->
+        <div class="task_description" style="width:50%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">Refill Label stock automatic printers</strong></div>
+        <!-- responsible -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >responsible:</small>
+            <strong class="lineage_font_semi_bold" >Night Shift</strong>
+        </div>
+        <!-- Due Date -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >22-14-22</strong>
+        </div>
+        <!-- Status -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold">status: </small>
+            <strong class="lineage_font_semi_bold">in progress</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal_full();">Open Task</a>
+        </div>
+        <!-- task options, for now teal color maybe change to grey -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+
+    </div>
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong style="color:#43b02a;" class="zone_header">YARD</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:#43b02a" class="zone_color"></div>
+        <!-- Task description (width(incl.)54%) -->
+        <div class="task_description" style="width:50%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">Check Broken Glass</strong></div>
+        <!-- responsible -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >responsible:</small>
+            <strong class="lineage_font_semi_bold" >Night Shift</strong>
+        </div>
+        <!-- Due Date -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >22-14-22</strong>
+        </div>
+        <!-- Status -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold">status: </small>
+            <strong class="lineage_font_semi_bold">in progress</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal();">Open Task</a>
+        </div>
+        <!-- task options, for now teal color maybe change to grey -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+
+    </div>
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong style="color:#f4364c;" class="zone_header">HBAY</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:#f4364c" class="zone_color"></div>
+        <!-- Task description (width(incl.)54%) -->
+        <div class="task_description" style="width:50%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">Check Broken Glass</strong></div>
+        <!-- responsible -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >responsible:</small>
+            <strong class="lineage_font_semi_bold" >Night Shift</strong>
+        </div>
+        <!-- Due Date -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >22-14-22</strong>
+        </div>
+        <!-- Status -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold">status: </small>
+            <strong class="lineage_font_semi_bold">in progress</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal();">Open Task</a>
+        </div>
+        <!-- task options, for now teal color maybe change to grey -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+
+    </div>
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong style="color:#ff671f;" class="zone_header">SQB</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:#ff671f" class="zone_color"></div>
+        <!-- Task description (width(incl.)54%) -->
+        <div class="task_description" style="width:50%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">Check Broken Glass</strong></div>
+        <!-- responsible -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >responsible:</small>
+            <strong class="lineage_font_semi_bold" >Night Shift</strong>
+        </div>
+        <!-- Due Date -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >22-14-22</strong>
+        </div>
+        <!-- Status -->
+        <div class="task_description">
+            <small class="lineage_font_semi_bold">status: </small>
+            <strong class="lineage_font_semi_bold">in progress</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal();">Open Task</a>
+        </div>
+        <!-- task options, for now teal color maybe change to grey -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- think about either loading one based on user or hiding elements of one based on user -->
+<!-- Task Modal (pop-screen) display task details-->
+<div id="task_modal" class="task_modal">
+    <div class="task_modal_content" style="padding:50px;padding-top:20px;">
+
+        <!-- header part, Title and Close button -->
+        <div id="task_modal_header">
+            <h2 class="lineage_font_bold" style="display:inline-flex;">Check Broken Glass</h2>
+            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_task_modal()">
+        </div>
+
+         <!--  main body -->
+        <div id="task_modal_center" style="display:flex; justify-content: center; height:60%;">
+
+            <div class="task_modal_center_information" style="width:50%;">
+
+                <strong class="lineage_font_bold">Task information:</strong>
+                 <hr color="#0067a0" style="width:95%; margin:5px; height:1px;">
+
+                 <div class="task_info">
+
+                     <div style="width:120px;">
+                         <strong class="lineage_font_semi_bold">Start date:</strong>
+                     </div>
+
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-15-22</p>
+                   </div>
+
+                        <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">Due Date:</strong>
+                        </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">25-15-22</p>
+                   </div>
+
+
+
+
+                 </div>
+                 <div class="task_info">
+
+                  <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">Zone: </strong>
+                  </div>
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Expedition</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">Building:</strong>
+                     </div>
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">KBL1</p>
+                   </div>
+
+
+
+
+                 </div>
+                 <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">est. duration:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24 min</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">responsible:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Night Shift</p>
+                   </div>
+
+
+                 </div>
+
+            </div>
+
+            <div class="task_modal_center_instruction" style="width:50%;">
+            <strong class="lineage_font_bold">Instructions:</strong>
+            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
+            <div style="background-color:#009681; width:100%; height:150px; color:white;">
+                <p style="padding:5px; padding-left:15px;">
+                    go check here and There: <br>
+                    - do this <br>
+                    - and check that. <br>
+                </p>
+
+            </div>
+             </div>
+
+        </div>
+
+        <!-- footer section, mostly for buttons -->
+        <div id="task_modal_footer" class="task_modal_footer">
+            <a class="lineage_green_button_inverted" style="margin:15px">Finish Task</a>
+            <!-- to change to red button class and rename/rethink -->
+            <a class="lineage_red_button" style="margin:15px;">Report Issue</a>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- copy of task modal expanded to full task_modal ++now most recent. -->
+<div id="task_modal_full" class="task_modal">
+    <div class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
+
+        <!-- header part, Title and Close button -->
+        <div id="task_modal_full_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex;width:95%;">Check Broken Glass</h2>
+            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_task_modal_full()">
+
+        </div>
+
+         <!--  main body -->
+        <div id="task_modal_full_center" style="display:flex; justify-content: space-between; height:75%; flex-direction: row-reverse;">
+
+            <!--part containing related info in label form-->
+            <div class="task_modal_center_information" style="width:48%;">
+
+                <strong class="lineage_font_bold">Task information:</strong>
+                 <hr color="#0067a0" style="width:95%; margin:5px; height:1px;">
+
+                 <div class="task_info">
+
+                     <div style="width:120px;">
+                         <strong class="lineage_font_semi_bold">Start date:</strong>
+                     </div>
+
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-15-22</p>
+                   </div>
+
+                        <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">Due Date:</strong>
+                        </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">25-15-22</p>
+                   </div>
+
+
+
+
+                 </div>
+                 <div class="task_info">
+
+                  <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">Zone: </strong>
+                  </div>
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Expedition</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">Building:</strong>
+                     </div>
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">KBL1</p>
+                   </div>
+
+
+
+
+                 </div>
+                 <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">est. duration:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24 min</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">responsible:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Night Shift</p>
+                   </div>
+
+
+                 </div>
+                 <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">finished on:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-02-14 15:32</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">finished by:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Patrick</p>
+                   </div>
+
+
+                 </div>
+                <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">verified on:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-02-15 08:32</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">verified by:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">someone</p>
+                   </div>
+
+
+                 </div>
+                <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">re-occurs:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">weekly</p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">status:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Finished</p>
+                   </div>
+
+
+                 </div>
+
+            </div>
+            <!--contains textbox with instructions-->
+            <div class="task_modal_center_instruction" style="width:48%;">
+
+            <strong class="lineage_font_bold">Instructions:</strong>
+            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
+
+            <div style="background-color:#009681; margin-bottom:15px; width:100%; height:150px; color:white;">
+                <p style="padding:5px; padding-left:15px;">
+                    go check here and There: <br>
+                    - do this <br>
+                    - and check that. <br>
+                </p>
+
+            </div>
+
+             <strong class="lineage_font_bold">Reported Issues:</strong>
+            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
+
+            <div style="background-color:#009681; width:100%; height:150px; color:white;">
+                <p style="padding:5px; padding-left:15px;">
+                    go check here and There: <br>
+                    - do this <br>
+                    - and check that. <br>
+                </p>
+
+            </div>
+
+            </div>
+
+        </div>
+
+        <!-- footer section, mostly for buttons -->
+        <div id="task_modal_full_footer" class="task_modal_footer">
+            <a class="lineage_green_button_inverted" style="margin:15px">Finish Task</a>
+            <!-- to change to red button class and rename/rethink -->
+            <a class="lineage_red_button" style="margin:15px;">Report Issue</a>
+            <a class="lineage_grey_button" style="margin:15px;">Options</a>
+        </div>
+
+
+    </div>
+</div>
+
+<!--Add task model, used for....creating tasks -->
+<!--todo change most inline styling to classes after designing-->
+<div id="add_task_modal" class="task_modal">
+    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%">
+         <!-- header part, Title and Close button,  but centered -->
+        <div id="add_task_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add Task</h2>
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_add_task_modal()">
+        </div>
+        <!-- underscore line-->
+        <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
+
+        <!--add_task modal body -->
+        <form method="post">
+        <!--add_task modal body -->
+        <div style="display:flex; justify-content:space-around;" >
+
+            <!-- divide it in 2 parts -->
+             <div style="width:48%;">
+
+                 <!-- divide this half in to rows with 2 columns  -->
+                     <!--Task description --><!-- to clean-up and improve -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Task Description:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_description" type="text">
+                       </div>
+                 </div>
+                     <!-- responsible, change to user or manual input -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>responsible:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_responsible" type="text">
+                       </div>
+                 </div>
+
+                     <!--department, change on list based on user info -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Department:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_role">
+                               {% for right in rights %}
+                               <option value="{{right}}">{{right}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+                     <!--Building, change to select based on user info -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Building:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_building">
+                               {% for building in buildings %}
+                               <option value="{{building}}">{{building}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+                    <!--Zone, change to list based on building + add zones in DB-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Zone:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_zone">
+                               <!-- TODO: change to dynamically change with javascript when building is changed  -->
+                               {% for zone in zones %}
+                               <option value="{{zone[2]}}">{{zone[2]}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+
+                     <!--Estimated duration, used for points calc of workload -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>estimated duration:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:70%;" name="task_duration" type="text">
+                           <label class="lineage_font_semi_bold" style="width:30%">Minutes</label>
+                       </div>
+                 </div>
+                   <!--Start date-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Start Date:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_start_date" type="date">
+                       </div>
+                 </div>
+                   <!--Due date-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Due date:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_due_date" type="date">
+                       </div>
+                 </div>
+
+             </div>
+            <div style="width:49%;">
+                <!--Task instructions-->
+                <div>
+               <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                   <strong>Instructions:</strong>
+               </div>
+               <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden; resize:none; white-space:pre-wrap;"></textarea>
+               </div>
+               </div>
+                <!--Reoccur settings -->
+                <div>
+
+                    <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                    <strong>Scheduled/reoccurring task:</strong>
+                    </div>
+                    <!--check boxes, sepp div for alignment -->
+                    <div class="lineage_font_semi_bold" style="display: inline-flex;align-items: center;width: 100%;justify-content: flex-start;">
+                    <label>Exclude Weekends</label>
+                    <input type="checkbox" value="TRUE" style="margin-left:5px;">
+                     <div class="spacer" style="width:15px;"></div>
+                    <label>Exclude Week-Days</label>
+                    <input type="checkbox" value="TRUE" style="margin-left:5px;">
+                     </div>
+                    <!-- select days-->
+                    <div style="margin-top:5px;">
+                     <label class="lineage_font_semi_bold">reoccur every</label>
+                    <input name="task_reoccur" type="number" min="0" max="365">
+                     <label class="lineage_font_semi_bold">days</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer -->
+        <div class="task_modal_footer">
+            <input name="task_add_task" type="submit" class="lineage_green_button_inverted" value="Add Task">
+        </div>
+        </form>
+
+
+
+
+    </div>
+</div>
+
+
+
+<!-- where the javascript lives,guess i should clean that up at some point -->
+<script src="static/scripts/script.js"></script>
+
+</body>
+</html>
