@@ -3,10 +3,51 @@
 <head>
     <title>Local Admin Page</title>
 </head>
+
 <body>
 
-<h1>Local Admin Page</h1><br>
-<h2>for now as simple as possible</h2>
+<!-- Menu Bar  --><!-- to change to reg. css. + some restyling -->
+<div class="w3-bar w3-card" style="background-image: linear-gradient(to right,#0067a0, #0067a0); color:white;">
+
+ <div class="w3-bar-item w3-hover-teal "><img src="static\Lineage-Shield-RGB-White.png" alt="lineage-Logo" height="80" class="w3-round"></div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\clipboard.png" alt="tasks" height="80">
+        <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a onclick="open_add_task_modal()" class="w3-bar-item lineage_green_button">add Task</a>
+            <a class="w3-bar-item lineage_green_button">manage re-occurring tasks</a>
+            <a class="w3-bar-item lineage_green_button">verify tasks</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\line-chart.png" alt="finished_tasks" height="80">
+      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">finished task list</a>
+            <a class="w3-bar-item lineage_green_button">Dashboard & metrics</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\user.png" alt="users" height="80">
+         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Add User</a>
+            <a class="w3-bar-item lineage_green_button">Manage Users</a>
+            <a class="w3-bar-item lineage_green_button">add/edit roles</a>
+            <a class="w3-bar-item lineage_green_button">User-info</a>
+        </div>
+    </div>
+
+    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
+        <img src="static\settings.png" alt="settings" height="80">
+          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
+            <a class="w3-bar-item lineage_green_button">Log out</a>
+            <a class="w3-bar-item lineage_green_button">Local admin</a>
+            <a class="w3-bar-item lineage_green_button">Email settings</a>
+        </div>
+    </div>
+</div>
+
 
 <h3>Buildings:</h3>
 <form method = "post" >
@@ -14,47 +55,6 @@
 <input id = "add_building" name = "add_building" type = "text">
 <input type = "submit">
 </form><br>
-
-<h3>Roles:</h3>
-<form id="add_role" name="add_role" method="post">
-    <label>Role_Name:</label><br>
-    <input id="role_name" name="role_name" type="text"><br>
-
-    <label>Buildings: </label><br>
-    {% for building in buildings %}
-    <input type="checkbox" name="role_building" id="{{building}}" value="{{building}}">
-    <label for="{{building}}">{{building}}</label>
-    {% endfor %}<br>
-
-   <label>Rights: </label><br>
-   {% for role in rights %}
-    <input type="checkbox" name="rights" id='{{role}}' value="{{role}}">
-    <label for="{{role}}">{{role}}</label>
-   {% endfor %}<br>
-
-    <label for=restricted>restricted/Tablet Only:</label>
-    <input type="checkbox" id="restricted" name="restricted" value="restricted"><br>
-
-    <input type="submit" id="role_add" name="role_add"><br>
-</form>
-
-<h3>Users:</h3>
-<form method="post">
-    <label>Username: </label>
-    <input name="user_name" id="user_name" type="text"><br>
-    <label>Password: </label>
-    <input type="text" name="user_password" id="user_password"><br>
-    <label>Role: </label>
-    <select id="user_role" name="user_role">
-        {% for role in rights %}
-        <option value="{{role}}"> {{role}} </option>
-        {% endfor %}
-    </select><br>
-    <label>Email: (optional)</label>
-    <input type="email" name="user_email" id="user_email"><br>
-    <input type="submit" id="user_add" name="user_add">
-
-</form>
 
 
 <h3>Zones:</h3>
