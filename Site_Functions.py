@@ -33,8 +33,9 @@ def add_zone():
     zone_desc = request.form.get('add_zone_description')
     zone_color = request.form.get('add_zone_color')
 
-    query = "INSERT INTO Zone_table VALUES ?,?,?,?"
+    query = "INSERT INTO Zone_table VALUES (?,?,?,?)"
     DbCon(db).insert(query, (zone_building, zone_header, zone_desc, zone_color))
+
 
 def add_task():
     # retrieves all info from html form and inputs it in db
