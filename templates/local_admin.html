@@ -154,16 +154,16 @@
           </div>
            <!-- zone Building-->
           <div style="width:15%; display:inline-flex; margin-left:10px; align-items:center;">
-              <label class="lineage_font_semi_bold" style="font-size:14px;">{{zone[1]}}</label>
+              <label class="lineage_font_semi_bold" style="font-size:14px;">{{zone[0]}}</label>
           </div>
             <!--zone Delete button -->
            <div style="display:inline-flex; margin-left:10px; align-items:center;">
                <!-- submit form with rowid in main.py then remove this rowid from db -->
-               <form id="delete_zone_form" style="display:none;" method="post">
+               <form id="{{zone[0]}}" style="display:none;" method="post">
                    <input name="zone_id" type="hidden" value="{{ zone[0] }}">
                </form>
 
-               <input name="delete_zone" form="delete_zone_form" type="submit" class="lineage_red_button_inverted" value="delete zone">
+               <input name="delete_zone" form="{{zone[0]}}" type="submit" class="lineage_red_button_inverted" value="delete zone">
            </div>
 
         </div>
