@@ -73,6 +73,11 @@ def local_admin():
         if request.form.get('add_building'):
             add_building(db)
 
+        if request.form.get('add_zone'):
+            pass
+            # add_zone()
+
+        # todo to remove after implement elsewhere
         if request.form.get('role_add'):
             # inputs the user to give the site info to the role object
             add_role(user['site'])

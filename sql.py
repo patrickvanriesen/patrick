@@ -44,7 +44,7 @@ class DbCon:
         # Return user list
         return user
 
-    # since building does not have its own file
+    # since building does not have its own file, can replace with connection simple function
     def add_building(self, building):
         connection = sqlite3.connect(self.db)
         connection.cursor().execute(f'INSERT INTO BUILDINGS (Building) VALUES("{building}")')

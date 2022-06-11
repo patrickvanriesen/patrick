@@ -20,9 +20,21 @@ def add_user(site):
 
 
 def add_building(db):
+    # simplifies main.py by retrieving all info from form on post req. and adding to db
     building = request.form.get('add_building')
     DbCon(db).add_building(building)
 
+
+def add_zone():
+    # simplifies main.py by retrieving all info from form on post req. and adding to db
+    db = session['db']
+    zone_building = request.form.get('add_zone_building')
+    zone_header = request.form.get('add_zone_header')
+    zone_desc = request.form.get('add_zone_description')
+    zone_color = request.form.get('add_zone_color')
+
+    query = "INSERT INTO Zone_table VALUES ?,?,?,?"
+    DbCon(db).insert(query, (zone_building, zone_header, zone_desc, zone_color))
 
 def add_task():
     # retrieves all info from html form and inputs it in db
