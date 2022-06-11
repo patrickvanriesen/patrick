@@ -141,6 +141,26 @@ align-items: flex-start;
    background-color: #ffff;
    color: #f4364c;}
 
+.lineage_red_button_inverted{
+    background-color: #ffff;
+    border: 2px solid #f4364c;
+    border-radius: 0;
+    color: #f4364c;
+	font-family: freight-sans-pro, sans-serif;
+	font-style: normal;
+	font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 13px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    transition: background-color .3s ease-in;
+	text-align: center;}
+
+.lineage_red_button_inverted:hover{
+   background-color: #f4364c;
+   color: #ffff;}
+
 .lineage_grey_button{
     background-color: #888b8d;
     border: 2px solid #888b8d;

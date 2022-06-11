@@ -79,15 +79,15 @@
 </div>
 
 <!--zone section-->
-
 <div style="width:100%">
 
      <!--zone, and line -->
-    <div>
+    <div id="zone_desc_header" >
     <h2 class="lineage_font_semi_bold">Zones:</h2>
     <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:25px;"></div>
 </div>
 
+    <div style="display:flex;">
     <!--zone form part-->
     <div style="width:40%">
     <!--Start of zone form -->
@@ -137,6 +137,36 @@
 
         </div>
     </form>
+    </div>
+    <!-- zones -->
+    <div style="width:55%; overflow-y:auto; height:270px;">
+        {% for zone in zones %}
+        <div class="task_row">
+            <!-- zone header,in zone color-->
+          <div style="width:4%; display: inline-flex; justify-content: center;">
+            <strong class="zone_header" style="color:{{zone[3]}}">{{ zone[1] }}</strong>
+          </div>
+            <!-- zone Color-->
+          <div style="width:7%; display: inline-flex; background-color:{{ zone[3] }}"></div>
+           <!-- zone Description-->
+          <div style="width:45%; display:inline-flex; margin-left:10px; align-items:center;">
+              <label class="lineage_font_semi_bold" style="font-size:18px;">{{zone[2]}}</label>
+          </div>
+           <!-- zone Building-->
+          <div style="width:15%; display:inline-flex; margin-left:10px; align-items:center;">
+              <label class="lineage_font_semi_bold" style="font-size:14px;">{{zone[0]}}</label>
+          </div>
+            <!--zone Delete button -->
+           <div style="display:inline-flex; margin-left:10px; align-items:center;">
+               <form style="display:none;"><input type="hidden" value="{{}}"></form>
+               <input type="submit" class="lineage_red_button_inverted" value="delete zone">
+           </div>
+
+        </div>
+        {% endfor %}
+
+
+    </div>
     </div>
 
 
