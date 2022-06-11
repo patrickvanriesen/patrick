@@ -68,12 +68,11 @@
         </div>
         <!--display all buildings in db-->
         <!--todo make modal to display building info when building is clicked, Building info : users per building, zones per building etc-->
-        <div style="display:flex; align-items:center;">
+        <div style="display:flex; align-items:center;height:80px;">
             <label class="lineage_font_semi_bold" style="font-size:20px;">Building:</label>
             {% for building in buildings %}
             <label class="lineage_green_button" style="margin:12px 12px;border-radius: 10px;">{{building}}</label>
             {% endfor %}
-
         </div>
     </form>
 </div>
@@ -89,30 +88,31 @@
 </div>
     <!--Start of zone form -->
     <form>
-    <div style="display:flex; flex-direction:column; width:40%;">
+    <div style="display:flex; flex-direction:column; width:40%;padding:10px;">
 
         <!--Select building for zone -->
         <div style="margin:10px 0px; display:inline-flex;">
             <label style="height:30px; font-size: 20px;width:50%;" class="lineage_font_semi_bold">Building:</label>
-            <select style="height:35px; margin:0px 10px; width:50%;">
+            <select name="add_zone_building" style="height:35px; margin:0px 10px; width:50%;">
                 {% for building in buildings %}
                 <option value="{{building}}">{{building}}</option>
                 {% endfor %}
             </select>
         </div>
-
-
+        <!-- zone header-->
         <div style="margin:10px 0px; display:inline-flex;">
             <label style="height:30px; font-size: 20px;width:50%;" class="lineage_font_semi_bold">Zone Header:</label>
-            <input  name = "add_zone" maxlength="4" oninput="this.value = this.value.toUpperCase()" style="height:35px; margin:0px 10px; width:50%;" type = "text">
+            <input  name = "add_zone_header" maxlength="4" oninput="this.value = this.value.toUpperCase()" style="height:35px; margin:0px 10px; width:50%;" type = "text">
         </div>
+         <!--zone description-->
         <div style="margin:10px 0px; display:inline-flex;">
             <label style="height:30px; font-size: 20px;width:50%;" class="lineage_font_semi_bold">Zone Description:</label>
-            <input  name = "add_zone" style="height:35px; margin:0px 10px; width:50%;" type = "text">
+            <input  name = "add_zone_description" style="height:35px; margin:0px 10px; width:50%;" type = "text">
         </div>
-          <div style="margin:10px 0px; display:inline-flex;">
+         <!-- zone color-->
+        <div style="margin:10px 0px; display:inline-flex;">
             <label style="height:30px; font-size: 20px;width:50%;" class="lineage_font_semi_bold">Zone Color:</label>
-            <select id="zone_color_select" onchange="add_zone_color_change()" style="height:35px; margin:0px 10px; width:50%;background-color:#0067a0;">
+            <select name="add_zone_color" id="zone_color_select" onchange="add_zone_color_change()" style="height:35px; margin:0px 10px; width:50%;background-color:#0067a0;">
                 <option value="#0067a0" style="background-color:#0067a0;"></option>
                 <option value="#009681" style="background-color:#009681;"></option>
                 <option value="#43b02a" style="background-color:#43b02a;"></option>
@@ -125,6 +125,12 @@
                 <option value="#c964cf" style="background-color:#c964cf;"></option>
             </select>
         </div>
+        <!-- add  zone -->
+        <div style="margin:10px 0px; display:inline-flex; justify-content:flex-end;">
+            <input name="add_Zone" class="lineage_blue_button"  type="submit" value="add_zone">
+        </div>
+
+
 
 
 
