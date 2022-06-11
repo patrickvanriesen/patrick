@@ -36,8 +36,9 @@ var modal = document.getElementById('add_task_modal');
 modal.style.display = "none";
 }
 
+
 function add_zone_color_change()
 {
 var select = document.getElementById('zone_color_select');
-select.style.background-color = select.value;
+select.style.backgroundColor = select.value;
 }
