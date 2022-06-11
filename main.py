@@ -66,7 +66,7 @@ def local_admin():
         # retrieve info needed to create roles/users (user the rights list also for roles)
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
         rights = DbCon(db).unpack_first_result('SELECT role_name from ROLE_TABLE')
-        zones = DbCon(db).return_result('SELECT * FROM Zone_table')
+        zones = DbCon(db).return_result('SELECT ROWID,* FROM Zone_table')
         return render_template('Local_Admin.html', buildings=buildings, rights=rights, zones=zones)
 
     # it there is a post request it means either a building,role,zone or user should be added
@@ -77,11 +77,14 @@ def local_admin():
         if request.form.get('add_Zone'):
             add_zone()
 
+        if request.form.get('delete_zone'):
+            zone_id = request.form.get('zone_id')
+            DbCon(db).connection_simple(f'DELETE FROM Zone_table WHERE ROWID = "{zone_id}"')
+
         # todo to remove after implement elsewhere
         if request.form.get('role_add'):
             # inputs the user to give the site info to the role object
             add_role(user['site'])
-
         if request.form.get('user_add'):
             # looks a bit strange but use the site of the making user for created user
             add_user(user['site'])

@@ -144,22 +144,26 @@
         <div class="task_row">
             <!-- zone header,in zone color-->
           <div style="width:4%; display: inline-flex; justify-content: center;">
-            <strong class="zone_header" style="color:{{zone[3]}}">{{ zone[1] }}</strong>
+            <strong class="zone_header" style="color:{{zone[4]}}">{{ zone[2] }}</strong>
           </div>
             <!-- zone Color-->
-          <div style="width:7%; display: inline-flex; background-color:{{ zone[3] }}"></div>
+          <div style="width:7%; display: inline-flex; background-color:{{ zone[4] }}"></div>
            <!-- zone Description-->
           <div style="width:45%; display:inline-flex; margin-left:10px; align-items:center;">
-              <label class="lineage_font_semi_bold" style="font-size:18px;">{{zone[2]}}</label>
+              <label class="lineage_font_semi_bold" style="font-size:18px;">{{zone[3]}}</label>
           </div>
            <!-- zone Building-->
           <div style="width:15%; display:inline-flex; margin-left:10px; align-items:center;">
-              <label class="lineage_font_semi_bold" style="font-size:14px;">{{zone[0]}}</label>
+              <label class="lineage_font_semi_bold" style="font-size:14px;">{{zone[1]}}</label>
           </div>
             <!--zone Delete button -->
            <div style="display:inline-flex; margin-left:10px; align-items:center;">
-               <form style="display:none;"><input type="hidden" value="{{}}"></form>
-               <input type="submit" class="lineage_red_button_inverted" value="delete zone">
+               <!-- submit form with rowid in main.py then remove this rowid from db -->
+               <form id="delete_zone_form" style="display:none;" method="post">
+                   <input name="zone_id" type="hidden" value="{{ zone[0] }}">
+               </form>
+
+               <input name="delete_zone" form="delete_zone_form" type="submit" class="lineage_red_button_inverted" value="delete zone">
            </div>
 
         </div>
