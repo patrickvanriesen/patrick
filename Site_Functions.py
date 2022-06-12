@@ -5,10 +5,11 @@ from Tasks import *
 # a lot of to do here as it all needs to be based on site inputs
 def add_role(site):
     role = Role(site, request.form.get('role_name'))
-    role.rights = request.form.getlist('rights')
+    role.rights = request.form.getlist('role_rights')
     # each role should also have rights to itself, otherwise OPS could not see OPS
     role.rights.append(role.role_name)
     role.building = request.form.getlist('role_building')
+    role.restricted = request.form.get('role_restricted')
     role.write_to_db()
 
 
