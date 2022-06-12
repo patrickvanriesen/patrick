@@ -6,7 +6,7 @@ from Tasks import *
 def add_role(site):
     role = Role(site, request.form.get('role_name'))
     role.rights = request.form.getlist('rights')
-    # each role should also have rights to itself
+    # each role should also have rights to itself, otherwise OPS could not see OPS
     role.rights.append(role.role_name)
     role.building = request.form.getlist('role_building')
     role.write_to_db()
