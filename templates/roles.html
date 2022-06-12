@@ -51,45 +51,55 @@
     </div>
 </div>
 </body>
-<div style="display:flex;">
-<div style="width:48%;">
+
+
+<div style="margin:10px; display:flex;justify-content:space-between;">
+<div style="width:30%;display:flex;">
     <form method="post">
         <!--Role name-->
-        <div>
-            <label class="lineage_font_semi_bold">role name:</label>
+        <div style="width:100%; margin:10px;">
+            <label class="lineage_font_semi_bold">role name:</label><br>
             <input name="role_name" type="text">
         </div>
         <!--role buildings, use multiple check boxes and retrieve with getlist()-->
-        <div>
-            <label class="lineage_font_semi_bold">buildings:</label>
+        <div style="width:100%; margin:10px;" >
+            <label class="lineage_font_semi_bold">buildings:</label><br>
             {% for building in buildings %}
             <input type="checkbox" name="role_building" id="{{building}}" value="{{building}}">
-            <label for="{{building}}">{{building}}</label>
+            <label class="lineage_font_semi_bold" style="color:#53565a" for="{{building}}">{{building}}</label>
             {% endfor %}
         </div>
-
          <!--role rights, use multiple check boxes and retrieve with getlist()-->
-        <div>
-            <label class="lineage_font_semi_bold">rights:</label>
+        <div style="width:100%; margin:10px;">
+
+            {% set counter = namespace(value=0) %}
+            <label class="lineage_font_semi_bold">rights:</label><br>
+
             {% for role in roles %}
+               {% if counter.value == 3 %}
+               {% set counter.value = 0 %}
+               <br>
+               {% endif %}
             <input type="checkbox" name="role_rights" id="{{role}}" value="{{role}}">
-            <label for="{{role}}">{{role}}</label>
+            <label class="lineage_font_semi_bold" style="color:#53565a" for="{{role}}">{{role}}</label>
+               {% set counter.value = counter.value + 1 %}
             {% endfor %}
         </div>
-
-        <div>
-            <label class="lineage_font_semi_bold">restricted/Tablet user:</label>
+        <!--role restricted-->
+        <div style="width:100%; margin:10px;">
+            <label class="lineage_font_semi_bold">restricted/Tablet user:</label><br>
             <input name="role_restricted" type="checkbox" value="TRUE">
+            <label style="color:#53565a;" class="lineage_font_semi_bold">restricted</label>
         </div>
-        <div>
+        <!--add role button-->
+        <div style="width:100%; margin:10px; display:flex; justify-content:flex-end;">
             <input class="lineage_green_button" name="add_role" type="submit" value="Add Role">
         </div>
-
-
     </form>
 </div>
-<div style="width:54%;"></div>
+<div style="width:68%;"></div>
 </div>
+
 
 
 
