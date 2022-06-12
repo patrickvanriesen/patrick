@@ -48,8 +48,8 @@ def log_in():
 
 
 # todo this page will be either changed or removed
-@app.route('/local_admin', methods=['GET', 'POST'])
-def local_admin():
+@app.route('/buildings_zones', methods=['GET', 'POST'])
+def building_zones():
     # check if the user is login by checking their cookies
     if not session['user']:
         return redirect('/log_in')
@@ -68,7 +68,7 @@ def local_admin():
         # todo remove al right related things from this page
         rights = DbCon(db).unpack_first_result('SELECT role_name from ROLE_TABLE')
         zones = DbCon(db).return_result('SELECT ROWID,* FROM Zone_table')
-        return render_template('Local_Admin.html', buildings=buildings, rights=rights, zones=zones)
+        return render_template('buildings_zones.html', buildings=buildings, rights=rights, zones=zones)
 
     # it there is a post request it means either a building,role,zone or user should be added
     if request.method == 'POST':
@@ -97,7 +97,7 @@ def local_admin():
             # looks a bit strange but use the site of the making user for created user
             add_user(user['site'])
 
-        return redirect('/local_admin')
+        return redirect('/buildings_zones')
 
 
 if __name__ == '__main__':
