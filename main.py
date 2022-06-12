@@ -114,6 +114,7 @@ def roles_page():
     if request.method == "POST":
         # todo change role function to no longer need user[site] as it is useless
         add_role(user['site'])
+        return redirect('/role')
 
 
 if __name__ == '__main__':
