@@ -71,7 +71,7 @@
         <div style="display:flex; align-items:center;height:80px;">
             <label class="lineage_font_semi_bold" style="font-size:20px;">Building:</label>
             {% for building in buildings %}
-            <label class="lineage_green_button" style="margin:12px 12px;border-radius: 10px;">{{building}}</label>
+            <a class="lineage_red_button_inverted" style="margin:12px 12px;border-radius: 10px;">Delete {{building}}</a>
             {% endfor %}
         </div>
     </form>
@@ -82,12 +82,19 @@
 <div style="width:100%">
 
      <!--zone, and line -->
-    <div id="zone_desc_header" >
-    <h2 class="lineage_font_semi_bold">Zones:</h2>
-    <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:25px;"></div>
-</div>
+    <div style="display:flex;justify-content:space-between;">
+        <div style="width:39%">
+            <h2 class="lineage_font_semi_bold">Add Zone:</h2>
+            <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:25px;"></div>
+        </div>
+        <div style="width:55%;">
+            <h2 class="lineage_font_semi_bold">Zones:</h2>
+            <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:25px;"></div>
+            </div>
 
-    <div style="display:flex;">
+    </div>
+
+    <div style="display:flex;justify-content:space-between;">
     <!--zone form part-->
     <div style="width:40%">
     <!--Start of zone form -->
@@ -139,7 +146,7 @@
     </form>
     </div>
     <!-- zones -->
-    <div style="width:55%; overflow-y:auto; height:270px;">
+    <div style="width:55%; overflow-y:auto; height:270px; padding:10px;">
         {% for zone in zones %}
         <div class="task_row">
             <!-- zone header,in zone color-->
