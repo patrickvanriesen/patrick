@@ -100,11 +100,20 @@ def building_zones():
 
 @app.route('/role', methods=['GET', 'POST'])
 def roles_page():
-    db = session['db']
-    # retrieve info needed to create
-    buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
-    roles = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
-    return render_template('/roles.html', buildings=buildings, roles=roles)
+    try:
+        db = session['db']
+        user = session['user']
+    except:
+        return redirect('/log_in')
+
+    if request.method == "GET":
+        # retrieve info needed to create
+        buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
+        roles = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
+        return render_template('/roles.html', buildings=buildings, roles=roles)
+    if request.method == "POST":
+        # todo change role function to no longer need user[site] as it is useless
+        add_role(user['site'])
 
 
 if __name__ == '__main__':
