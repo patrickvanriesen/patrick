@@ -50,9 +50,42 @@
         </div>
     </div>
 </div>
-
-
 </body>
+<div style="display:flex;">
+<div style="width:48%;">
+    <form>
+        <!--Role name-->
+        <div>
+            <label class="lineage_font_semi_bold">role name:</label>
+            <input name="add_role_name" type="text">
+        </div>
+        <!--role buildings, use multiple check boxes and retrieve with getlist()-->
+        <div>
+            <label class="lineage_font_semi_bold">buildings:</label>
+            {% for building in buildings %}
+            <input type="checkbox" name="role_building" id="{{building}}" value="{{building}}">
+            <label for="{{building}}">{{building}}</label>
+            {% endfor %}
+        </div>
+
+         <!--role rights, use multiple check boxes and retrieve with getlist()-->
+        <div>
+            <label class="lineage_font_semi_bold">rights:</label>
+            {% for role in roles %}
+            <input type="checkbox" name="role_rights" id="{{role}}" value="{{role}}">
+            <label for="{{role}}">{{role}}</label>
+            {% endfor %}
+        </div>
+
+        <div>
+            <label class="lineage_font_semi_bold">restricted/Tablet user:</label>
+            <input name="role_restricted" type="checkbox" value="TRUE">
+        </div>
+
+    </form>
+</div>
+<div style="width:54%;"></div>
+</div>
 
 
 

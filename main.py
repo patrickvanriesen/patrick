@@ -65,10 +65,8 @@ def building_zones():
     if request.method == 'GET':
         # retrieve info needed to create
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
-        # todo remove al right related things from this page
-        rights = DbCon(db).unpack_first_result('SELECT role_name from ROLE_TABLE')
         zones = DbCon(db).return_result('SELECT ROWID,* FROM Zone_table')
-        return render_template('buildings_zones.html', buildings=buildings, rights=rights, zones=zones)
+        return render_template('buildings_zones.html', buildings=buildings, zones=zones)
 
     # it there is a post request it means either a building,role,zone or user should be added
     if request.method == 'POST':
@@ -98,6 +96,15 @@ def building_zones():
             add_user(user['site'])
 
         return redirect('/buildings_zones')
+
+
+@app.route('/role', methods=['GET', 'POST'])
+def roles_page():
+    db = session['db']
+    # retrieve info needed to create
+    buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
+    roles = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
+    return render_template('/roles.html', buildings=buildings, roles=roles)
 
 
 if __name__ == '__main__':
