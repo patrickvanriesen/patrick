@@ -61,10 +61,11 @@ def local_admin():
     if user['role']['role_name'] != "Local_admin":
         return 'You do not have access'
 
-    # the local admin page used to create Building , Roles and users
+    # the local admin page used to create Buildings and Zones
     if request.method == 'GET':
-        # retrieve info needed to create roles/users (user the rights list also for roles)
+        # retrieve info needed to create
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
+        # todo remove al right related things from this page
         rights = DbCon(db).unpack_first_result('SELECT role_name from ROLE_TABLE')
         zones = DbCon(db).return_result('SELECT ROWID,* FROM Zone_table')
         return render_template('Local_Admin.html', buildings=buildings, rights=rights, zones=zones)
@@ -78,7 +79,7 @@ def local_admin():
             building = request.form.get('delete_building')
             # delete from building main table
             DbCon(db).connection_simple(f'DELETE FROM BUILDINGS WHERE Building = "{building}" ')
-            # delete from building rights table
+            # delete from building_rights table
             DbCon(db).connection_simple(f'DELETE FROM BUILDING_RIGHTS WHERE Building = "{building}"')
 
         if request.form.get('add_Zone'):
