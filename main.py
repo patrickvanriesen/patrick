@@ -79,7 +79,7 @@ def local_admin():
             # delete from building main table
             DbCon(db).connection_simple(f'DELETE FROM BUILDINGS WHERE Building = "{building}" ')
             # delete from building rights table
-            DbCon(db).connection_simple(f'DELETE FROM BUILDING RIGHTS WHERE Building = "{building}"')
+            DbCon(db).connection_simple(f'DELETE FROM BUILDING_RIGHTS WHERE Building = "{building}"')
 
         if request.form.get('add_Zone'):
             add_zone()
