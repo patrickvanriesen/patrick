@@ -42,3 +42,11 @@ function add_zone_color_change()
 var select = document.getElementById('zone_color_select');
 select.style.backgroundColor = select.value;
 }
+
+function delete_building(building)
+{
+var building_form = document.getElementById('building_form');
+var building_input = document.getElementById('delete_building');
+building_input.value = building;
+building_form.submit();
+}

@@ -59,7 +59,7 @@
     <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:25px;"></div>
 </div>
 <div>
-    <form method = "post" >
+    <form id="building_form" method = "post" >
         <!--styling div,  add building input -->
         <div style="display:flex; align-items:center;">
         <label style="height:30px; font-size: 20px;" class="lineage_font_semi_bold">Add Building:</label>
@@ -67,11 +67,11 @@
         <input class="lineage_blue_button_inverted" style="padding: 7.5px 20px;" type = "submit" value="Submit">
         </div>
         <!--display all buildings in db-->
-        <!--todo make modal to display building info when building is clicked, Building info : users per building, zones per building etc-->
         <div style="display:flex; align-items:center;height:80px;">
             <label class="lineage_font_semi_bold" style="font-size:20px;">Building:</label>
             {% for building in buildings %}
-            <a class="lineage_red_button_inverted" style="margin:12px 12px;border-radius: 10px;">Delete {{building}}</a>
+            <input id="delete_building" type="hidden" name="delete_building" value="">
+            <a id="{{building}}" onclick="delete_building(this.id)" class="lineage_red_button_inverted" style="margin:12px 12px;border-radius: 10px;">delete {{building}}</a>
             {% endfor %}
         </div>
     </form>
