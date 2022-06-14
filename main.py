@@ -113,6 +113,7 @@ def roles_page():
         roles = []
         for role in role_list:
             role = Role(user['site'], role)
+            role.retrieve_role_information()
             # append an dict. version of the role object to the roles list
             roles.append(vars(role))
 
