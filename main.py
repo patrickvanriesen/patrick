@@ -109,7 +109,13 @@ def roles_page():
     if request.method == "GET":
         # retrieve info needed to create
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
-        roles = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
+        role_list = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
+        roles = []
+        for role in role_list:
+            role = Role(user['site'], role)
+            # append an dict. version of the role object to the roles list
+            roles.append(vars(role))
+
         return render_template('/roles.html', buildings=buildings, roles=roles)
     if request.method == "POST":
         # todo change role function to no longer need user[site] as it is useless

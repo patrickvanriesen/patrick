@@ -60,8 +60,8 @@
     <h2 style="padding-left:15px;" class="lineage_font_semi_bold">add role:</h2>
     <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:10px;"></div>
 </div>
-
-    <form method="post">
+ <!-- add role form-->
+<form method="post">
         <!--Role name-->
         <div style="width:100%; margin:10px;">
             <label style="font-size:18px;" class="lineage_font_semi_bold">role name:</label><br>
@@ -72,7 +72,7 @@
             <label style="font-size:18px;" class="lineage_font_semi_bold">buildings:</label><br>
             {% for building in buildings %}
             <input type="checkbox" name="role_building" id="{{building}}" value="{{building}}">
-            <label  class="lineage_font_semi_bold" style="color:#53565a" for="{{building}}">{{building}}</label>
+            <label  class="lineage_font_semi_bold" style="color:#53565a;padding-right:5px;" for="{{building}}">{{building}}</label>
             {% endfor %}
         </div>
          <!--role rights, use multiple check boxes and retrieve with getlist()-->
@@ -86,8 +86,8 @@
                {% set counter.value = 0 %}
                <br>
                {% endif %}
-            <input type="checkbox" name="role_rights" id="{{role}}" value="{{role}}">
-            <label class="lineage_font_semi_bold" style="color:#53565a" for="{{role}}">{{role}}</label>
+            <input type="checkbox" name="role_rights" id="{{role['role_name']}}" value="{{role['role_name']}}">
+            <label class="lineage_font_semi_bold" style="color:#53565a;padding-right:5px;" for="{{role['role_name']}}">{{role['role_name']}}</label>
                {% set counter.value = counter.value + 1 %}
             {% endfor %}
         </div>
@@ -103,12 +103,29 @@
         </div>
     </form>
 </div>
-<div style="width:68%;"></div>
+
+<div style="width:68%;">
+    <!--header and line-->
+    <div>
+    <h2 style="padding-left:15px;" class="lineage_font_semi_bold">roles:</h2>
+    <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:20px;"></div>
+</div>
+    <div style="height:500px; overflow:auto;">
+        {% for role in roles %}
+        <!--todo should rename the class name to be more generic-->
+        <div class="task_row">
+            <div class="task_description" style="width:40%;">
+                <small class="lineage_font_semi_bold">role name:</small>
+                <strong class="lineage_font_semi_bold">{{role['role_name']}}</strong>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
 </div>
 
-
-
-
+</div>
 </html>
 
 
