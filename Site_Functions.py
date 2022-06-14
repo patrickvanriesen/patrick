@@ -9,7 +9,9 @@ def add_role(site):
     # each role should also have rights to itself, otherwise OPS could not see OPS
     role.rights.append(role.role_name)
     role.building = request.form.getlist('role_building')
-    role.restricted = request.form.get('role_restricted')
+    restricted = request.form.get('role_restricted')
+    if restricted == 'TRUE':
+        role.restricted = request.form.get('role_restricted')
     role.write_to_db()
 
 

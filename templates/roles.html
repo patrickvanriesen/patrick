@@ -53,27 +53,33 @@
 </body>
 
 
-<div style="margin:10px; display:flex;justify-content:space-between;">
-<div style="width:30%;display:flex;">
+<div style="margin:10px; display:flex;justify-content:space-around;">
+<div style="width:30%;display:flex;flex-direction:column;">
+ <!-- header and line-->
+<div>
+    <h2 style="padding-left:15px;" class="lineage_font_semi_bold">add role:</h2>
+    <div style="height:2px; width:100%; background-color:#0067a0; margin-bottom:10px;"></div>
+</div>
+
     <form method="post">
         <!--Role name-->
         <div style="width:100%; margin:10px;">
-            <label class="lineage_font_semi_bold">role name:</label><br>
+            <label style="font-size:18px;" class="lineage_font_semi_bold">role name:</label><br>
             <input name="role_name" type="text">
         </div>
         <!--role buildings, use multiple check boxes and retrieve with getlist()-->
         <div style="width:100%; margin:10px;" >
-            <label class="lineage_font_semi_bold">buildings:</label><br>
+            <label style="font-size:18px;" class="lineage_font_semi_bold">buildings:</label><br>
             {% for building in buildings %}
             <input type="checkbox" name="role_building" id="{{building}}" value="{{building}}">
-            <label class="lineage_font_semi_bold" style="color:#53565a" for="{{building}}">{{building}}</label>
+            <label  class="lineage_font_semi_bold" style="color:#53565a" for="{{building}}">{{building}}</label>
             {% endfor %}
         </div>
          <!--role rights, use multiple check boxes and retrieve with getlist()-->
         <div style="width:100%; margin:10px;">
 
             {% set counter = namespace(value=0) %}
-            <label class="lineage_font_semi_bold">rights:</label><br>
+            <label style="font-size:18px;" class="lineage_font_semi_bold">rights:</label><br>
 
             {% for role in roles %}
                {% if counter.value == 3 %}
@@ -87,13 +93,13 @@
         </div>
         <!--role restricted-->
         <div style="width:100%; margin:10px;">
-            <label class="lineage_font_semi_bold">restricted/Tablet user:</label><br>
+            <label style="font-size:18px;" class="lineage_font_semi_bold">restricted/Tablet user:</label><br>
             <input name="role_restricted" type="checkbox" value="TRUE">
             <label style="color:#53565a;" class="lineage_font_semi_bold">restricted</label>
         </div>
         <!--add role button-->
-        <div style="width:100%; margin:10px; display:flex; justify-content:flex-end;">
-            <input class="lineage_green_button" name="add_role" type="submit" value="Add Role">
+        <div style="width:100%; display:flex; justify-content:flex-end;">
+            <input style="margin:10px;" class="lineage_green_button" name="add_role" type="submit" value="Add Role">
         </div>
     </form>
 </div>
