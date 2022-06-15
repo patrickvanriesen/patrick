@@ -86,7 +86,7 @@
                {% set counter.value = 0 %}
                <br>
                {% endif %}
-            <input type="checkbox" name="role_rights" id="{{role['role_name']}}" value="{{role['role_name']}}">
+            <input type="checkbox" name="role_rights" value="{{role['role_name']}}">
             <label class="lineage_font_semi_bold" style="color:#53565a;padding-right:5px;" for="{{role['role_name']}}">{{role['role_name']}}</label>
                {% set counter.value = counter.value + 1 %}
             {% endfor %}
@@ -115,13 +115,14 @@
         <!--todo should rename the class name to be more generic-->
         <!-- role row -->
         <div class="task_row">
+           <div style="width:2%;background-color:#009681"></div>
             <!---role name-->
-            <div class="task_description" style="width:15%;">
+            <div class="task_description" style="width:18%;">
                 <small class="lineage_font_semi_bold">role name:</small>
                 <strong class="lineage_font_semi_bold">{{role['role_name']}}</strong>
             </div>
             <!--role rights  -->
-            <div class="task_description" style="width:30%;">
+            <div class="task_description" style="width:32%;">
                 <small class="lineage_font_semi_bold">has access to:</small>
                 <strong class="lineage_font_semi_bold">
                 {% for right in role['rights'] %}
@@ -143,7 +144,13 @@
                 <small class="lineage_font_semi_bold">restricted:</small>
                 <strong class="lineage_font_semi_bold">{{ role['restricted'][0] }}</strong>
             </div>
-
+            <!-- role delete button-->
+            <div class="task_description" style="">
+                <form id="delete_role_form" style="display:none;">
+                    <input name="delete_role" id="delete_role" type="hidden" value="">
+                </form>
+                <a id="{{role['role_name']}}" class="lineage_red_button_inverted" onclick="delete_building(this.id)">Delete</a>
+            </div>
 
         </div>
         {% endfor %}

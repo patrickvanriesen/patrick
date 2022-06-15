@@ -50,3 +50,12 @@ var building_input = document.getElementById('delete_building');
 building_input.value = building;
 building_form.submit();
 }
+
+
+function delete_role
+{
+ var delete_role_form = document.getElementById('delete_role_form');
+ var delete_role_input = document.getElementById('delete_role');
+ delete_role_input.value = delete_role;
+ delete_role_form.submit();
+}
