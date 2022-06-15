@@ -11,6 +11,13 @@ var modal = document.getElementById('task_modal_full');
 modal.style.display = "block";
 }
 
+function open_user_modal()
+{
+var modal = document.getElementById('add_user_modal');
+modal.style.display = "block";
+}
+
+
 function close_task_modal()
 {
 var modal = document.getElementById('task_modal');
