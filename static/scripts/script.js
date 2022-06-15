@@ -59,3 +59,4 @@ function delete_role
  delete_role_input.value = delete_role;
  delete_role_form.submit();
 }
+

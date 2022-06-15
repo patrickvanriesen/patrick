@@ -120,7 +120,14 @@ def roles_page():
         return render_template('/roles.html', buildings=buildings, roles=roles)
     if request.method == "POST":
         # todo change role function to no longer need user[site] as it is useless
-        add_role(user['site'])
+        if request.form.get('delete_role'):
+            role = request.form.get('delete_role')
+            DbCon(db).connection_simple(f'DELETE FROM ROLE_TABLE WHERE role_name = "{role}"')
+            DbCon(db).connection_simple(f'DELETE FROM BUILDING_RIGHTS WHERE Role = "{role}"')
+
+        if request.form.get('add_role'):
+            add_role(user['site'])
+
         return redirect('/role')
 
 
