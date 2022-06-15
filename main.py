@@ -58,9 +58,6 @@ def building_zones():
     user = session['user']
     db = session['db']
 
-    if user['role']['role_name'] != "Local_admin":
-        return 'You do not have access'
-
     # the local admin page used to create Buildings and Zones
     if request.method == 'GET':
         # retrieve info needed to create
@@ -123,6 +120,7 @@ def roles_page():
         if request.form.get('delete_role'):
             role = request.form.get('delete_role')
             DbCon(db).connection_simple(f'DELETE FROM ROLE_TABLE WHERE role_name = "{role}"')
+            DbCon(db).connection_simple(f'DELETE FROM RIGHTS WHERE Role = "{role}"')
             DbCon(db).connection_simple(f'DELETE FROM BUILDING_RIGHTS WHERE Role = "{role}"')
 
         if request.form.get('add_role'):
