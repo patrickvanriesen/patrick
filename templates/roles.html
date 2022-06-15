@@ -113,29 +113,35 @@
     <div style="height:500px; overflow:auto;">
         {% for role in roles %}
         <!--todo should rename the class name to be more generic-->
+        <!-- role row -->
         <div class="task_row">
+            <!---role name-->
             <div class="task_description" style="width:15%;">
                 <small class="lineage_font_semi_bold">role name:</small>
                 <strong class="lineage_font_semi_bold">{{role['role_name']}}</strong>
             </div>
+            <!--role rights  -->
             <div class="task_description" style="width:30%;">
                 <small class="lineage_font_semi_bold">has access to:</small>
-
                 <strong class="lineage_font_semi_bold">
                 {% for right in role['rights'] %}
                 {{right}}
                 {% endfor %}
                 </strong>
-
-
             </div>
-             <div class="task_description" style="width:15%;">
+            <!--role buildings  -->
+            <div class="task_description" style="width:15%;">
                 <small class="lineage_font_semi_bold">buildings: </small>
                 <strong class="lineage_font_semi_bold">
                     {% for building in role['building'] %}
                     {{ building }}
                     {% endfor %}
                 </strong>
+            </div>
+            <!--role restricted  -->
+            <div class="task_description" style="width:15%;">
+                <small class="lineage_font_semi_bold">restricted:</small>
+                <strong class="lineage_font_semi_bold">{{ role['restricted'][0] }}</strong>
             </div>
 
 
