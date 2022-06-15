@@ -34,7 +34,7 @@
     <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
         <img src="static\user.png" alt="users" height="80">
          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a class="w3-bar-item lineage_green_button">Add User</a>
+            <a onclick="open_user_modal();" class="w3-bar-item lineage_green_button">Add User</a>
             <a class="w3-bar-item lineage_green_button">Manage Users</a>
             <a class="w3-bar-item lineage_green_button">User-info</a>
         </div>
@@ -46,7 +46,7 @@
             <a class="w3-bar-item lineage_green_button">Log out</a>
             <a href="/buildings_zones" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Buildings</a>
             <a href="/buildings_zones" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Zones</a>
-            <a onclick="open_user_modal()" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Roles</a>
+            <a href="/role" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Roles</a>
             <a class="w3-bar-item lineage_green_button">Email settings</a>
         </div>
     </div>
@@ -715,7 +715,43 @@
 <!--todo create add_user modal-->
 <!--todo create more generic modal then task_modal-->
 <div id="add_user_modal" class="task_modal">
-    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%">
+    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%; width:40%;">
+        <!--add user header-->
+         <div id="add_user_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add user</h2>
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="">
+        </div>
+         <!-- underscore line-->
+        <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
+        <!-- add user form -->
+        <div>
+            <form>
+                <!--user name-->
+                <div style="width:100%;margin:15px;display:flex;">
+                    <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">username:</label>
+                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                </div>
+                <!--password-->
+                <div style="width:100%;margin:15px;display:flex;">
+                    <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">password:</label>
+                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="password">
+                </div>
+                <!--  todo change to select based on user role rights -->
+                <!--role -->
+                <div style="width:100%;margin:15px;display:flex;">
+                    <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">role:</label>
+                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                </div>
+                <!--e-mail where needed-->
+                <div style="width:100%;margin:15px;display:flex;">
+                    <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">E-mail:</label>
+                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                </div>
+                <!--todo create button, to add task -->
+
+
+            </form>
+        </div>
 
     </div>
 </div>
