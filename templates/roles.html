@@ -50,7 +50,7 @@
         </div>
     </div>
 </div>
-</body>
+
 
 
 <div style="margin:10px; display:flex;justify-content:space-around;">
@@ -146,10 +146,11 @@
             </div>
             <!-- role delete button-->
             <div class="task_description" style="">
-                <form id="delete_role_form" style="display:none;">
+                <form id="delete_role_form" style="display:none;" method="post">
                     <input name="delete_role" id="delete_role" type="hidden" value="">
                 </form>
-                <a id="{{role['role_name']}}" class="lineage_red_button_inverted" onclick="delete_building(this.id)">Delete</a>
+
+                <a id="{{role['role_name']}}" class="lineage_red_button_inverted" onclick="delete_role(this.id)">Delete</a>
             </div>
 
         </div>
@@ -159,6 +160,10 @@
 </div>
 
 </div>
+<!-- where the javascript lives,guess i should clean that up at some point -->
+<script src="static/scripts/script.js"></script>
+</body>
 </html>
+
 
 

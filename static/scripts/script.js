@@ -52,11 +52,11 @@ building_form.submit();
 }
 
 
-function delete_role
+function delete_role(role)
 {
  var delete_role_form = document.getElementById('delete_role_form');
  var delete_role_input = document.getElementById('delete_role');
- delete_role_input.value = delete_role;
+ delete_role_input.value = role;
  delete_role_form.submit();
 }
 
