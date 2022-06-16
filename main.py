@@ -25,7 +25,7 @@ def home():
         if request.form.get('task_add_task'):
             add_task()
 
-        if request.method.get('user_add'):
+        if request.form.get('user_add'):
             site = session['user']['site']
             add_user(site)
 
