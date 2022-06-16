@@ -1,48 +1,15 @@
 
-function open_task_modal()
+function close_modal(modal_id)
 {
-var modal = document.getElementById('task_modal');
-modal.style.display = "block";
-}
-
-function open_task_modal_full()
-{
-var modal = document.getElementById('task_modal_full');
-modal.style.display = "block";
-}
-
-function open_user_modal()
-{
-var modal = document.getElementById('add_user_modal');
-modal.style.display = "block";
-}
-
-
-function close_task_modal()
-{
-var modal = document.getElementById('task_modal');
+var modal = document.getElementById(modal_id);
 modal.style.display = "none";
 }
 
-function close_task_modal_full()
+function open_modal(modal_id)
 {
-var modal = document.getElementById('task_modal_full');
-modal.style.display = "none";
-}
-
-function open_add_task_modal()
-{
-var modal = document.getElementById('add_task_modal');
+var modal = document.getElementById(modal_id);
 modal.style.display = "block";
 }
-
-
-function close_add_task_modal()
-{
-var modal = document.getElementById('add_task_modal');
-modal.style.display = "none";
-}
-
 
 function add_zone_color_change()
 {

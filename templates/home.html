@@ -17,7 +17,7 @@
     <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
         <img src="static\clipboard.png" alt="tasks" height="80">
         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a onclick="open_add_task_modal()" class="w3-bar-item lineage_green_button">add Task</a>
+            <a onclick="open_modal('add_task_modal')" class="w3-bar-item lineage_green_button">add Task</a>
             <a class="w3-bar-item lineage_green_button">re-occurring tasks</a>
             <a class="w3-bar-item lineage_green_button">verify tasks</a>
         </div>
@@ -34,7 +34,7 @@
     <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
         <img src="static\user.png" alt="users" height="80">
          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a onclick="open_user_modal();" class="w3-bar-item lineage_green_button">Add User</a>
+            <a onclick="open_modal('add_user_modal');" class="w3-bar-item lineage_green_button">Add User</a>
             <a class="w3-bar-item lineage_green_button">Manage Users</a>
             <a class="w3-bar-item lineage_green_button">User-info</a>
         </div>
@@ -84,7 +84,7 @@
         </div>
         <!-- open task -->
         <div class="task_description" style="margin:5px;">
-            <a class="lineage_blue_button" onclick="open_task_modal();">Open Task</a>
+            <a class="lineage_blue_button" onclick="open_modal('task_modal');">Open Task</a>
         </div>
         <!-- task options, for now teal color maybe change to grey -->
         <div class="task_description" style="margin:5px;">
@@ -121,7 +121,7 @@
         </div>
         <!-- open task -->
         <div class="task_description" style="margin:5px;">
-            <a class="lineage_blue_button" onclick="open_task_modal_full();">Open Task</a>
+            <a class="lineage_blue_button" onclick="open_modal('task_modal_full');">Open Task</a>
         </div>
         <!-- task options, for now teal color maybe change to grey -->
         <div class="task_description" style="margin:5px;">
@@ -129,6 +129,7 @@
         </div>
 
     </div>
+
     <div class="task_row">
         <!-- zone header -->
         <div style="width: 2.5%; display: inline-flex; justify-content: center;">
@@ -250,7 +251,7 @@
         <!-- header part, Title and Close button -->
         <div id="task_modal_header">
             <h2 class="lineage_font_bold" style="display:inline-flex;">Check Broken Glass</h2>
-            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_task_modal()">
+            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_modal('task_modal')">
         </div>
 
          <!--  main body -->
@@ -358,7 +359,7 @@
         <!-- header part, Title and Close button -->
         <div id="task_modal_full_header" style="display:flex; align-items:center;">
             <h2 class="lineage_font_bold" style="display:inline-flex;width:95%;">Check Broken Glass</h2>
-            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_task_modal_full()">
+            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_modal(task_modal_full)">
 
         </div>
 
@@ -546,7 +547,7 @@
          <!-- header part, Title and Close button,  but centered -->
         <div id="add_task_header" style="display:flex; align-items:center;">
             <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add Task</h2>
-            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_add_task_modal()">
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('add_task_modal')">
         </div>
         <!-- underscore line-->
         <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
@@ -719,7 +720,7 @@
         <!--add user header-->
          <div id="add_user_header" style="display:flex; align-items:center;">
             <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add user</h2>
-            <img src="static\close.png" height="40px;" style="margin:10px" onclick="">
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('add_user_modal')">
         </div>
          <!-- underscore line-->
         <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
