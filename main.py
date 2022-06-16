@@ -18,7 +18,12 @@ def home():
         rights = role['rights']
         buildings = role['building']
         zones = role['zones']
-        return render_template('/home.html', rights=rights, buildings=buildings, zones=zones)
+
+        # retrieve task information needed to show tasks
+        tasks = DbCon(session['db']).\
+            return_result('SELECT * FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description')
+
+        return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     # if there is an post request, check which form and execute the needed function from site functions
     if request.method == 'POST':
