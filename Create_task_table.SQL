@@ -9,6 +9,7 @@ start_date VARCHAR(255),
 due_date VARCHAR(255),
 duration VARCHAR(255),
 creation VARCHAR(255),
+status VARCHAR(255),
 reoccur VARCHAR(255),
 instructions  VARCHAR(255),
 reported_issue  VARCHAR(255)
