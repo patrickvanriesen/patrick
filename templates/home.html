@@ -715,7 +715,7 @@
 <!--todo create add_user modal-->
 <!--todo create more generic modal then task_modal-->
 <div id="add_user_modal" class="task_modal">
-    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%; width:40%;">
+    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:50%; width:40%;">
         <!--add user header-->
          <div id="add_user_header" style="display:flex; align-items:center;">
             <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add user</h2>
@@ -725,29 +725,37 @@
         <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
         <!-- add user form -->
         <div>
-            <form>
+            <form method="post">
                 <!--user name-->
-                <div style="width:100%;margin:15px;display:flex;">
+                <div style="width:100%;margin-bottom:15px;display:flex;">
                     <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">username:</label>
-                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                    <input name="user_name" class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
                 </div>
                 <!--password-->
-                <div style="width:100%;margin:15px;display:flex;">
+                <div style="width:100%;margin-bottom:15px;display:flex;">
                     <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">password:</label>
-                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="password">
+                    <input name="user_password" class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="password">
                 </div>
                 <!--  todo change to select based on user role rights -->
                 <!--role -->
-                <div style="width:100%;margin:15px;display:flex;">
+                <div style="width:100%;margin-bottom:15px;display:flex;">
                     <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">role:</label>
-                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                    <select name="user_role" class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%; height:30px;">
+                    {% for right in rights %}
+                    <option value="{{ right }}">{{ right }}</option>
+                    {% endfor %}
+                    </select>
                 </div>
                 <!--e-mail where needed-->
-                <div style="width:100%;margin:15px;display:flex;">
+                <div style="width:100%;margin-bottom:15px;display:flex;">
                     <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">E-mail:</label>
-                    <input class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                    <input name="user_email" class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
                 </div>
                 <!--todo create button, to add task -->
+                <div style="width:100%;margin-bottom:15px;display:flex;justify-content:flex-end;margin-top:25px;">
+                    <input name="user_add" type="submit" value="Add Task" class="lineage_green_button">
+                </div>
+
 
 
             </form>

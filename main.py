@@ -24,6 +24,11 @@ def home():
     if request.method == 'POST':
         if request.form.get('task_add_task'):
             add_task()
+
+        if request.method.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
     return redirect('/')
 
 
@@ -108,6 +113,7 @@ def roles_page():
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
         role_list = DbCon(db).unpack_first_result('SELECT role_name FROM ROLE_TABLE')
         roles = []
+
         for role in role_list:
             role = Role(user['site'], role)
             role.retrieve_role_information()
