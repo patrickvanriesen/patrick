@@ -129,11 +129,27 @@
             <a class="lineage_green_button" onclick="">Options</a>
         </div>
         <!--contains the entire task to pass to task modal-->
+        <!-- yes, i could just loop over them but want a list anyway so why not-->
+        <!--todo add comment per line with description-->
         <div style="display:none;">
             <input name="{{task[0]}}" value="{{task[0]}}">
             <input name="{{task[0]}}" value="{{task[1]}}">
             <input name="{{task[0]}}" value="{{task[2]}}">
             <input name="{{task[0]}}" value="{{task[3]}}">
+            <input name="{{task[0]}}" value="{{task[4]}}">
+            <input name="{{task[0]}}" value="{{task[5]}}">
+            <input name="{{task[0]}}" value="{{task[6]}}">
+            <input name="{{task[0]}}" value="{{task[7]}}">
+            <input name="{{task[0]}}" value="{{task[8]}}">
+            <input name="{{task[0]}}" value="{{task[9]}}">
+            <input name="{{task[0]}}" value="{{task[10]}}">
+            <input name="{{task[0]}}" value="{{task[11]}}">
+            <input name="{{task[0]}}" value="{{task[12]}}">
+            <input name="{{task[0]}}" value="{{task[13]}}">
+            <input name="{{task[0]}}" value="{{task[14]}}">
+            <input name="{{task[0]}}" value="{{task[15]}}">
+            <input name="{{task[0]}}" value="{{task[16]}}">
+            <input name="{{task[0]}}" value="{{task[17]}}">
         </div>
 
     </div>
@@ -280,7 +296,7 @@
 
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-15-22</p>
+                       <p id="task_start_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
                         <div style="width:120px;">
@@ -288,7 +304,7 @@
                         </div>
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">25-15-22</p>
+                       <p id="task_end_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
 

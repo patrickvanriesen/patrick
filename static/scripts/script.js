@@ -40,5 +40,7 @@ open_modal(modal_id);
 
 var task = document.getElementsByName(task_id);
 document.getElementById('task_modal_head_description').innerHTML = task[1].value;
+document.getElementById('task_start_date').innerHTML = task[6].value;
+document.getElementById('task_end_date').innerHTML = task[7].value;
 
 }
