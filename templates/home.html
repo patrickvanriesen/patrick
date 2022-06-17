@@ -92,49 +92,12 @@
         </div>
 
     </div>
-    <!-- just some changed copies for the look and feel -->
-    <div class="task_row">
-        <!-- zone header -->
-        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
-            <strong style="color:#009681;" class="zone_header">EXP</strong>
-        </div>
-        <!-- zone color -->
-        <div style="background-color:#009681" class="zone_color"></div>
-        <!-- Task description (width(incl.)54%) -->
-        <div class="task_description" style="width:50%">
-            <small class="lineage_font_semi_bold">description:</small>
-            <strong class="lineage_font_semi_bold" style="font-size:18px;">Refill Label stock automatic printers</strong></div>
-        <!-- responsible -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold" >responsible:</small>
-            <strong class="lineage_font_semi_bold" >Night Shift</strong>
-        </div>
-        <!-- Due Date -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold" >due date:</small>
-            <strong class="lineage_font_semi_bold" >22-14-22</strong>
-        </div>
-        <!-- Status -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold">status: </small>
-            <strong class="lineage_font_semi_bold">in progress</strong>
-        </div>
-        <!-- open task -->
-        <div class="task_description" style="margin:5px;">
-            <a class="lineage_blue_button" onclick="open_modal('task_modal_full');">Open Task</a>
-        </div>
-        <!-- task options, for now teal color maybe change to grey -->
-        <div class="task_description" style="margin:5px;">
-            <a class="lineage_green_button" onclick="">Options</a>
-        </div>
-
-    </div>
 
     {% for task in tasks %}
     <div class="task_row">
         <!-- zone header -->
         <div style="width: 2.5%; display: inline-flex; justify-content: center;">
-            <strong style="color:{{ task[17] }}" class="zone_header">EXP</strong>
+            <strong style="color:{{ task[17] }}" class="zone_header">{{ task[15] }}</strong>
         </div>
         <!-- zone color -->
         <div style="background-color:{{ task[17] }};width:1.5%;" class="zone_color"></div>
@@ -164,6 +127,10 @@
         <!-- task options, for now teal color maybe change to grey -->
         <div class="task_description" style="margin:5px;">
             <a class="lineage_green_button" onclick="">Options</a>
+        </div>
+        <!--contains the entire task to pass to task modal-->
+        <div style="display:none;">
+            <input id="{{task[0]}}" name="task_info" value="{{task}}">
         </div>
 
     </div>
@@ -683,10 +650,8 @@
                 </div>
                 <!--todo create button, to add task -->
                 <div style="width:100%;margin-bottom:15px;display:flex;justify-content:flex-end;margin-top:25px;">
-                    <input name="user_add" type="submit" value="Add Task" class="lineage_green_button">
+                    <input name="user_add" type="submit" value="Add User" class="lineage_green_button">
                 </div>
-
-
 
             </form>
         </div>
