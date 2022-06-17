@@ -37,6 +37,8 @@ function delete_role(role)
 function open_task_modal(modal_id, task_id)
 {
 open_modal(modal_id);
-var task = document.getElementById(task_id).value();
+
+var task = document.getElementsByName(task_id);
+document.getElementById('task_modal_head_description').innerHTML = task[1].value;
 
 }
