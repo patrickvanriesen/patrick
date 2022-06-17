@@ -122,7 +122,7 @@
         </div>
         <!-- open task -->
         <div class="task_description" style="margin:5px;">
-            <a class="lineage_blue_button" onclick="open_modal('task_modal_full');">Open Task</a>
+            <a class="lineage_blue_button" onclick="open_task_modal('task_modal_full',{{task[0]}});">Open Task</a>
         </div>
         <!-- task options, for now teal color maybe change to grey -->
         <div class="task_description" style="margin:5px;">
@@ -255,7 +255,7 @@
 
         <!-- header part, Title and Close button -->
         <div id="task_modal_full_header" style="display:flex; align-items:center;">
-            <h2 class="lineage_font_bold" style="display:inline-flex;width:95%;">Check Broken Glass</h2>
+            <h2 class="lineage_font_bold" id="task_modal_head_description" style="display:inline-flex;width:95%;"></h2>
             <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_modal('task_modal_full')">
 
         </div>

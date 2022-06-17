@@ -34,3 +34,9 @@ function delete_role(role)
  delete_role_form.submit();
 }
 
+function open_task_modal(modal_id, task_id)
+{
+open_modal(modal_id);
+var task = document.getElementById(task_id).value();
+
+}
