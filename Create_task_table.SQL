@@ -12,5 +12,9 @@ creation VARCHAR(255),
 status VARCHAR(255),
 reoccur VARCHAR(255),
 instructions  VARCHAR(255),
-reported_issue  VARCHAR(255)
+reported_issue  VARCHAR(255),
+finished_on VARCHAR(255),
+finished_by VARCHAR(255),
+verified_on VARCHAR(255),
+verified_by VARCHAR(255)
 )

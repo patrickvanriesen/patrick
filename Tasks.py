@@ -25,12 +25,17 @@ class Task:
         self.instructions = ""
         self.reported_issue = ""
         self.id = ""
+        self.finished_on = ''
+        self.finished_by = ''
+        self.verified_on = ''
+        self.verified_by = ''
 
     def write_to_db(self):
         task_tuple = (self.description, self.responsible, self.role, self.building, self.zone,
                       self.start_date, self.due_date, self.duration, self.creation,
-                      self.status, self.reoccur, self.instructions, self.reported_issue)
+                      self.status, self.reoccur, self.instructions, self.reported_issue,
+                      self.finished_on, self.finished_by, self.verified_on, self.finished_by)
 
         db = session['db']
-        query = 'INSERT INTO TASK_TABLE VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)'
+        query = 'INSERT INTO TASK_TABLE VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
         DbCon(db).insert(query, task_tuple)
