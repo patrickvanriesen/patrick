@@ -144,7 +144,7 @@
             <input name="{{task[0]}}" value="{{task[9]}}">
             <input name="{{task[0]}}" value="{{task[10]}}">
             <input name="{{task[0]}}" value="{{task[11]}}">
-            <input name="{{task[0]}}" value="{{task[12]}}">
+            <textarea name="{{task[0]}}" style="white-space: pre-line;resize:none;">{{task[12]}}</textarea>
             <input name="{{task[0]}}" value="{{task[13]}}">
             <input name="{{task[0]}}" value="{{task[14]}}">
             <input name="{{task[0]}}" value="{{task[15]}}">
@@ -434,25 +434,15 @@
             <strong class="lineage_font_bold">Instructions:</strong>
             <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
 
-            <div style="background-color:#009681; margin-bottom:15px; width:100%; height:150px; color:white;">
-                <p style="padding:5px; padding-left:15px;">
-                    go check here and There: <br>
-                    - do this <br>
-                    - and check that. <br>
-                </p>
-
+            <div class="lineage_font_semi_bold" style="background-color:#009681;margin-bottom:15px;width:100%; height:150px; color:white;">
+                <p id="task_instruction" style="width:100%; padding:5px; padding-left:15px; color:white; word-break: break-all; white-space: normal;"></p>
             </div>
 
              <strong class="lineage_font_bold">Reported Issues:</strong>
             <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
 
             <div style="background-color:#009681; width:100%; height:150px; color:white;">
-                <p style="padding:5px; padding-left:15px;">
-                    go check here and There: <br>
-                    - do this <br>
-                    - and check that. <br>
-                </p>
-
+                <p id="task_issue" style="padding:5px; padding-left:15px;"></p>
             </div>
 
             </div>
@@ -605,7 +595,8 @@
                    <strong>Instructions:</strong>
                </div>
                <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
-                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden; resize:none; white-space:pre-wrap;"></textarea>
+                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden;
+                    resize:none; white-space:pre-line;"></textarea>
                </div>
                </div>
                 <!--Reoccur settings -->
