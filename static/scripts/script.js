@@ -52,7 +52,11 @@ document.getElementById('task_finishedON').innerHTML = task[14].value;
 document.getElementById('task_verifiedBY').innerHTML = task[17].value;
 document.getElementById('task_verifiedON').innerHTML = task[16].value;
 document.getElementById('task_status').innerHTML = task[10].value;
-document.getElementById('task_reoccurs').innerHTML = task[16].value;
-
+// if re-occurs > 0 say yes else say no
+if (task[11].value > 0)
+{document.getElementById('task_reoccurs').innerHTML = 'Yes';
+} else {
+document.getElementById('task_reoccurs').innerHTML = 'No';
+}
 
 }
