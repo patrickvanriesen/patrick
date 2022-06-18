@@ -55,7 +55,8 @@ def add_task():
     # define task object and add the following to it : instructions Re-occur settings
     task = Task(description, responsible, role, building, zone, start, due, duration)
     task.instructions = request.form.get('task_instruction')
-    task.reoccur = request.form.get('task_reoccur')
+    if int(request.form.get('task_reoccur')) > 0:
+        task.reoccur = request.form.get('task_reoccur')
 
     # write task to db
     task.write_to_db()

@@ -27,6 +27,7 @@ def home():
 
     # if there is an post request, check which form and execute the needed function from site functions
     if request.method == 'POST':
+
         if request.form.get('task_add_task'):
             add_task()
 
