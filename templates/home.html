@@ -97,10 +97,10 @@
     <div class="task_row">
         <!-- zone header -->
         <div style="width: 2.5%; display: inline-flex; justify-content: center;">
-            <strong style="color:{{ task[17] }}" class="zone_header">{{ task[15] }}</strong>
+            <strong style="color:{{ task[21] }};" class="zone_header">{{ task[19] }}</strong>
         </div>
         <!-- zone color -->
-        <div style="background-color:{{ task[17] }};width:1.5%;" class="zone_color"></div>
+        <div style="background-color:{{ task[21] }};width:1.5%;" class="zone_color"></div>
         <!-- Task description (width(incl.)34%) -->
         <div class="task_description" style="width:45%">
             <small class="lineage_font_semi_bold">description:</small>
@@ -150,6 +150,10 @@
             <input name="{{task[0]}}" value="{{task[15]}}">
             <input name="{{task[0]}}" value="{{task[16]}}">
             <input name="{{task[0]}}" value="{{task[17]}}">
+            <input name="{{task[0]}}" value="{{task[18]}}">
+            <input name="{{task[0]}}" value="{{task[19]}}">
+            <input name="{{task[0]}}" value="{{task[20]}}">
+            <input name="{{task[0]}}" value="{{task[21]}}">
         </div>
 
     </div>
@@ -380,7 +384,7 @@
 
 
                  </div>
-                <!---->
+                <!--verified on and by-->
                 <div class="task_info">
 
                     <div style="width:120px;">
@@ -388,15 +392,15 @@
                     </div>
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-02-15 08:32</p>
+                       <p id="task_verifiedON" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
                      <div style="width:120px;">
-                      <strong class="lineage_font_semi_bold">verified by:</strong>
+                      <strong  class="lineage_font_semi_bold">verified by:</strong>
                      </div>
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">someone</p>
+                       <p id="task_verifiedBY" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
 
