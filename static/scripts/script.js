@@ -49,9 +49,10 @@ document.getElementById('task_duration').innerHTML = task[8].value + ' minutes';
 document.getElementById('task_responsible').innerHTML = task[2].value;
 document.getElementById('task_finishedBY').innerHTML = task[15].value;
 document.getElementById('task_finishedON').innerHTML = task[14].value;
-
 document.getElementById('task_verifiedBY').innerHTML = task[17].value;
 document.getElementById('task_verifiedON').innerHTML = task[16].value;
+document.getElementById('task_status').innerHTML = task[10].value;
+document.getElementById('task_reoccurs').innerHTML = task[16].value;
 
 
 }

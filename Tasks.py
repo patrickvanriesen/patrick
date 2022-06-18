@@ -20,7 +20,7 @@ class Task:
         self.creation = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         # rescheduling info >>> maybe make redundant by adding all info to rescheduled task
         # or possibly expand
-        self.reoccur = ""
+        self.reoccur = 0
         # instructions & reported issues, maybe needs special handling to properly display.
         self.instructions = ""
         self.reported_issue = ""
