@@ -287,7 +287,7 @@
 
                 <strong class="lineage_font_bold">Task information:</strong>
                  <hr color="#0067a0" style="width:95%; margin:5px; height:1px;">
-
+                <!--dates start,due -->
                  <div class="task_info">
 
                      <div style="width:120px;">
@@ -296,6 +296,7 @@
 
 
                    <div  class="task_info_label">
+                       <!--start date filled in by JS -->
                        <p id="task_start_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
@@ -304,6 +305,7 @@
                         </div>
 
                    <div  class="task_info_label">
+                       <!--due date filled in by JS -->
                        <p id="task_end_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
@@ -311,46 +313,53 @@
 
 
                  </div>
+                <!--zone and building-->
                  <div class="task_info">
 
                   <div style="width:120px;">
                   <strong class="lineage_font_semi_bold">Zone: </strong>
                   </div>
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Expedition</p>
+                       <!--zone-->
+                       <p id="task_zone" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
                      <div style="width:120px;">
+
                       <strong class="lineage_font_semi_bold">Building:</strong>
                      </div>
+                     <!--building-->
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">KBL1</p>
+                       <p id="task_building" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
 
 
 
                  </div>
+                <!-- duration and responsible-->
                  <div class="task_info">
 
                     <div style="width:120px;">
                   <strong class="lineage_font_semi_bold">est. duration:</strong>
                     </div>
-
+                   <!--Duration-->
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24 min</p>
+                       <p id="task_duration" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
+
 
                      <div style="width:120px;">
                       <strong class="lineage_font_semi_bold">responsible:</strong>
                      </div>
-
+                   <!-- responsible -->
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Night Shift</p>
+                       <p id="task_responsible" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
 
                  </div>
+                <!--finished on and by-->
                  <div class="task_info">
 
                     <div style="width:120px;">
@@ -358,7 +367,7 @@
                     </div>
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-02-14 15:32</p>
+                       <p id="task_finishedON" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
                      <div style="width:120px;">
@@ -366,11 +375,12 @@
                      </div>
 
                    <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Patrick</p>
+                       <p id="task_finishedBY" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
                    </div>
 
 
                  </div>
+                <!---->
                 <div class="task_info">
 
                     <div style="width:120px;">
@@ -391,6 +401,7 @@
 
 
                  </div>
+                <!---->
                 <div class="task_info">
 
                     <div style="width:120px;">

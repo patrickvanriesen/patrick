@@ -39,8 +39,16 @@ function open_task_modal(modal_id, task_id)
 open_modal(modal_id);
 
 var task = document.getElementsByName(task_id);
+// pass input from task value to modal
 document.getElementById('task_modal_head_description').innerHTML = task[1].value;
 document.getElementById('task_start_date').innerHTML = task[6].value;
 document.getElementById('task_end_date').innerHTML = task[7].value;
+document.getElementById('task_zone').innerHTML = task[5].value;
+document.getElementById('task_building').innerHTML = task[4].value;
+document.getElementById('task_duration').innerHTML = task[8].value + ' minutes';
+document.getElementById('task_responsible').innerHTML = task[2].value;
+
+document.getElementById('task_finishedBY').innerHTML = task[7].value;
+document.getElementById('task_finishedON').innerHTML = task[5].value;
 
 }
