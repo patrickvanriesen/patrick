@@ -21,7 +21,8 @@ def home():
 
         # retrieve task information needed to show tasks
         tasks = DbCon(session['db']).return_result(
-            'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description')
+            'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description '
+            'WHERE status = "new"')
 
         return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
@@ -68,7 +69,29 @@ def log_in():
         return render_template('/log_in.html')
 
 
-# todo this page will be either changed or removed
+@app.route('/finished_tasks')
+def finished_tasks():
+    if request.method == 'GET':
+        try:
+            user = session['user']
+        except:
+            return redirect('/log_in')
+
+        # todo replace retrieving the next info for a function
+        # task information - filtered on finished
+        tasks = DbCon(session['db']).return_result(
+            'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description '
+            'WHERE status = "finished"')
+
+        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
+        role = session['user']['role']
+        rights = role['rights']
+        buildings = role['building']
+        zones = role['zones']
+
+        return render_template('finished_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
+
+
 @app.route('/buildings_zones', methods=['GET', 'POST'])
 def building_zones():
     # check if the user is login by checking their cookies
