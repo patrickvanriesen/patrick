@@ -274,7 +274,7 @@
 </div>
 <!-- copy of task modal expanded to full task_modal ++now most recent. -->
 <div id="task_modal_full" class="task_modal">
-    <div class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
+    <div id="task_modal_content" class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
 
         <!-- header part, Title and Close button -->
         <div id="task_modal_full_header" style="display:flex; align-items:center;">
@@ -364,7 +364,7 @@
 
                  </div>
                 <!--finished on and by-->
-                 <div class="task_info">
+                 <div id="task_row_finished" class="task_info">
 
                     <div style="width:120px;">
                   <strong class="lineage_font_semi_bold">finished on:</strong>
@@ -385,7 +385,7 @@
 
                  </div>
                 <!--verified on and by-->
-                <div class="task_info">
+                <div id="task_row_verified" class="task_info">
 
                     <div style="width:120px;">
                   <strong class="lineage_font_semi_bold">verified on:</strong>
@@ -438,10 +438,10 @@
                 <p id="task_instruction" style="width:100%; padding:5px; padding-left:15px; color:white; word-break: break-all; white-space: normal;"></p>
             </div>
 
-             <strong class="lineage_font_bold">Reported Issues:</strong>
-            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
+             <strong id="task_issue_header" class="lineage_font_bold">Reported Issues:</strong>
+            <hr id="task_issue_line" color="#0067a0" style="width:100%; margin:5px; height:1px;">
 
-            <div style="background-color:#009681; width:100%; height:150px; color:white;">
+            <div id = "task_issue_part">
                 <p id="task_issue" style="padding:5px; padding-left:15px;"></p>
             </div>
 
