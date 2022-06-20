@@ -27,6 +27,8 @@ def home():
 
     # if there is an post request, check which form and execute the needed function from site functions
     if request.method == 'POST':
+        user = session['user']
+        user_name = user['name']
 
         if request.form.get('task_add_task'):
             add_task()
@@ -37,7 +39,11 @@ def home():
 
         if request.form.get('finish_task'):
             task_id = request.form.get('finish_task')
-            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status finished where ROWID = {task_id}')
+            finished_time = datetime.now().strftime("%d-%m-%Y %H:%M")
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "finished",'
+                                                   f' finished_on = "{finished_time}",'
+                                                   f' finished_by = "{user_name}" '
+                                                   f' where ROWID = {task_id}')
 
     return redirect('/')
 

@@ -34,10 +34,8 @@ function delete_role(role)
  delete_role_form.submit();
 }
 
-function open_task_modal(modal_id, task_id)
+function fill_in_info_task_modal(task_id)
 {
-open_modal(modal_id);
-
 var task = document.getElementsByName(task_id);
 // pass input from task value to modal
 document.getElementById('task_modal_head_description').innerHTML = task[1].value;
@@ -60,6 +58,16 @@ if (task[11].value > 0)
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
 document.getElementById('task_issue').innerHTML = task[13].value;
 document.getElementById('finish_task').value = task[0].value;
+}
+
+function open_task_modal(modal_id, task_id)
+{
+open_modal(modal_id);
+fill_in_info_task_modal(task_id);
+var task = document.getElementsByName(task_id);
+var task_status = task[10].value;
+
+
 }
 
 function finish_task()
