@@ -59,7 +59,11 @@ if (task[11].value > 0)
 
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
 document.getElementById('task_issue').innerHTML = task[13].value;
+document.getElementById('finish_task').value = task[0].value;
+}
 
-
-
+function finish_task()
+{
+var form = document.getElementById('finish_task_form');
+form.submit();
 }

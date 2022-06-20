@@ -35,6 +35,10 @@ def home():
             site = session['user']['site']
             add_user(site)
 
+        if request.form.get('finish_task'):
+            task_id = request.form.get('finish_task')
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status finished where ROWID = {task_id}')
+
     return redirect('/')
 
 
