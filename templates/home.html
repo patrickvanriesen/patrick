@@ -54,45 +54,6 @@
 
 <!-- Task List -->
 <div class="task_container">
-
-    <!-- holds an task row, this one is to be repeated in a for loop -->
-    <div class="task_row">
-        <!-- zone header -->
-        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
-            <strong class="zone_header">PICK</strong>
-        </div>
-        <!-- zone color -->
-        <div style="background-color:#0067a0" class="zone_color"></div>
-        <!-- Task description (width(incl.)54%) -->
-        <div class="task_description" style="width:50%">
-            <small class="lineage_font_semi_bold">description:</small>
-            <strong class="lineage_font_semi_bold" style="font-size:18px;">Check Broken Glass</strong></div>
-        <!-- responsible -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold" >responsible:</small>
-            <strong class="lineage_font_semi_bold" >Night Shift</strong>
-        </div>
-        <!-- Due Date -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold" >due date:</small>
-            <strong class="lineage_font_semi_bold" >22-14-22</strong>
-        </div>
-        <!-- Status -->
-        <div class="task_description">
-            <small class="lineage_font_semi_bold">status: </small>
-            <strong class="lineage_font_semi_bold">in progress</strong>
-        </div>
-        <!-- open task -->
-        <div class="task_description" style="margin:5px;">
-            <a class="lineage_blue_button" onclick="open_modal('task_modal');">Open Task</a>
-        </div>
-        <!-- task options, for now teal color maybe change to grey -->
-        <div class="task_description" style="margin:5px;">
-            <a class="lineage_green_button" onclick="">Options</a>
-        </div>
-
-    </div>
-
     {% for task in tasks %}
     <div class="task_row">
         <!-- zone header -->
@@ -158,121 +119,9 @@
 
     </div>
     {% endfor %}
-
 </div>
 
-
-<!-- todo remove one modal, and make modal dynamic based on task status and or user settings-->
-<!-- think about either loading one based on user or hiding elements of one based on user -->
-<!-- Task Modal (pop-screen) display task details-->
-<div id="task_modal" class="task_modal">
-    <div class="task_modal_content" style="padding:50px;padding-top:20px;">
-
-        <!-- header part, Title and Close button -->
-        <div id="task_modal_header">
-            <h2 class="lineage_font_bold" style="display:inline-flex;">Check Broken Glass</h2>
-            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_modal('task_modal')">
-        </div>
-
-         <!--  main body -->
-        <div id="task_modal_center" style="display:flex; justify-content: center; height:60%;">
-
-            <div class="task_modal_center_information" style="width:50%;">
-
-                <strong class="lineage_font_bold">Task information:</strong>
-                 <hr color="#0067a0" style="width:95%; margin:5px; height:1px;">
-
-                 <div class="task_info">
-
-                     <div style="width:120px;">
-                         <strong class="lineage_font_semi_bold">Start date:</strong>
-                     </div>
-
-
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24-15-22</p>
-                   </div>
-
-                        <div style="width:120px;">
-                      <strong class="lineage_font_semi_bold">Due Date:</strong>
-                        </div>
-
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">25-15-22</p>
-                   </div>
-
-
-
-
-                 </div>
-                 <div class="task_info">
-
-                  <div style="width:120px;">
-                  <strong class="lineage_font_semi_bold">Zone: </strong>
-                  </div>
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Expedition</p>
-                   </div>
-
-                     <div style="width:120px;">
-                      <strong class="lineage_font_semi_bold">Building:</strong>
-                     </div>
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">KBL1</p>
-                   </div>
-
-
-
-
-                 </div>
-                 <div class="task_info">
-
-                    <div style="width:120px;">
-                  <strong class="lineage_font_semi_bold">est. duration:</strong>
-                    </div>
-
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">24 min</p>
-                   </div>
-
-                     <div style="width:120px;">
-                      <strong class="lineage_font_semi_bold">responsible:</strong>
-                     </div>
-
-                   <div  class="task_info_label">
-                       <p class="lineage_font_bold" style="display:inline; color:#ffff;">Night Shift</p>
-                   </div>
-
-
-                 </div>
-
-            </div>
-
-            <div class="task_modal_center_instruction" style="width:50%;">
-            <strong class="lineage_font_bold">Instructions:</strong>
-            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
-            <div style="background-color:#009681; width:100%; height:150px; color:white;">
-                <p style="padding:5px; padding-left:15px;">
-                    go check here and There: <br>
-                    - do this <br>
-                    - and check that. <br>
-                </p>
-
-            </div>
-             </div>
-
-        </div>
-
-        <!-- footer section, mostly for buttons -->
-        <div id="task_modal_footer" class="task_modal_footer">
-            <a class="lineage_green_button_inverted" style="margin:15px">Finish Task</a>
-            <!-- to change to red button class and rename/rethink -->
-            <a class="lineage_red_button" style="margin:15px;">Report Issue</a>
-        </div>
-
-    </div>
-</div>
-<!-- copy of task modal expanded to full task_modal ++now most recent. -->
+<!-- task status and or user settings-->
 <div id="task_modal_full" class="task_modal">
     <div id="task_modal_content" class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
 
