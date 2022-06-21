@@ -31,6 +31,10 @@ def create_site(site):
         query = query.read()
     db.connection_simple(query)
 
+    with open('CREATE_REOCC_TASK_TABLE.SQL') as query:
+        query = query.read()
+    db.connection_simple(query)
+
     # auto-adds an admin user for each site
     user = Users(f'{site}_admin', '42, will do', site, '', 'Local_admin')
     user.write_to_db()

@@ -1,5 +1,6 @@
 from User import *
 from Tasks import *
+from reoccuring_tasks import add_reoccurring_task
 
 
 # a lot of to do here as it all needs to be based on site inputs
@@ -55,16 +56,13 @@ def add_task():
     # define task object and add the following to it : instructions Re-occur settings
     task = Task(description, responsible, role, building, zone, start, due, duration)
     task.instructions = request.form.get('task_instruction')
+    task.reoccur = request.form.get('task_reoccur')
 
-    # arreange_something
-    if int(request.form.get('task_reoccur')) > 0:
+    # re-occuring tasks
+    if int(task.reoccur) > 0:
         # if higher then one call add_reoccuring_task
-        task.reoccur = request.form.get('task_reoccur')
         re_occur_settings = (request.form.get('exclude_wk'), request.form.get('exclude_wday'))
-
-
-
-
+        add_reoccurring_task(task, re_occur_settings)
 
     # write task to db
     task.write_to_db()
