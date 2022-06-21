@@ -64,13 +64,18 @@
         <!-- zone color -->
         <div style="background-color:{{ task[21] }};width:1.5%;" class="zone_color"></div>
         <!-- Task description (width(incl.)34%) -->
-        <div class="task_description" style="width:45%">
+        <div class="task_description" style="width:34%">
             <small class="lineage_font_semi_bold">description:</small>
             <strong class="lineage_font_semi_bold" style="font-size:18px;">{{task[1]}}</strong></div>
-        <!-- responsible (44) -->
+        <!-- finished by (44) -->
         <div class="task_description" style="width:11%" >
-            <small class="lineage_font_semi_bold" >responsible:</small>
-            <strong class="lineage_font_semi_bold" >{{task[2]}}</strong>
+            <small class="lineage_font_semi_bold" >finished by:</small>
+            <strong class="lineage_font_semi_bold" >{{task[15]}}</strong>
+        </div>
+         <!-- finished on (44) -->
+        <div class="task_description" style="width:11%" >
+            <small class="lineage_font_semi_bold" >finished on:</small>
+            <strong class="lineage_font_semi_bold" >{{task[14]}}</strong>
         </div>
         <!-- Due Date (52) -->
         <div class="task_description" style="width:8%">
@@ -318,8 +323,9 @@
     </div>
 </div>
 
+
+<!-- todo now just copied from home...will change handling-->
 <!--Add task model, used for....creating tasks -->
-<!--todo change most inline styling to classes after designing-->
 <div id="add_task_modal" class="task_modal">
     <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%">
          <!-- header part, Title and Close button,  but centered -->
@@ -490,7 +496,6 @@
 
     </div>
 </div>
-
 <!--todo create add_user modal-->
 <!--todo create more generic modal then task_modal-->
 <div id="add_user_modal" class="task_modal">
