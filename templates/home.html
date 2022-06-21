@@ -465,15 +465,15 @@
                     <!--check boxes, sepp div for alignment -->
                     <div class="lineage_font_semi_bold" style="display: inline-flex;align-items: center;width: 100%;justify-content: flex-start;">
                     <label>Exclude Weekends</label>
-                    <input type="checkbox" value="TRUE" style="margin-left:5px;">
+                    <input name="exclude_wk" type="checkbox" value="TRUE" style="margin-left:5px;">
                      <div class="spacer" style="width:15px;"></div>
                     <label>Exclude Week-Days</label>
-                    <input type="checkbox" value="TRUE" style="margin-left:5px;">
+                    <input name="exclude_wday" type="checkbox" value="TRUE" style="margin-left:5px;">
                      </div>
                     <!-- select days-->
                     <div style="margin-top:5px;">
                      <label class="lineage_font_semi_bold">reoccur every</label>
-                    <input name="task_reoccur" type="number" min="0" max="365">
+                    <input name="task_reoccur" value="0" type="number" min="0" max="365">
                      <label class="lineage_font_semi_bold">days</label>
                     </div>
                 </div>
