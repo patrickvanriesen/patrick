@@ -176,5 +176,24 @@ def roles_page():
         return redirect('/role')
 
 
+@app.route('/reoccur', methods=['GET', 'POST'])
+def reoccur_page():
+    if request.method == 'GET':
+        try:
+            user = session['user']
+        except:
+            return redirect('/log_in')
+
+        tasks = DbCon(session['db']).return_result(
+            'SELECT reoccurring_tasks.ROWID,* FROM reoccurring_tasks JOIN Zone_table ON zone = Zone_description ')
+        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
+        role = session['user']['role']
+        rights = role['rights']
+        buildings = role['building']
+        zones = role['zones']
+
+        return render_template('reoccuring.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
+
+
 if __name__ == '__main__':
     app.run()

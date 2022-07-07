@@ -11,6 +11,7 @@ duration VARCHAR(255),
 instructions VARCHAR(255),
 reoccur_timer VARCHAR(255),
 skip_wk VARCHAR(255),
-skip_wday VARCHAR(255)
+skip_wday VARCHAR(255),
+last_creation VARCHAR(255)
 
 )

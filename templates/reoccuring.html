@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>re occurring</title>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="\static\styles\style.css">
@@ -19,7 +19,7 @@
         <img src="static\clipboard.png" alt="tasks" height="80">
         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
             <a onclick="open_modal('add_task_modal')" class="w3-bar-item lineage_green_button">add Task</a>
-            <a href="/reoccur" class="w3-bar-item lineage_green_button">re-occurring tasks</a>
+            <a class="w3-bar-item lineage_green_button">re-occurring tasks</a>
             <a class="w3-bar-item lineage_green_button">verify tasks</a>
         </div>
     </div>
@@ -27,7 +27,7 @@
     <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
         <img src="static\line-chart.png" alt="finished_tasks" height="80">
       <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a href="/finished_tasks" class="w3-bar-item lineage_green_button">finished task list</a>
+            <a class="w3-bar-item lineage_green_button">finished task list</a>
             <a class="w3-bar-item lineage_green_button">Dashboard & metrics</a>
         </div>
     </div>
@@ -56,31 +56,36 @@
 <!-- Task List -->
 <div class="task_container">
     {% for task in tasks %}
-    <div class="task_row">
+  <div class="task_row">
         <!-- zone header -->
         <div style="width: 2.5%; display: inline-flex; justify-content: center;">
-            <strong style="color:{{ task[21] }};" class="zone_header">{{ task[19] }}</strong>
+            <strong style="color:{{ task[17] }};" class="zone_header">{{ task[15] }}</strong>
         </div>
         <!-- zone color -->
-        <div style="background-color:{{ task[21] }};width:1.5%;" class="zone_color"></div>
+        <div style="background-color:{{ task[17] }};width:1.5%;" class="zone_color"></div>
         <!-- Task description (width(incl.)34%) -->
-        <div class="task_description" style="width:45%">
+        <div class="task_description" style="width:34%">
             <small class="lineage_font_semi_bold">description:</small>
             <strong class="lineage_font_semi_bold" style="font-size:18px;">{{task[1]}}</strong></div>
-        <!-- responsible (44) -->
+        <!--  (44) -->
         <div class="task_description" style="width:11%" >
             <small class="lineage_font_semi_bold" >responsible:</small>
-            <strong class="lineage_font_semi_bold" >{{task[2]}}</strong>
+            <strong class="lineage_font_semi_bold" >{{task[3]}}</strong>
         </div>
-        <!-- Due Date (52) -->
+         <!-- last creation on (44) -->
+        <div class="task_description" style="width:11%" >
+            <small class="lineage_font_semi_bold" >last creation:</small>
+            <strong class="lineage_font_semi_bold" >{{task[13]}}</strong>
+        </div>
+        <!-- reoccur timing (52) -->
         <div class="task_description" style="width:8%">
-            <small class="lineage_font_semi_bold" >due date:</small>
-            <strong class="lineage_font_semi_bold" >{{task[7]}}</strong>
+            <small class="lineage_font_semi_bold" >reoccur timer (days):</small>
+            <strong class="lineage_font_semi_bold" >{{task[10]}}</strong>
         </div>
         <!-- Status (60) -->
         <div class="task_description" style="width:8%">
-            <small class="lineage_font_semi_bold">status: </small>
-            <strong class="lineage_font_semi_bold">{{task[10]}}</strong>
+            <small class="lineage_font_semi_bold">exclude wk/ wk-days</small>
+            <strong class="lineage_font_semi_bold">{{task[11]}}, {{task[12]}}</strong>
         </div>
         <!-- open task -->
         <div class="task_description" style="margin:5px;">
@@ -88,7 +93,7 @@
         </div>
         <!-- task options, for now teal color maybe change to grey -->
         <div class="task_description" style="margin:5px;">
-            <a class="lineage_green_button" onclick="">Options</a>
+            <a class="lineage_red_button_inverted" onclick="">delete</a>
         </div>
         <!--contains the entire task to pass to task modal-->
         <!-- yes, i could just loop over them but want a list anyway so why not-->
