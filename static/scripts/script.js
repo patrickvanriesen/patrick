@@ -109,3 +109,17 @@ function finish_task()
 var form = document.getElementById('finish_task_form');
 form.submit();
 }
+
+function open_task_option_modal(modal_id, task_id)
+{
+open_modal(modal_id);
+var task = document.getElementsByName(task_id);
+document.getElementById('task_option_desc').innerHTML = task[1].value
+document.getElementById('cancel_task').value = task_id
+}
+
+function cancel_task()
+{
+var form = document.getElementById('cancel_task_form');
+form.submit();
+}

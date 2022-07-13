@@ -38,6 +38,7 @@ def home():
             site = session['user']['site']
             add_user(site)
 
+        # to refactor and place for most part in site functions
         if request.form.get('finish_task'):
             task_id = request.form.get('finish_task')
             finished_time = datetime.now().strftime("%d-%m-%Y %H:%M")
@@ -45,6 +46,11 @@ def home():
                                                    f' finished_on = "{finished_time}",'
                                                    f' finished_by = "{user_name}" '
                                                    f' where ROWID = {task_id}')
+
+        if request.form.get('cancel_task'):
+            task_id = request.form.get('cancel_task')
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Cancelled"'
+                                                   f' WHERE ROWID = {task_id} ')
 
     return redirect('/')
 
