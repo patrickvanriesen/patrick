@@ -3,6 +3,7 @@
 {% block title %} homepage {% endblock %}
 
 <!-- block body contains all site specifics,in this case task list + open task modal -->
+
 {% block body %}
 <!-- Task List  : style new -->
 <div class="task_container">
@@ -72,6 +73,7 @@
     </div>
     {% endfor %}
 </div>
+
 <!-- task modal styling based status and or user settings-->
 <div id="task_modal_full" class="task_modal">
     <div id="task_modal_content" class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
@@ -267,5 +269,6 @@
 
     </div>
 </div>
+
 {% endblock %}
 

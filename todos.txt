@@ -1,6 +1,6 @@
 - Create modal for task options containing:
     Cancel Task DONE
-    Postpone Task
+    edit task Task
     reset Task(only when finished)
     verify task (only when finished)
 
