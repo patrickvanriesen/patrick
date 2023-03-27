@@ -1,16 +1,21 @@
 - Create modal for task options containing:
-    Cancel Task
+    Cancel Task DONE
     Postpone Task
     reset Task(only when finished)
     verify task (only when finished)
 
-- Remove Finish task options from finished task
+- Remove Finish task options from finished task DONE
 
 - Create a verify task page
 
 - make a rescedule funtion
 
 - make a users overview page
+
+- implement a tablet view (restricted page)
+
+-implement filter options
+
 
 <___implement @ KBL___>
 

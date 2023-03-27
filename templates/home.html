@@ -305,7 +305,7 @@
             <a id="finish_task_button" class="lineage_green_button_inverted" style="margin:15px;" onclick="finish_task()">Finish Task</a>
             <!-- to change to red button class and rename/rethink -->
             <a class="lineage_red_button" style="margin:15px;">Report Issue</a>
-            <a class="lineage_grey_button" style="margin:15px;">Options</a>
+            <!--<a class="lineage_grey_button" style="margin:15px;">Options</a>-->
 
             <!--hidden form, for task completion(posting info on task)-->
             <div style="display:none;">
@@ -556,7 +556,7 @@
 
                 <!--forms for deleting and postponing-->
                 <div style="display:none;">
-                    <form id="cancel_task_form" style="post">
+                    <form id="cancel_task_form" method="post">
                         <input name="cancel_task" id="cancel_task" type="hidden" value="">
                     </form>
                 </div>

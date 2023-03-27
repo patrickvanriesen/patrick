@@ -87,7 +87,7 @@ def finished_tasks():
         # task information - filtered on finished
         tasks = DbCon(session['db']).return_result(
             'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description '
-            'WHERE status = "finished"')
+            'WHERE status <> "new"')
 
         # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
         role = session['user']['role']
