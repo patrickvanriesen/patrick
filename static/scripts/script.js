@@ -58,6 +58,13 @@ if (task[11].value > 0)
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
 document.getElementById('task_issue').innerHTML = task[13].value;
 document.getElementById('finish_task').value = task[0].value;
+// edit task same way as finish task
+
+// stores not/not easy reachable info for edit pallet
+document.getElementById('role').value = task[3].value
+document.getElementById('duration').value = task[8].value
+
+
 }
 
 function dynamic_styling(modal_id, task_id)
@@ -93,9 +100,7 @@ task_error_line.style = "width:100%; margin:5px; height:1px;"
 task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
-}
-
-}
+}}
 
 function open_task_modal(modal_id, task_id)
 {
@@ -126,5 +131,21 @@ form.submit();
 }
 
 
+function edit_task_modal(modal_id)
+{
+// open modal
+open_modal(modal_id)
+// retrieve info from SRC modal and fill in in the edit task modal
+document.getElementById('edit_task_description').value = document.getElementById('task_modal_head_description').innerHTML ;
+document.getElementById('edit_task_responsible').value = document.getElementById('task_responsible').innerHTML ;
+document.getElementById('edit_task_role').selected = document.getElementById('role').value ;
+document.getElementById('edit_task_building').selected = document.getElementById('task_building').innerHTML ;
+document.getElementById('edit_task_zone').selected = document.getElementById('task_zone').innerHTML ;
+document.getElementById('edit_task_duration').value = document.getElementById('duration').value ;
+document.getElementById('edit_task_start_date').value = document.getElementById('task_start_date').innerHTML ;
+document.getElementById('edit_task_due_date').value = document.getElementById('task_end_date').innerHTML ;
+document.getElementById('edit_task_instruction').value = document.getElementById('task_instruction').innerHTML ;
+
+}
 
 

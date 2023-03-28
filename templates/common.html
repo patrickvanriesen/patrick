@@ -262,7 +262,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <input class="add_task_text_input" style="width:100%;" name="task_description" type="text">
+                           <input class="add_task_text_input" style="width:100%;" name="task_description" id="edit_task_description" type="text">
                        </div>
                  </div>
                      <!-- responsible, change to user or manual input -->
@@ -273,10 +273,9 @@
                       </div>
 
                        <div style="width:60%">
-                           <input class="add_task_text_input" style="width:100%;" name="task_responsible" type="text">
+                           <input class="add_task_text_input" style="width:100%;" name="task_responsible" id="edit_task_responsible" type="text">
                        </div>
                  </div>
-
                      <!--department, change on list based on user info -->
                  <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
 
@@ -285,7 +284,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_role">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_role" id="edit_task_role">
                                {% for right in rights %}
                                <option value="{{right}}">{{right}}</option>
                                {% endfor %}
@@ -300,7 +299,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_building">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_building" id="edit_task_building">
                                {% for building in buildings %}
                                <option value="{{building}}">{{building}}</option>
                                {% endfor %}
@@ -315,7 +314,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_zone">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_zone" id="edit_task_zone">
                                <!-- TODO: change to dynamically change with javascript when building is changed  -->
                                {% for zone in zones %}
                                <option value="{{zone[2]}}">{{zone[2]}}</option>
@@ -332,7 +331,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <input class="add_task_text_input" style="width:70%;" name="task_duration" type="text">
+                           <input class="add_task_text_input" style="width:70%;" name="task_duration" id="edit_task_duration" type="text">
                            <label class="lineage_font_semi_bold" style="width:30%">Minutes</label>
                        </div>
                  </div>
@@ -344,7 +343,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <input class="add_task_text_input" style="width:100%;" name="task_start_date" type="date">
+                           <input class="add_task_text_input" style="width:100%;" name="task_start_date" id="edit_task_start_date" type="date">
                        </div>
                  </div>
                    <!--Due date-->
@@ -355,7 +354,7 @@
                       </div>
 
                        <div style="width:60%">
-                           <input class="add_task_text_input" style="width:100%;" name="task_due_date" type="date">
+                           <input class="add_task_text_input" style="width:100%;" name="task_due_date" id="edit_task_due_date" type="date">
                        </div>
                  </div>
 
@@ -367,12 +366,12 @@
                    <strong>Instructions:</strong>
                </div>
                <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
-                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden;
+                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" id="edit_task_instruction" style="width:100%; overflow: hidden;
                     resize:none; white-space:pre-line;"></textarea>
                </div>
                </div>
                 <!--Reoccur settings -->
-                <div>
+                <div style="display:none;">
 
                     <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
                     <strong>Scheduled/reoccurring task:</strong>
@@ -380,15 +379,15 @@
                     <!--check boxes, sepp div for alignment -->
                     <div class="lineage_font_semi_bold" style="display: inline-flex;align-items: center;width: 100%;justify-content: flex-start;">
                     <label>Exclude Weekends</label>
-                    <input name="exclude_wk" type="checkbox" value="TRUE" style="margin-left:5px;">
+                    <input name="exclude_wk" id="edit_exclude_wk" type="checkbox" value="TRUE" style="margin-left:5px;">
                      <div class="spacer" style="width:15px;"></div>
                     <label>Exclude Week-Days</label>
-                    <input name="exclude_wday" type="checkbox" value="TRUE" style="margin-left:5px;">
+                    <input name="exclude_wday" id="edit_exclude_wday" type="checkbox" value="TRUE" style="margin-left:5px;">
                      </div>
                     <!-- select days-->
                     <div style="margin-top:5px;">
                      <label class="lineage_font_semi_bold">reoccur every</label>
-                    <input name="task_reoccur" value="0" type="number" min="0" max="365">
+                    <input name="task_reoccur" id="edit_task_reoccur" value="0" type="number" min="0" max="365">
                      <label class="lineage_font_semi_bold">days</label>
                     </div>
                 </div>
