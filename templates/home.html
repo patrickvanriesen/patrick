@@ -38,7 +38,7 @@
         <!-- task options, for now teal color maybe change to grey -->
         <!-- todo change with Cancel task function. move options to within modal-->
         <div class="task_description" style="margin:5px;">
-            <a class="lineage_green_button" onclick="open_task_option_modal('task_option_modal',{{task[0]}});">Options</a>
+            <a class="lineage_red_button_inverted" onclick="cancel_task();">Cancel</a>
         </div>
         <!--contains the entire task to pass to task modal-->
         <!-- yes, i could just loop over them but want a list anyway so why not-->
@@ -261,10 +261,12 @@
             </div>
             <!-- hidden info to pass through edit task form -->
             <div style="display:none;">
-                <input style="hidden" id="role">
-                <input style="hidden" id="duration">
-                <input style="hidden" id="reoccur">
+                <input id="role">
+                <input id="duration">
+                <input id="reoccur">
+                <input id="task_rowid">
             </div>
+
         </div>
 
 

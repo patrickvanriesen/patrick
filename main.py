@@ -52,6 +52,15 @@ def home():
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Cancelled"'
                                                    f' WHERE ROWID = {task_id} ')
 
+        if request.form.get('edit_task'):
+            task_id = request.form.get('edit_task')
+            DbCon(session['db']).connection_simple(f'DELETE FROM TASK_TABLE WHERE ROWID = {task_id}')
+            add_task()
+
+
+
+
+
     return redirect('/')
 
 

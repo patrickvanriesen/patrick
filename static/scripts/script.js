@@ -58,12 +58,11 @@ if (task[11].value > 0)
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
 document.getElementById('task_issue').innerHTML = task[13].value;
 document.getElementById('finish_task').value = task[0].value;
-// edit task same way as finish task
 
 // stores not/not easy reachable info for edit pallet
-document.getElementById('role').value = task[3].value
-document.getElementById('duration').value = task[8].value
-
+document.getElementById('role').value = task[3].value;
+document.getElementById('duration').value = task[8].value;
+document.getElementById('task_rowid').value = task[0].value;
 
 }
 
@@ -147,7 +146,11 @@ document.getElementById('edit_task_duration').value = document.getElementById('d
 document.getElementById('edit_task_start_date').value = document.getElementById('task_start_date').innerHTML ;
 document.getElementById('edit_task_due_date').value = document.getElementById('task_end_date').innerHTML ;
 document.getElementById('edit_task_instruction').value = document.getElementById('task_instruction').innerHTML ;
-
+document.getElementById('edit_task').value = document.getElementById('task_rowid').value;
 }
 
-
+function edit_task()
+{
+var form = document.getElementById('edit_task_form');
+form.submit();
+}
