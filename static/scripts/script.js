@@ -83,7 +83,8 @@ var task_row_finished = document.getElementById('task_row_finished');
 document.getElementById('task_issue').innerHTML = task_status;
 
 // now use status as 'filter' but could also use user restriction as filter will think about it.
-if (task[10].value === "new"){
+if (task[10].value === "new")
+{
 modal.style = "height:60%;padding:50px;padding-top:20px;"
 center.style = "display:flex; justify-content: space-between; height:60%; flex-direction: row;"
 task_error.style = "display:none;"
@@ -91,8 +92,8 @@ task_error_line.style = "display:none;"
 task_error_header.style = "display:none;"
 task_row_verified.style = "display:none;"
 task_row_finished.style = "display:none"
-
-}else{
+}
+else{
 modal.style = "height:80%;padding:50px;padding-top:20px;"
 center.style = "display:flex; justify-content: space-between; height:75%; flex-direction: row-reverse;"
 task_error.style = "background-color:#009681; width:100%; height:150px; color:white;"
@@ -100,7 +101,8 @@ task_error_line.style = "width:100%; margin:5px; height:1px;"
 task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
-}}
+}
+}
 
 function open_task_modal(modal_id, task_id)
 {
