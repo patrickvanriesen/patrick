@@ -1,9 +1,6 @@
 {% extends "common.html" %}
-
 {% block title %} homepage {% endblock %}
-
 <!-- block body contains all site specifics,in this case task list + open task modal -->
-
 {% block body %}
 <!-- Task List  : style new -->
 <div class="task_container">
@@ -39,6 +36,7 @@
             <a class="lineage_blue_button" onclick="open_task_modal('task_modal_full',{{task[0]}});">Open Task</a>
         </div>
         <!-- task options, for now teal color maybe change to grey -->
+        <!-- todo change with Cancel task function. move options to within modal-->
         <div class="task_description" style="margin:5px;">
             <a class="lineage_green_button" onclick="open_task_option_modal('task_option_modal',{{task[0]}});">Options</a>
         </div>
@@ -254,9 +252,10 @@
         <!-- footer section, mostly for buttons -->
         <div id="task_modal_full_footer" class="task_modal_footer">
             <a id="finish_task_button" class="lineage_green_button_inverted" style="margin:15px;" onclick="finish_task()">Finish Task</a>
-            <!-- to change to red button class and rename/rethink -->
+            <!-- REPORT issues to add issues found to the task to -->
             <a class="lineage_red_button" style="margin:15px;">Report Issue</a>
-            <!--<a class="lineage_grey_button" style="margin:15px;">Options</a>-->
+
+            <a class="lineage_grey_button" style="margin:15px;">Edit task</a>
 
             <!--hidden form, for task completion(posting info on task)-->
             <div style="display:none;">
