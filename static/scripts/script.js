@@ -104,6 +104,7 @@ fill_in_info_task_modal(task_id);
 dynamic_styling(modal_id, task_id);
 }
 
+
 function finish_task()
 {
 var form = document.getElementById('finish_task_form');
@@ -123,3 +124,7 @@ function cancel_task()
 var form = document.getElementById('cancel_task_form');
 form.submit();
 }
+
+
+
+

@@ -234,6 +234,178 @@
     </div>
 </div>
 
+<!-- edit task modal-->
+<div id="edit_task_modal" class="task_modal">
+    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:70%">
+         <!-- header part, Title and Close button,  but centered -->
+        <div id="edit_task_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Edit Task</h2>
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('edit_task_modal')">
+        </div>
+        <!-- underscore line-->
+        <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
+
+        <!--edit_task modal body -->
+        <form method="post">
+        <!--add_task modal body -->
+        <div style="display:flex; justify-content:space-around;" >
+
+            <!-- divide it in 2 parts -->
+             <div style="width:48%;">
+
+                 <!-- divide this half in to rows with 2 columns  -->
+                     <!--Task description --><!-- to clean-up and improve -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Task Description:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_description" type="text">
+                       </div>
+                 </div>
+                     <!-- responsible, change to user or manual input -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>responsible:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_responsible" type="text">
+                       </div>
+                 </div>
+
+                     <!--department, change on list based on user info -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Department:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_role">
+                               {% for right in rights %}
+                               <option value="{{right}}">{{right}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+                     <!--Building, change to select based on user info -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Building:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_building">
+                               {% for building in buildings %}
+                               <option value="{{building}}">{{building}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+                    <!--Zone, change to list based on building + add zones in DB-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Zone:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <select class="add_task_text_input" style="width:100%;height:30px;" name="task_zone">
+                               <!-- TODO: change to dynamically change with javascript when building is changed  -->
+                               {% for zone in zones %}
+                               <option value="{{zone[2]}}">{{zone[2]}}</option>
+                               {% endfor %}
+                           </select>
+                       </div>
+                 </div>
+
+                     <!--Estimated duration, used for points calc of workload -->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>estimated duration:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:70%;" name="task_duration" type="text">
+                           <label class="lineage_font_semi_bold" style="width:30%">Minutes</label>
+                       </div>
+                 </div>
+                   <!--Start date-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Start Date:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_start_date" type="date">
+                       </div>
+                 </div>
+                   <!--Due date-->
+                 <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+
+                      <div class="lineage_font_semi_bold" style="width:40%">
+                          <strong>Due date:</strong>
+                      </div>
+
+                       <div style="width:60%">
+                           <input class="add_task_text_input" style="width:100%;" name="task_due_date" type="date">
+                       </div>
+                 </div>
+
+             </div>
+            <div style="width:49%;">
+                <!--Task instructions-->
+                <div>
+               <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                   <strong>Instructions:</strong>
+               </div>
+               <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                   <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden;
+                    resize:none; white-space:pre-line;"></textarea>
+               </div>
+               </div>
+                <!--Reoccur settings -->
+                <div>
+
+                    <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+                    <strong>Scheduled/reoccurring task:</strong>
+                    </div>
+                    <!--check boxes, sepp div for alignment -->
+                    <div class="lineage_font_semi_bold" style="display: inline-flex;align-items: center;width: 100%;justify-content: flex-start;">
+                    <label>Exclude Weekends</label>
+                    <input name="exclude_wk" type="checkbox" value="TRUE" style="margin-left:5px;">
+                     <div class="spacer" style="width:15px;"></div>
+                    <label>Exclude Week-Days</label>
+                    <input name="exclude_wday" type="checkbox" value="TRUE" style="margin-left:5px;">
+                     </div>
+                    <!-- select days-->
+                    <div style="margin-top:5px;">
+                     <label class="lineage_font_semi_bold">reoccur every</label>
+                    <input name="task_reoccur" value="0" type="number" min="0" max="365">
+                     <label class="lineage_font_semi_bold">days</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer -->
+        <div class="task_modal_footer">
+            <input name="task_edit_task" type="submit" style="margin-bottom:15px;" class="lineage_green_button_inverted" value="Edit Task">
+        </div>
+        </form>
+
+
+
+
+    </div>
+</div>
+
 <!--todo create more generic modal then task_modal-->
 <div id="add_user_modal" class="task_modal">
     <div class="task_modal_content" style="padding:50px; padding-top:20px; height:50%; width:40%;">
