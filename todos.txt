@@ -1,6 +1,6 @@
-create update handeling for EDIT task --> same as finish task
+create update handeling for EDIT task --> same as finish task [DONE]
 
-create direct handeling for Cancel task (same as in options (more or less) or as in re-occuring)
+create direct handeling for Cancel task (same as in options (more or less) or as in re-occuring) half done
 find out whats going wrong with the Issue part of the full task modal
 fix the task modal in re-occuring tasks
 
@@ -28,3 +28,6 @@ create an way to report issues;
 
 <___implement @ KBL___>
 
+Known Bugs :
+->Editing a task might create double rescheduled task (if reschedule is more then 1)
+->list in edit task is not set to selected value

@@ -125,8 +125,9 @@ document.getElementById('task_option_desc').innerHTML = task[1].value
 document.getElementById('cancel_task').value = task_id
 }
 
-function cancel_task()
+function cancel_task(task_id)
 {
+document.getElementById('cancel_task').value = task_id
 var form = document.getElementById('cancel_task_form');
 form.submit();
 }
@@ -139,9 +140,11 @@ open_modal(modal_id)
 // retrieve info from SRC modal and fill in in the edit task modal
 document.getElementById('edit_task_description').value = document.getElementById('task_modal_head_description').innerHTML ;
 document.getElementById('edit_task_responsible').value = document.getElementById('task_responsible').innerHTML ;
+// the selected part is is not working properly. and it used to do
 document.getElementById('edit_task_role').selected = document.getElementById('role').value ;
-document.getElementById('edit_task_building').selected = document.getElementById('task_building').innerHTML ;
+document.getElementById('edit_task_building').selected = document.getElementById('task_building').innerHTML;
 document.getElementById('edit_task_zone').selected = document.getElementById('task_zone').innerHTML ;
+// this part is ok again
 document.getElementById('edit_task_duration').value = document.getElementById('duration').value ;
 document.getElementById('edit_task_start_date').value = document.getElementById('task_start_date').innerHTML ;
 document.getElementById('edit_task_due_date').value = document.getElementById('task_end_date').innerHTML ;

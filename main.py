@@ -57,10 +57,6 @@ def home():
             DbCon(session['db']).connection_simple(f'DELETE FROM TASK_TABLE WHERE ROWID = {task_id}')
             add_task()
 
-
-
-
-
     return redirect('/')
 
 
@@ -208,6 +204,14 @@ def reoccur_page():
         zones = role['zones']
 
         return render_template('reoccuring.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
+
+    if request.method == 'POST':
+
+        # looks the same as cancel task in homepage but removes the task from re-occur table
+        if request.form.get('cancel_task'):
+            task_id = request.form.get('cancel_task')
+            DbCon(session['db']).connection_simple(f'DELETE FROM reoccurring_tasks WHERE ROWID = {task_id}')
+
 
 
 if __name__ == '__main__':
