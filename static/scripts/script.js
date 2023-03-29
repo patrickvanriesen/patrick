@@ -149,8 +149,3 @@ document.getElementById('edit_task_instruction').value = document.getElementById
 document.getElementById('edit_task').value = document.getElementById('task_rowid').value;
 }
 
-function edit_task()
-{
-var form = document.getElementById('edit_task_form');
-form.submit();
-}
