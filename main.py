@@ -206,12 +206,12 @@ def reoccur_page():
         return render_template('reoccuring.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     if request.method == 'POST':
-
         # looks the same as cancel task in homepage but removes the task from re-occur table
         if request.form.get('cancel_task'):
             task_id = request.form.get('cancel_task')
-            DbCon(session['db']).connection_simple(f'DELETE FROM reoccurring_tasks WHERE ROWID = {task_id}')
-
+            print(task_id)
+            DbCon(session['db']).connection_simple(f'DELETE FROM REOCCURRING_TASKS WHERE ROWID = {task_id}')
+        return redirect('reoccur')
 
 
 if __name__ == '__main__':
