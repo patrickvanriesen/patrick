@@ -1,19 +1,14 @@
-create update handeling for EDIT task --> same as finish task [DONE]
-
-create direct handeling for Cancel task (same as in options (more or less) or as in re-occuring) half done
 find out whats going wrong with the Issue part of the full task modal
+
 fix the task modal in re-occuring tasks
 
 create an way to report issues;
 
-- Create modal for task options containing:
-    Cancel Task DONE
-    edit task Task DONE
-    reset Task(only when finished)
-    verify task (only when finished)
+reset Task(only when finished)
+
+verify task (only when finished)
 
 
-- Remove Finish task options from finished task DONE
 
 - Create a verify task page
 

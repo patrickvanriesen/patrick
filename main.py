@@ -139,7 +139,6 @@ def building_zones():
             zone_id = request.form.get('zone_id')
             DbCon(db).connection_simple(f'DELETE FROM Zone_table WHERE ROWID = "{zone_id}"')
 
-        # todo to remove after implement elsewhere
         if request.form.get('role_add'):
             # inputs the user to give the site info to the role object
             add_role(user['site'])
@@ -209,8 +208,8 @@ def reoccur_page():
         # looks the same as cancel task in homepage but removes the task from re-occur table
         if request.form.get('cancel_task'):
             task_id = request.form.get('cancel_task')
-            print(task_id)
             DbCon(session['db']).connection_simple(f'DELETE FROM REOCCURRING_TASKS WHERE ROWID = {task_id}')
+
         return redirect('reoccur')
 
 

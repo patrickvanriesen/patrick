@@ -16,9 +16,14 @@
         <!-- zone color -->
         <div style="background-color:{{ task[21] }};width:1.5%;" class="zone_color"></div>
         <!-- Task description (width(incl.)34%) -->
-        <div class="task_description" style="width:34%">
+        <div class="task_description" style="width:35%">
             <small class="lineage_font_semi_bold">description:</small>
             <strong class="lineage_font_semi_bold" style="font-size:18px;">{{task[1]}}</strong></div>
+        <!-- Department (44) -->
+        <div class="task_description" style="width:8%" >
+            <small class="lineage_font_semi_bold" >Department:</small>
+            <strong class="lineage_font_semi_bold" >{{task[3]}}</strong>
+        </div>
         <!-- finished by (44) -->
         <div class="task_description" style="width:11%" >
             <small class="lineage_font_semi_bold" >finished by:</small>
@@ -43,10 +48,7 @@
         <div class="task_description" style="margin:5px;">
             <a class="lineage_blue_button" onclick="open_task_modal('task_modal_full',{{task[0]}});">Open Task</a>
         </div>
-        <!-- task options, for now teal color maybe change to grey -->
-        <div class="task_description" style="margin:5px;">
-            <a class="lineage_green_button" onclick="">Options</a>
-        </div>
+
         <!--contains the entire task to pass to task modal-->
         <!-- yes, i could just loop over them but want a list anyway so why not-->
         <!--todo add comment per line with description-->

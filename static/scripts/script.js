@@ -110,6 +110,14 @@ fill_in_info_task_modal(task_id);
 dynamic_styling(modal_id, task_id);
 }
 
+function open_task_modal_no_restyle(modal_id, task_id)
+{
+open_modal(modal_id);
+fill_in_info_task_modal(task_id);
+}
+
+
+
 
 function finish_task()
 {
