@@ -54,11 +54,13 @@ document.getElementById('task_status').innerHTML = task[10].value;
 if (task[11].value > 0)
 {document.getElementById('task_reoccurs').innerHTML = 'Yes';
 } else {document.getElementById('task_reoccurs').innerHTML = 'No';}
-
+// issue and instruction
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
 document.getElementById('task_issue').innerHTML = task[13].value;
+// task_id in the buttons
 document.getElementById('finish_task').value = task[0].value;
-
+// if i add below it will f up the dynamic styling  why???
+document.getElementById('verify_task').value = task[0].value;
 // stores not/not easy reachable info for edit pallet
 document.getElementById('role').value = task[3].value;
 document.getElementById('duration').value = task[8].value;
@@ -103,15 +105,13 @@ task_row_finished.style = "display:flex";
 }
 }
 
-function open_task_modal(modal_id, task_id)
-{
+function open_task_modal(modal_id, task_id){
 open_modal(modal_id);
-fill_in_info_task_modal(task_id);
 dynamic_styling(modal_id, task_id);
+fill_in_info_task_modal(task_id);
 }
 
-function open_task_modal_no_restyle(modal_id, task_id)
-{
+function open_task_modal_no_restyle(modal_id, task_id){
 open_modal(modal_id);
 fill_in_info_task_modal(task_id);
 }
@@ -119,22 +119,24 @@ fill_in_info_task_modal(task_id);
 
 
 
-function finish_task()
-{
+function finish_task(){
 var form = document.getElementById('finish_task_form');
 form.submit();
 }
 
-function open_task_option_modal(modal_id, task_id)
-{
+function verify_task(){
+var form = document.getElementById('verify_task_form');
+form.submit();
+}
+
+function open_task_option_modal(modal_id, task_id){
 open_modal(modal_id);
 var task = document.getElementsByName(task_id);
 document.getElementById('task_option_desc').innerHTML = task[1].value
 document.getElementById('cancel_task').value = task_id
 }
 
-function cancel_task(task_id)
-{
+function cancel_task(task_id){
 document.getElementById('cancel_task').value = task_id
 var form = document.getElementById('cancel_task_form');
 form.submit();

@@ -80,7 +80,7 @@ def log_in():
         return render_template('/log_in.html')
 
 
-@app.route('/finished_tasks')
+@app.route('/finished_tasks', methods=["GET", "POST"])
 def finished_tasks():
     if request.method == 'GET':
         try:
@@ -101,6 +101,21 @@ def finished_tasks():
         zones = role['zones']
 
         return render_template('finished_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
+
+    if request.method == 'POST':
+
+        user_name = session['user']['name']
+
+        if request.form.get('verify_task'):
+            print('verify_task')
+            task_id = request.form.get('verify_task')
+            finished_time = datetime.now().strftime("%d-%m-%Y %H:%M")
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Completed",'
+                                                   f' verified_on = "{finished_time}",'
+                                                   f' verified_by = "{user_name}" '
+                                                   f' where ROWID = {task_id}')
+
+        # return redirect('/finished_tasks')
 
 
 @app.route('/buildings_zones', methods=['GET', 'POST'])
