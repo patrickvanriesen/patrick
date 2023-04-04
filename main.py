@@ -88,6 +88,12 @@ def log_in():
         return render_template('/log_in.html')
 
 
+@app.route('/log_out')
+def log_out():
+    session.clear()
+    return redirect('/')
+
+
 @app.route('/finished_tasks', methods=["GET", "POST"])
 def finished_tasks():
     if request.method == 'GET':
