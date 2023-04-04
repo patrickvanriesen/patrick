@@ -1,13 +1,11 @@
 find out whats going wrong with the Issue part of the full task modal
+Find out whats going wrong with edit task
 
 fix the task modal in re-occuring tasks
 
 create an way to report issues;
 
 reset Task(only when finished)
-
-verify task (only when finished)
-
 
 
 - Create a verify task page
@@ -22,6 +20,10 @@ verify task (only when finished)
 
 
 <___implement @ KBL___>
+
+- some clean up, i am now passing info through the modals which is not needed,
+ since i can find the info based on task ID (see edit task modal in JS)
+
 
 Known Bugs :
 ->Editing a task might create double rescheduled task (if reschedule is more then 1)

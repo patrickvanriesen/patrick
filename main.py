@@ -53,6 +53,7 @@ def home():
                                                    f' WHERE ROWID = {task_id} ')
 
         if request.form.get('edit_task'):
+            print('OK')
             task_id = request.form.get('edit_task')
             DbCon(session['db']).connection_simple(f'DELETE FROM TASK_TABLE WHERE ROWID = {task_id}')
             add_task()
@@ -109,13 +110,13 @@ def finished_tasks():
         if request.form.get('verify_task'):
             print('verify_task')
             task_id = request.form.get('verify_task')
-            finished_time = datetime.now().strftime("%d-%m-%Y %H:%M")
+            verified_time = datetime.now().strftime("%d-%m-%Y %H:%M")
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Completed",'
-                                                   f' verified_on = "{finished_time}",'
+                                                   f' verified_on = "{verified_time}",'
                                                    f' verified_by = "{user_name}" '
                                                    f' where ROWID = {task_id}')
 
-        # return redirect('/finished_tasks')
+        return redirect('/finished_tasks')
 
 
 @app.route('/buildings_zones', methods=['GET', 'POST'])
