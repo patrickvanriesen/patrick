@@ -56,7 +56,7 @@ if (task[11].value > 0)
 } else {document.getElementById('task_reoccurs').innerHTML = 'No';}
 // issue and instruction
 document.getElementById('task_instruction').innerHTML = task[12].innerHTML;
-document.getElementById('task_issue').innerHTML = task[0].value;
+document.getElementById('task_issue').innerHTML = task[13].value;
 // task_id in the buttons
 document.getElementById('finish_task').value = task[0].value;
 document.getElementById('verify_task').value = task[0].value;
@@ -107,6 +107,7 @@ task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
 // for some reason below does not work in fill in info part.. will figure out why ? :(
 document.getElementById('verify_task').value = task[0].value;
+
 
 
 

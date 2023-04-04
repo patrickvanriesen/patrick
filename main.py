@@ -22,7 +22,7 @@ def home():
         # retrieve task information needed to show tasks
         tasks = DbCon(session['db']).return_result(
             'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description '
-            'WHERE status = "new"')
+            'WHERE status = "new" or status = "issue"')
 
         return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
@@ -61,7 +61,8 @@ def home():
             task_id = request.form.get('Report_issue_id')
             issue = request.form.get('Issue_report_issue')
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE '
-                                                   f'SET reported_issue = "{issue}"'
+                                                   f'SET reported_issue = "{issue}",'
+                                                   f'status = "issue"'
                                                    f' Where ROWID = {task_id}')
 
     return redirect('/')

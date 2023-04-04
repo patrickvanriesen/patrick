@@ -3,12 +3,14 @@ Find out whats going wrong with edit task Done
 
 fix the task modal in re-occuring tasks
 
----create an way to report issues;
------ Create an modal, similar to Add user modal.
------ Create an Text field in the modal.
------ pass task_ID in to this modal.
------ Create an Update statement Update Issue Where task_id = task_id
------ Implement this also in the Re-open view button
+create an way to report issues;
+----- Create an modal, similar to Add user modal. DONE
+----- Create an Text field in the modal. DONE
+----- pass task_ID in to this modal. DONE
+----- Create an Update statement Update Issue Where task_id = task_id DONE
+----- Implement this also in the Re-open view button DONE
+
+----- Find out why its not working on homepage when status is Issue, but is working in finsehd list
 
 reset Task(only when finished)
 
