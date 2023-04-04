@@ -57,6 +57,13 @@ def home():
             DbCon(session['db']).connection_simple(f'DELETE FROM TASK_TABLE WHERE ROWID = {task_id}')
             add_task()
 
+        if request.form.get('Report_issue'):
+            task_id = request.form.get('Report_issue_id')
+            issue = request.form.get('Issue_report_issue')
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE '
+                                                   f'SET reported_issue = "{issue}"'
+                                                   f' Where ROWID = {task_id}')
+
     return redirect('/')
 
 
