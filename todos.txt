@@ -1,16 +1,7 @@
-find out whats going wrong with the Issue part of the full task modal
-Find out whats going wrong with edit task Done
 
 fix the task modal in re-occuring tasks
 
-create an way to report issues;
------ Create an modal, similar to Add user modal. DONE
------ Create an Text field in the modal. DONE
------ pass task_ID in to this modal. DONE
------ Create an Update statement Update Issue Where task_id = task_id DONE
------ Implement this also in the Re-open view button DONE
-
------ Find out why its not working on homepage when status is Issue, but is working in finsehd list
+----- Find out why its not working on homepage when status is Issue, but is working in finsehd list --> now the other way around
 
 reset Task(only when finished)
 
@@ -33,4 +24,5 @@ reset Task(only when finished)
 
 Known Bugs :
 ->Editing a task might create double rescheduled task (if reschedule is more then 1)
-->list in edit task is not set to selected value
+->list in edit task is not set to selected value -- FIXED
+->issue status is not working in finished view
