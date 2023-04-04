@@ -194,7 +194,7 @@
                <div class="lineage_font_semi_bold" style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
                    <strong>Instructions:</strong>
                </div>
-               <div style="width:100%;display: flex; align-items: center; margin-bottom:10px;">
+               <div style="width:100%;display:flex;align-items: center; margin-bottom:10px;">
                    <textarea name="task_instruction" rows="7" cols="60" maxlength="150" style="width:100%; overflow: hidden;
                     resize:none; white-space:pre-line;"></textarea>
                </div>
@@ -413,7 +413,7 @@
          <div id="add_user_header" style="display:flex; align-items:center;">
             <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Add user</h2>
             <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('add_user_modal')">
-        </div>
+         </div>
          <!-- underscore line-->
         <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
         <!-- add user form -->
@@ -477,6 +477,36 @@
 
             </div>
         </div>
+
+
+<!-- Report issue modal-->
+<div id="report_issue_modal" class="task_modal" style="display:block;" >
+    <div id="report_issue_modal_content" class="task_modal_content" style="padding:50px; padding-top:20px; height:54%; width:60%;">
+        <!--report issue header-->
+        <div id="report_issue_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">Report Issue</h2>
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('report_issue_modal')">
+        </div>
+             <!-- underscore line-->
+        <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
+        <!--Report issue form-->
+        <div>
+            <form method="get">
+
+                 <textarea name="Issue_report_issue" rows="7"  cols="60" maxlength="150" style="width:100%; overflow: hidden;
+                    resize:none; white-space:pre-line;"></textarea>
+
+                 <div style="width:100%;margin-bottom:15px;display:flex;justify-content:flex-end;margin-top:35px;">
+                    <input name="Report_issue" type="submit" value="Report Issue" class="lineage_red_button">
+                 </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- where the javascript lives,guess i should clean that up at some point -->

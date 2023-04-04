@@ -1,16 +1,18 @@
 find out whats going wrong with the Issue part of the full task modal
-Find out whats going wrong with edit task
+Find out whats going wrong with edit task Done
 
 fix the task modal in re-occuring tasks
 
-create an way to report issues;
+---create an way to report issues;
+----- Create an modal, similar to Add user modal.
+----- Create an Text field in the modal.
+----- pass task_ID in to this modal.
+----- Create an Update statement Update Issue Where task_id = task_id
+----- Implement this also in the Re-open view button
 
 reset Task(only when finished)
 
-
 - Create a verify task page
-
-- make a rescedule funtion
 
 - make a users overview page
 
@@ -18,6 +20,8 @@ reset Task(only when finished)
 
 -implement filter options
 
+- implement finished date + time ,verified date + time in finished task
+- hide buttons when task is completed
 
 <___implement @ KBL___>
 

@@ -53,7 +53,6 @@ def home():
                                                    f' WHERE ROWID = {task_id} ')
 
         if request.form.get('edit_task'):
-            print('OK')
             task_id = request.form.get('edit_task')
             DbCon(session['db']).connection_simple(f'DELETE FROM TASK_TABLE WHERE ROWID = {task_id}')
             add_task()
@@ -108,7 +107,6 @@ def finished_tasks():
         user_name = session['user']['name']
 
         if request.form.get('verify_task'):
-            print('verify_task')
             task_id = request.form.get('verify_task')
             verified_time = datetime.now().strftime("%d-%m-%Y %H:%M")
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Completed",'
