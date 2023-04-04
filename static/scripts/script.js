@@ -84,8 +84,7 @@ var task_row_finished = document.getElementById('task_row_finished');
 document.getElementById('task_issue').innerHTML = task_status;
 
 // now use status as 'filter' but could also use user restriction as filter will think about it.
-if (task[10].value === "new")
-{
+if (task[10].value === "new"){
 modal.style = "height:60%;padding:50px;padding-top:20px;"
 center.style = "display:flex; justify-content: space-between; height:60%; flex-direction: row;"
 task_error.style = "display:none;"
@@ -95,7 +94,6 @@ task_row_verified.style = "display:none;"
 task_row_finished.style = "display:none"
 // for some reason below does not work in fill in info part.. will figure out why ? :(
 document.getElementById('task_rowid').value = task[0].value;
-
 }
 else{
 modal.style = "height:80%;padding:50px;padding-top:20px;"
@@ -106,10 +104,8 @@ task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
 // for some reason below does not work in fill in info part.. will figure out why ? :(
-document.getElementById('verify_task').value = task[0].value;
-
-
-
+if (task_status === "finished"){document.getElementById('verify_task').value = task[0].value;}
+if (task_status === "issue"){document.getElementById('task_rowid').value = task[0].value;}
 
 }
 }
@@ -118,8 +114,6 @@ function open_task_modal(modal_id, task_id){
 open_modal(modal_id);
 dynamic_styling(modal_id, task_id);
 fill_in_info_task_modal(task_id);
-
-
 }
 
 function open_task_modal_no_restyle(modal_id, task_id){
