@@ -173,3 +173,9 @@ document.getElementById('edit_task_instruction').value = document.getElementById
 document.getElementById('edit_task').value = task[0].value;
 }
 
+function open_issue_modal(){
+open_modal('report_issue_modal')
+var  task = document.getElementsByName(document.getElementById('task_rowid').value)
+document.getElementById('Report_issue_id').value = task[0].value;
+}
+
