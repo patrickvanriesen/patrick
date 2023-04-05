@@ -103,9 +103,9 @@ task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
 // for some reason below does not work in fill in info part.. will figure out why ? :(
-if (task_status === "finished"){document.getElementById('verify_task').value = task[0].value;}
-//if (task_status === "issue"){document.getElementById('task_rowid').value = task[0].value;}
-
+if (task_status === "finished"){
+document.getElementById('verify_task').value = task[0].value;
+document.getElementById('reopen_task').value = task[0].value;}
 }
 }
 
