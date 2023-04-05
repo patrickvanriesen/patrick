@@ -1,10 +1,6 @@
 
 fix the task modal in re-occuring tasks
 
------ Find out why its not working on homepage when status is Issue, but is working in finsehd list --> now the other way around
-
-reset Task(only when finished)
-
 - Create a verify task page
 
 - make a users overview page
@@ -14,7 +10,8 @@ reset Task(only when finished)
 -implement filter options
 
 - implement finished date + time ,verified date + time in finished task
-- hide buttons when task is completed
+
+-hide finished and verified times when status = issue
 
 <___implement @ KBL___>
 
