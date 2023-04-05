@@ -127,6 +127,9 @@ def finished_tasks():
                                                    f' verified_on = "{verified_time}",'
                                                    f' verified_by = "{user_name}" '
                                                    f' where ROWID = {task_id}')
+        if request.form.get('reopen_task'):
+            task_id = request.form.get('reopen_task')
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "NEW" WHERE ROWID = {task_id}')
 
         return redirect('/finished_tasks')
 

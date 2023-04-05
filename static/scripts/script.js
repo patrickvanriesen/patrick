@@ -134,6 +134,11 @@ var form = document.getElementById('verify_task_form');
 form.submit();
 }
 
+function reopen_task(){
+var form = document.getElementById('reopen_task_form');
+form.submit();
+}
+
 function open_task_option_modal(modal_id, task_id){
 open_modal(modal_id);
 var task = document.getElementsByName(task_id);
