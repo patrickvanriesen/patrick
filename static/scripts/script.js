@@ -102,10 +102,15 @@ task_error_line.style = "width:100%; margin:5px; height:1px;"
 task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
+document.getElementById('task_modal_full_footer').style = "display:flex";
 // for some reason below does not work in fill in info part.. will figure out why ? :(
 if (task_status === "finished"){
 document.getElementById('verify_task').value = task[0].value;
 document.getElementById('reopen_task').value = task[0].value;}
+
+if (task_status === "Completed"){
+document.getElementById('task_modal_full_footer').style = "display:none;"}
+
 }
 }
 
@@ -123,7 +128,7 @@ fill_in_info_task_modal(task_id);
 
 
 
-
+// replace all those function with a more generic post form function
 function finish_task(){
 var form = document.getElementById('finish_task_form');
 form.submit();
