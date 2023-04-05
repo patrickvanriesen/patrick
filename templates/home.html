@@ -2,6 +2,50 @@
 {% block title %} homepage {% endblock %}
 <!-- block body contains all site specifics,in this case task list + open task modal -->
 {% block body %}
+
+<div id="filter_bar" style="background-color:white; width:100%; height:45px;display:flex;margin:2px">
+    <div style="width:60%">
+    <form method="get">
+    <select class="lineage_blue_button" style="margin-right:4px" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due date</option>
+        <option>start date</option>
+        <option>responsible</option>
+        <option>description</option>
+    </select>
+    <select class="lineage_blue_button" style="margin-right:4px" >
+        <option>contains</option>
+        <option>equals</option>
+        <option>starts with</option>
+        <option>ends with</option>
+    </select>
+    <input type="text" class="lineage_blue_button" style="margin-right:4px">
+    <input type="submit" class="lineage_blue_button_inverted" value="Filter">
+    </form>
+    </div>
+    <div style="width:40%; display:flex; flex-direction:row-reverse; margin-right:5px; " >
+    <form method="get">
+        <select class="lineage_green_button" style="margin-right:4px" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due date</option>
+        <option>start date</option>
+        <option>responsible</option>
+        <option>description</option>
+       </select>
+        <select class="lineage_green_button" style="margin-right:4px">
+            <option>Ascending</option>
+            <option>Descending</option>
+        </select>
+        <input type="submit" value="Sort" class="lineage_green_button_inverted">
+     </form>
+     </div>
+</div>
+
+
 <!-- Task List  : style new -->
 <div class="task_container">
     {% for task in tasks %}
