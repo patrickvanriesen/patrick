@@ -109,6 +109,7 @@ if (task_status === "finished"){document.getElementById('verify_task').value = t
 }
 }
 
+
 function open_task_modal(modal_id, task_id){
 open_modal(modal_id);
 dynamic_styling(modal_id, task_id);
