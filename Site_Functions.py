@@ -73,6 +73,9 @@ def filter_tasks(query):
     filter_column = request.args.get('filter_column')
     filter_type = request.args.get('filter_type')
     filter_value = request.args.get('filter_value')
+    # transform deviating values
+    if filter_column == 'department':
+        filter_column = 'role'
     # create an where clause with filters
     where = ''
     if filter_type == 'contains':

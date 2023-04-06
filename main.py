@@ -28,7 +28,6 @@ def home():
         if request.args.get('filter_value'):
             query = filter_tasks(query)
             tasks = DbCon(session['db']).return_result(query)
-
             return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
         return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
