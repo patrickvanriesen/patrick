@@ -13,6 +13,10 @@ fix the task modal in re-occuring tasks
 
 -hide finished and verified times when status = issue
 
+- implement a filter based on building, role and rights.
+
+- link back to home page when click on lineage symbol
+
 <___implement @ KBL___>
 
 - some clean up, i am now passing info through the modals which is not needed,
