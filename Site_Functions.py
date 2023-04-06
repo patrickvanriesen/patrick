@@ -3,6 +3,12 @@ from Tasks import *
 from reoccuring_tasks import add_reoccurring_task
 
 
+def convert_date(wrong_date):
+    wrong_date = datetime.strptime(wrong_date, "%Y-%m-%d")
+    correct_date = datetime.strftime(wrong_date, "%d-%m-%Y")
+    return correct_date
+
+
 # a lot of to do here as it all needs to be based on site inputs
 def add_role(site):
     role = Role(site, request.form.get('role_name'))
@@ -50,8 +56,8 @@ def add_task():
     building = request.form.get('task_building')
     zone = request.form.get('task_zone')
     duration = request.form.get('task_duration')
-    start = request.form.get('task_start_date')
-    due = request.form.get('task_due_date')
+    start = convert_date(request.form.get('task_start_date'))
+    due = convert_date(request.form.get('task_due_date'))
 
     # define task object and add the following to it : instructions Re-occur settings
     task = Task(description, responsible, role, building, zone, start, due, duration)
