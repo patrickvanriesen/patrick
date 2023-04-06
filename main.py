@@ -26,22 +26,8 @@ def home():
 
         # bases on filter filter task
         if request.args.get('filter_value'):
-            # retrieve info from form fields
-            filter_column = request.args.get('filter_column')
-            filter_type = request.args.get('filter_type')
-            filter_value = request.args.get('filter_value')
-            # create an where clause with filters
-            where = ''
-            if filter_type == 'contains':
-                where = f'{filter_column} like "%{filter_value}%"'
-            if filter_type == 'equals':
-                where = f'{filter_column} = "{filter_value}"'
-            if filter_type == 'starts with':
-                where = f'{filter_column} like "{filter_value}%"'
-            if filter_type == 'ends with':
-                where = f'{filter_column} like "%{filter_value}"'
-            print(where)
-            print(f'{query} AND {where}')
+            query = filter_tasks(query)
+            tasks = DbCon(session['db']).return_result(query)
 
             return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
