@@ -5,8 +5,8 @@
 
 <div id="filter_bar">
     <div style="width:60%;margin:2px;margin-left:10px;">
-    <form method="get">
-    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" >
+    <form method="GET">
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_column" >
         <option>Zone</option>
         <option>department</option>
         <option>status</option>
@@ -15,13 +15,13 @@
         <option>responsible</option>
         <option>description</option>
     </select>
-    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" >
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_type" >
         <option>contains</option>
         <option>equals</option>
         <option>starts with</option>
         <option>ends with</option>
     </select>
-    <input type="text" class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px">
+    <input type="text" id="filter_value" class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_value">
     <input type="submit" class="lineage_blue_button_inverted" value="Filter" style="padding: 10px 23px">
     </form>
     </div>
