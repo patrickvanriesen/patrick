@@ -17,6 +17,8 @@ fix the task modal in re-occuring tasks
 
 - link back to home page when click on lineage symbol
 
+- reformat date input
+
 <___implement @ KBL___>
 
 - some clean up, i am now passing info through the modals which is not needed,
