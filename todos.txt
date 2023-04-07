@@ -5,6 +5,7 @@ fix the task modal in re-occuring tasks -->P9
 
 - make a users overview page --> P2
 
+
 - implement a tablet view (restricted page) --> P10
 
 - implement finished date + time ,verified date + time in finished task --> P5
