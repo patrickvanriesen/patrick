@@ -96,3 +96,21 @@ def filter_tasks(query):
     print(f'{query} AND {where}')
     query = f'{query} AND {where}'
     return query
+
+
+def sort_tasks(query):
+    # retrieve info from arguments
+    sort_column = request.args.get('sort_column')
+    sort_value = request.args.get('sort_value')
+    # change incorrect data
+    if sort_column == 'department':
+        sort_column = 'role'
+    if sort_value == 'Descending':
+        sort_value = 'DESC'
+    if sort_value == 'Ascending':
+        sort_value = 'ASC'
+    order_by = f'ORDER BY {sort_column} {sort_value}'
+    query = query + order_by
+    print(query)
+    return query
+

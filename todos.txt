@@ -7,7 +7,12 @@ fix the task modal in re-occuring tasks
 
 - implement a tablet view (restricted page)
 
--implement filter options
+-implement filter options.
+also filter on creation in NEW,Finished
+
+-implement sorting options
+
+- think of a way to combine the filter and sorting :):(
 
 - implement finished date + time ,verified date + time in finished task
 
@@ -17,7 +22,7 @@ fix the task modal in re-occuring tasks
 
 - link back to home page when click on lineage symbol
 
-- reformat date input
+- reformat date input --> DONE
 
 <___implement @ KBL___>
 
