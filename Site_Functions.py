@@ -111,6 +111,5 @@ def sort_tasks(query):
         sort_value = 'ASC'
     order_by = f'ORDER BY {sort_column} {sort_value}'
     query = query + order_by
-    print(query)
     return query
 
