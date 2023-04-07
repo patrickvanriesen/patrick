@@ -184,3 +184,4 @@ var  task = document.getElementsByName(document.getElementById('task_rowid').val
 document.getElementById('Report_issue_id').value = task[0].value;
 }
 
+function link_to_home(){window.location.replace('/');}

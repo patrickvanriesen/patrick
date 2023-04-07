@@ -7,22 +7,17 @@ fix the task modal in re-occuring tasks
 
 - implement a tablet view (restricted page)
 
--implement filter options.
-also filter on creation in NEW,Finished
-
--implement sorting options DONE
-
-- think of a way to combine the filter and sorting :):(
-
 - implement finished date + time ,verified date + time in finished task
 
 -hide finished and verified times when status = issue
 
 - implement a filter based on building, role and rights.
 
-- link back to home page when click on lineage symbol
+- reformat date input --> DONE --> require start and end date.(or check if is input)
 
-- reformat date input --> DONE
+- change completed to verified
+
+- add comment when is re-openend is reported
 
 <___implement @ KBL___>
 
