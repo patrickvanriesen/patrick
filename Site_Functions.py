@@ -92,8 +92,6 @@ def filter_tasks(query):
         where = f'{filter_column} like "{filter_value}%"'
     if filter_type == 'ends with':
         where = f'{filter_column} like "%{filter_value}"'
-    print(where)
-    print(f'{query} AND {where}')
     query = f'{query} AND {where}'
     return query
 

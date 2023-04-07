@@ -24,13 +24,25 @@ def home():
                 'WHERE (status = "new" or status = "issue")'
         tasks = DbCon(session['db']).return_result(query)
 
-        # bases on filter filter task
-        if request.args.get('filter_value'):
-            query = filter_tasks(query)
-            tasks = DbCon(session['db']).return_result(query)
+        # filter tasks
+        # check if filter button it pressed
+        if request.args.get('filter_column'):
+            # if a value is given overwrite existing query
+            if request.args.get('filter_value'):
+                query = filter_tasks(query)
+                tasks = DbCon(session['db']).return_result(query)
+            # write query to session object (cookies)
+            session['query'] = query
 
         # sort tasks
         if request.args.get('sort_column'):
+            # check if already filtered exist
+            try:
+                if session['query']:
+                    query = session['query']
+            except:
+                query = query
+            # execute sort task functions
             query = sort_tasks(query)
             tasks = DbCon(session['db']).return_result(query)
 
