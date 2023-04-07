@@ -126,15 +126,37 @@ def finished_tasks():
 
         # todo replace retrieving the next info for a function
         # task information - filtered on finished
-        tasks = DbCon(session['db']).return_result(
-            'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description '
-            'WHERE status <> "new"')
+        query = 'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description ' \
+                'WHERE status <> "new"'
+        tasks = DbCon(session['db']).return_result(query)
 
         # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
         role = session['user']['role']
         rights = role['rights']
         buildings = role['building']
         zones = role['zones']
+
+        # filter tasks
+        # check if filter button it pressed
+        if request.args.get('filter_column'):
+            # if a value is given overwrite existing query
+            if request.args.get('filter_value'):
+                query = filter_tasks(query)
+                tasks = DbCon(session['db']).return_result(query)
+            # write query to session object (cookies)
+            session['query'] = query
+
+        # sort tasks
+        if request.args.get('sort_column'):
+            # check if already filtered exist
+            try:
+                if session['query']:
+                    query = session['query']
+            except:
+                query = query
+            # execute sort task functions
+            query = sort_tasks(query)
+            tasks = DbCon(session['db']).return_result(query)
 
         return render_template('finished_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 

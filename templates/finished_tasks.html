@@ -4,8 +4,49 @@
 
 <!-- block body contains all site specifics -->
 {% block body %}
+<!--filter and sorting bar-->
+<div id="filter_bar">
+    <div style="width:60%;margin:2px;margin-left:10px;">
+    <form method="GET">
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_column" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due_date</option>
+        <option>start_date</option>
+        <option>responsible</option>
+        <option>description</option>
+    </select>
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_type" >
+        <option>contains</option>
+        <option>equals</option>
+        <option>starts with</option>
+        <option>ends with</option>
+    </select>
+    <input type="text" id="filter_value" class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_value">
+    <input type="submit" class="lineage_blue_button_inverted" value="Filter" style="padding: 10px 23px">
+    </form>
+    </div>
+    <div style="width:40%; display:flex; flex-direction:row-reverse;margin:2px; margin-right:10px; " >
+    <form method="get">
+        <select class="lineage_green_button" style="margin-right:4px;padding: 10px 23px" name="sort_column" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due_date</option>
+        <option>start_date</option>
+        <option>responsible</option>
+        <option>description</option>
+       </select>
+        <select class="lineage_green_button" style="margin-right:4px;padding: 10px 23px" name="sort_value">
+            <option>Ascending</option>
+            <option>Descending</option>
+        </select>
+        <input type="submit" value="Sort" class="lineage_green_button_inverted" style="padding: 10px 23px">
+     </form>
+     </div>
+</div>
 <!-- Task List -->
-
 <div class="task_container">
     {% for task in tasks %}
     <div class="task_row">
@@ -80,7 +121,6 @@
     </div>
     {% endfor %}
 </div>
-
 <!-- task modal styling based status and or user settings-->
 <div id="task_modal_full" class="task_modal">
     <div id="task_modal_content" class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">

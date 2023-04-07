@@ -2,7 +2,7 @@
 {% block title %} homepage {% endblock %}
 <!-- block body contains all site specifics,in this case task list + open task modal -->
 {% block body %}
-
+<!--filter and sorting bar-->
 <div id="filter_bar">
     <div style="width:60%;margin:2px;margin-left:10px;">
     <form method="GET">
@@ -44,8 +44,6 @@
      </form>
      </div>
 </div>
-
-
 <!-- Task List  : style new -->
 <div class="task_container">
     {% for task in tasks %}

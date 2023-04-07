@@ -10,7 +10,7 @@ fix the task modal in re-occuring tasks
 -implement filter options.
 also filter on creation in NEW,Finished
 
--implement sorting options
+-implement sorting options DONE
 
 - think of a way to combine the filter and sorting :):(
 
