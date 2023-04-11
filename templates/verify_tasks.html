@@ -1,0 +1,323 @@
+{% extends "common.html" %}
+
+{% block title %} verify tasks {% endblock %}
+
+<!-- block body contains all site specifics -->
+{% block body %}
+<!--filter and sorting bar-->
+<div id="filter_bar">
+    <div style="width:60%;margin:2px;margin-left:10px;">
+    <form method="GET">
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_column" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due_date</option>
+        <option>start_date</option>
+        <option>responsible</option>
+        <option>description</option>
+    </select>
+    <select class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_type" >
+        <option>contains</option>
+        <option>equals</option>
+        <option>starts with</option>
+        <option>ends with</option>
+    </select>
+    <input type="text" id="filter_value" class="lineage_blue_button" style="margin-right:4px;padding: 10px 23px" name="filter_value">
+    <input type="submit" class="lineage_blue_button_inverted" value="Filter" style="padding: 10px 23px">
+    </form>
+    </div>
+    <div style="width:40%; display:flex; flex-direction:row-reverse;margin:2px; margin-right:10px; " >
+    <form method="get">
+        <select class="lineage_green_button" style="margin-right:4px;padding: 10px 23px" name="sort_column" >
+        <option>Zone</option>
+        <option>department</option>
+        <option>status</option>
+        <option>due_date</option>
+        <option>start_date</option>
+        <option>responsible</option>
+        <option>description</option>
+       </select>
+        <select class="lineage_green_button" style="margin-right:4px;padding: 10px 23px" name="sort_value">
+            <option>Ascending</option>
+            <option>Descending</option>
+        </select>
+        <input type="submit" value="Sort" class="lineage_green_button_inverted" style="padding: 10px 23px">
+     </form>
+     </div>
+</div>
+<!-- Task List -->
+<div class="task_container">
+    {% for task in tasks %}
+    <div class="task_row">
+        <!-- zone header -->
+        <div style="width: 2.5%; display: inline-flex; justify-content: center;">
+            <strong style="color:{{ task[21] }};" class="zone_header">{{ task[19] }}</strong>
+        </div>
+        <!-- zone color -->
+        <div style="background-color:{{ task[21] }};width:1.5%;" class="zone_color"></div>
+        <!-- Task description (width(incl.)34%) -->
+        <div class="task_description" style="width:35%">
+            <small class="lineage_font_semi_bold">description:</small>
+            <strong class="lineage_font_semi_bold" style="font-size:18px;">{{task[1]}}</strong></div>
+        <!-- Department (44) -->
+        <div class="task_description" style="width:8%" >
+            <small class="lineage_font_semi_bold" >Department:</small>
+            <strong class="lineage_font_semi_bold" >{{task[3]}}</strong>
+        </div>
+        <!-- finished by (44) -->
+        <div class="task_description" style="width:11%" >
+            <small class="lineage_font_semi_bold" >finished by:</small>
+            <strong class="lineage_font_semi_bold" >{{task[15]}}</strong>
+        </div>
+         <!-- finished on (44) -->
+        <div class="task_description" style="width:11%" >
+            <small class="lineage_font_semi_bold" >finished on:</small>
+            <strong class="lineage_font_semi_bold" >{{task[14]}}</strong>
+        </div>
+        <!-- Due Date (52) -->
+        <div class="task_description" style="width:8%">
+            <small class="lineage_font_semi_bold" >due date:</small>
+            <strong class="lineage_font_semi_bold" >{{task[7]}}</strong>
+        </div>
+        <!-- Status (60) -->
+        <div class="task_description" style="width:8%">
+            <small id="row_status" class="lineage_font_semi_bold">status: </small>
+            <strong id="row_status_data" class="lineage_font_semi_bold">{{task[10]}}</strong>
+        </div>
+        <!-- open task -->
+        <div class="task_description" style="margin:5px;">
+            <a class="lineage_blue_button" onclick="open_task_modal('task_modal_full',{{task[0]}});">Open Task</a>
+        </div>
+
+        <!--contains the entire task to pass to task modal-->
+        <!-- yes, i could just loop over them but want a list anyway so why not-->
+        <!--todo add comment per line with description-->
+        <div style="display:none;">
+            <input name="{{task[0]}}" value="{{task[0]}}">
+            <input name="{{task[0]}}" value="{{task[1]}}">
+            <input name="{{task[0]}}" value="{{task[2]}}">
+            <input name="{{task[0]}}" value="{{task[3]}}">
+            <input name="{{task[0]}}" value="{{task[4]}}">
+            <input name="{{task[0]}}" value="{{task[5]}}">
+            <input name="{{task[0]}}" value="{{task[6]}}">
+            <input name="{{task[0]}}" value="{{task[7]}}">
+            <input name="{{task[0]}}" value="{{task[8]}}">
+            <input name="{{task[0]}}" value="{{task[9]}}">
+            <input name="{{task[0]}}" value="{{task[10]}}">
+            <input name="{{task[0]}}" value="{{task[11]}}">
+            <textarea name="{{task[0]}}" style="white-space: pre-line;resize:none;">{{task[12]}}</textarea>
+            <input name="{{task[0]}}" value="{{task[13]}}">
+            <input name="{{task[0]}}" value="{{task[14]}}">
+            <input name="{{task[0]}}" value="{{task[15]}}">
+            <input name="{{task[0]}}" value="{{task[16]}}">
+            <input name="{{task[0]}}" value="{{task[17]}}">
+            <input name="{{task[0]}}" value="{{task[18]}}">
+            <input name="{{task[0]}}" value="{{task[19]}}">
+            <input name="{{task[0]}}" value="{{task[20]}}">
+            <input name="{{task[0]}}" value="{{task[21]}}">
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+<!-- task modal styling based status and or user settings-->
+<div id="task_modal_full" class="task_modal">
+    <div id="task_modal_content" class="task_modal_content" style="padding:50px;padding-top:20px; height:80%">
+
+        <!-- header part, Title and Close button -->
+        <div id="task_modal_full_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" id="task_modal_head_description" style="display:inline-flex;width:95%;"></h2>
+            <img src="static\close.png" height="40px;" style="float:right; margin:10px" onclick="close_modal('task_modal_full')">
+
+        </div>
+
+         <!--  main body -->
+        <div id="task_modal_full_center" style="display:flex; justify-content: space-between; height:75%; flex-direction: row-reverse;">
+
+            <!--part containing related info in label form-->
+            <div class="task_modal_center_information" style="width:48%;">
+
+                <strong class="lineage_font_bold">Task information:</strong>
+                 <hr color="#0067a0" style="width:95%; margin:5px; height:1px;">
+                <!--dates start,due -->
+                 <div class="task_info">
+
+                     <div style="width:120px;">
+                         <strong class="lineage_font_semi_bold">Start date:</strong>
+                     </div>
+
+
+                   <div  class="task_info_label">
+                       <!--start date filled in by JS -->
+                       <p id="task_start_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+                        <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">Due Date:</strong>
+                        </div>
+
+                   <div  class="task_info_label">
+                       <!--due date filled in by JS -->
+                       <p id="task_end_date" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+
+
+                 </div>
+                <!--zone and building-->
+                 <div class="task_info">
+
+                  <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">Zone: </strong>
+                  </div>
+                   <div  class="task_info_label">
+                       <!--zone-->
+                       <p id="task_zone" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+                     <div style="width:120px;">
+
+                      <strong class="lineage_font_semi_bold">Building:</strong>
+                     </div>
+                     <!--building-->
+                   <div  class="task_info_label">
+                       <p id="task_building" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+
+
+                 </div>
+                <!-- duration and responsible-->
+                 <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">est. duration:</strong>
+                    </div>
+                   <!--Duration-->
+                   <div  class="task_info_label">
+                       <p id="task_duration" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">responsible:</strong>
+                     </div>
+                   <!-- responsible -->
+                   <div  class="task_info_label">
+                       <p id="task_responsible" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+                 </div>
+                <!--finished on and by-->
+                 <div id="task_row_finished" class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">finished on:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_finishedON" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">finished by:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_finishedBY" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+                 </div>
+                <!--verified on and by-->
+                <div id="task_row_verified" class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">verified on:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_verifiedON" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong  class="lineage_font_semi_bold">verified by:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_verifiedBY" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+                 </div>
+                <!--re-occurs and status-->
+                <div class="task_info">
+
+                    <div style="width:120px;">
+                  <strong class="lineage_font_semi_bold">re-occurs:</strong>
+                    </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_reoccurs" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+                     <div style="width:120px;">
+                      <strong class="lineage_font_semi_bold">status:</strong>
+                     </div>
+
+                   <div  class="task_info_label">
+                       <p id="task_status" class="lineage_font_bold" style="display:inline; color:#ffff;"></p>
+                   </div>
+
+
+                 </div>
+
+            </div>
+            <!--contains textbox with instructions-->
+            <div class="task_modal_center_instruction" style="width:48%;">
+
+            <strong class="lineage_font_bold">Instructions:</strong>
+            <hr color="#0067a0" style="width:100%; margin:5px; height:1px;">
+
+            <div class="lineage_font_semi_bold" style="background-color:#009681;margin-bottom:15px;width:100%; height:150px; color:white;">
+                <p id="task_instruction" style="width:100%; padding:5px; padding-left:15px; color:white; word-break: break-all; white-space: normal;"></p>
+            </div>
+
+             <strong id="task_issue_header" class="lineage_font_bold">Reported Issues:</strong>
+            <hr id="task_issue_line" color="#0067a0" style="width:100%; margin:5px; height:1px;">
+
+            <div id = "task_issue_part" style="background-color:#009681; width:100%; height:150px; color:white">
+                <p id="task_issue" style="padding:5px; padding-left:15px;"></p>
+            </div>
+
+            </div>
+
+        </div>
+
+        <!-- footer section, mostly for buttons -->
+        <div id="task_modal_full_footer" class="task_modal_footer">
+            <a id="finish_task_button" class="lineage_green_button_inverted" style="margin:15px; display:none;" onclick="finish_task()">Finish Task</a>
+            <!-- to change to red button class and rename/rethink -->
+            <a class="lineage_red_button" style="margin:15px;" onclick="reopen_task();">Re-Open</a>
+            <a class="lineage_blue_button_inverted" style="margin:15px;" onclick="verify_task();">Verify</a>
+            <!--hidden form, for task verification(posting info on task)-->
+            <div style="display:none;">
+                <form id="verify_task_form" method="POST">
+                    <input id="verify_task" name="verify_task" value="">
+                </form>
+            </div>
+            <!--hidden form for re-open task-->
+            <div style="display:none;">
+                <form id="reopen_task_form" method="post">
+                    <input id="reopen_task" name="reopen_task" value="">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -178,6 +178,69 @@ def finished_tasks():
         return redirect('/finished_tasks')
 
 
+@app.route('/verify_tasks', methods=['GET', 'POST'])
+# todo put all double code in functions and refactor
+def verify_tasks():
+    if request.method == 'GET':
+        try:
+            user = session['user']
+        except:
+            return redirect('/log_in')
+
+        # todo replace retrieving the next info for a function
+        # task information - filtered on finished
+        query = 'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description ' \
+                'WHERE status = "finished"'
+        tasks = DbCon(session['db']).return_result(query)
+
+        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
+        role = session['user']['role']
+        rights = role['rights']
+        buildings = role['building']
+        zones = role['zones']
+
+        # filter tasks
+        # check if filter button it pressed
+        if request.args.get('filter_column'):
+            # if a value is given overwrite existing query
+            if request.args.get('filter_value'):
+                query = filter_tasks(query)
+                tasks = DbCon(session['db']).return_result(query)
+            # write query to session object (cookies)
+            session['query'] = query
+
+        # sort tasks
+        if request.args.get('sort_column'):
+            # check if already filtered exist
+            try:
+                if session['query']:
+                    query = session['query']
+            except:
+                query = query
+            # execute sort task functions
+            query = sort_tasks(query)
+            tasks = DbCon(session['db']).return_result(query)
+
+        return render_template('verify_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
+
+    if request.method == 'POST':
+
+        user_name = session['user']['name']
+
+        if request.form.get('verify_task'):
+            task_id = request.form.get('verify_task')
+            verified_time = datetime.now().strftime("%d-%m-%Y %H:%M")
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Completed",'
+                                                   f' verified_on = "{verified_time}",'
+                                                   f' verified_by = "{user_name}" '
+                                                   f' where ROWID = {task_id}')
+        if request.form.get('reopen_task'):
+            task_id = request.form.get('reopen_task')
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "new" WHERE ROWID = {task_id}')
+
+        return redirect('/verify_tasks')
+
+
 @app.route('/buildings_zones', methods=['GET', 'POST'])
 def building_zones():
     # check if the user is login by checking their cookies
