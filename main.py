@@ -180,6 +180,7 @@ def finished_tasks():
 
 @app.route('/verify_tasks', methods=['GET', 'POST'])
 # todo put all double code in functions and refactor
+# todo now is a copy from finished.. that's weak man.. :(
 def verify_tasks():
     if request.method == 'GET':
         try:

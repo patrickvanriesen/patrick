@@ -1,7 +1,8 @@
 
 fix the task modal in re-occuring tasks -->P9
 
-- Create a verify task page --> P1
+- Create a verify task page --> P1 --> done
+- extend verify page --> verify button and verify within filter option --> p11
 
 - make a users overview page --> P2
 
