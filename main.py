@@ -346,6 +346,10 @@ def users():
         except:
             return redirect('log_in')
 
+        with open('user_list.SQL') as query:
+            query = query.read()
+        user_list = DbCon(session['db']).return_result(query)
+
         return render_template('users.html')
 
 
