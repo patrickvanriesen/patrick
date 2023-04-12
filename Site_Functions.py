@@ -111,3 +111,12 @@ def sort_tasks(query):
     query = query + order_by
     return query
 
+
+def check_user_login():
+    user = session['user']
+    role = session['user']['role']
+    rights = role['rights']
+    buildings = role['building']
+    zones = role['zones']
+    return user, role, rights, buildings, zones
+

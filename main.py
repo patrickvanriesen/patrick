@@ -119,22 +119,17 @@ def log_out():
 @app.route('/finished_tasks', methods=["GET", "POST"])
 def finished_tasks():
     if request.method == 'GET':
+
         try:
-            user = session['user']
+            user, role, rights, buildings, zones = check_user_login()
         except:
-            return redirect('/log_in')
+            return redirect('log_in')
 
         # todo replace retrieving the next info for a function
         # task information - filtered on finished
         query = 'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description ' \
                 'WHERE status <> "new"'
         tasks = DbCon(session['db']).return_result(query)
-
-        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
-        role = session['user']['role']
-        rights = role['rights']
-        buildings = role['building']
-        zones = role['zones']
 
         # filter tasks
         # check if filter button it pressed
@@ -183,22 +178,17 @@ def finished_tasks():
 # todo now is a copy from finished.. that's weak man.. :(
 def verify_tasks():
     if request.method == 'GET':
+
         try:
-            user = session['user']
+            user, role, rights, buildings, zones = check_user_login()
         except:
-            return redirect('/log_in')
+            return redirect('log_in')
 
         # todo replace retrieving the next info for a function
         # task information - filtered on finished
         query = 'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description ' \
                 'WHERE status = "finished"'
         tasks = DbCon(session['db']).return_result(query)
-
-        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
-        role = session['user']['role']
-        rights = role['rights']
-        buildings = role['building']
-        zones = role['zones']
 
         # filter tasks
         # check if filter button it pressed
@@ -328,18 +318,14 @@ def roles_page():
 @app.route('/reoccur', methods=['GET', 'POST'])
 def reoccur_page():
     if request.method == 'GET':
+
         try:
-            user = session['user']
+            user, role, rights, buildings, zones = check_user_login()
         except:
-            return redirect('/log_in')
+            return redirect('log_in')
 
         tasks = DbCon(session['db']).return_result(
             'SELECT reoccurring_tasks.ROWID,* FROM reoccurring_tasks JOIN Zone_table ON zone = Zone_description ')
-        # retrieve the info from the session_user, its not really needed to unpack but is for nicer html
-        role = session['user']['role']
-        rights = role['rights']
-        buildings = role['building']
-        zones = role['zones']
 
         return render_template('reoccuring.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
@@ -350,6 +336,17 @@ def reoccur_page():
             DbCon(session['db']).connection_simple(f'DELETE FROM REOCCURRING_TASKS WHERE ROWID = {task_id}')
 
         return redirect('reoccur')
+
+
+@app.route('/users', methods=['GET', 'POST'])
+def users():
+    if request.method == 'GET':
+        try:
+            user, role, rights, buildings, zones = check_user_login()
+        except:
+            return redirect('log_in')
+
+        return render_template('users.html')
 
 
 if __name__ == '__main__':

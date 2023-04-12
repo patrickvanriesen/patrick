@@ -6,6 +6,7 @@ fix the task modal in re-occuring tasks -->P9
 
 - make a users overview page --> P2
 
+-replace the separate session retrieves with check_user_login() everywhere -->p12
 
 - implement a tablet view (restricted page) --> P10
 
