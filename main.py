@@ -350,7 +350,7 @@ def users():
             query = query.read()
         user_list = DbCon(session['db']).return_result(query)
 
-        return render_template('users.html')
+        return render_template('users.html', user_list=user_list)
 
 
 if __name__ == '__main__':

@@ -26,6 +26,8 @@ fix the task modal in re-occuring tasks -->P9
 
 -make re-occuring tasks working -->P8
 
+- extend finished tasks and verify tasks filters : finsished by, verified by etc
+
 <___implement @ KBL___>
 
 - some clean up, i am now passing info through the modals which is not needed,
