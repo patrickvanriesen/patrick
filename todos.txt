@@ -28,6 +28,11 @@ fix the task modal in re-occuring tasks -->P9
 
 - extend finished tasks and verify tasks filters : finsished by, verified by etc
 
+- record tasks by user_id...and then for finished verified tasks create join
+
+-change the task finished by by user_id..and fix all that causes
+
+
 <___implement @ KBL___>
 
 - some clean up, i am now passing info through the modals which is not needed,

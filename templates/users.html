@@ -5,6 +5,61 @@
 <!-- block body contains all site specifics -->
 {% block body %}
 {% for user in user_list %}
+<!--user list-->
+<div class="task_container" xmlns="http://www.w3.org/1999/html">
+ <div class="task_row">
+     <!--username-->
+  <div class="task_description" style="width:25%;margin-left:15px;">
+    <small class="lineage_font_semi_bold">
+        username:
+    </small>
+    <strong class="lineage_font_semi_bold" style="font-size:18px;">
+        {{ user[1] }}
+    </strong>
+  </div>
+       <!--department-->
+  <div class="task_description" style="width:15%;">
+    <small class="lineage_font_semi_bold">
+        department:
+    </small>
+    <strong class="lineage_font_semi_bold" style="font-size:18px;">
+        {{ user[2] }}
+    </strong>
+  </div>
+          <!--Creation-->
+  <div class="task_description" style="width:15%;">
+    <small class="lineage_font_semi_bold">
+        Creation:
+    </small>
+    <strong class="lineage_font_semi_bold" style="font-size:18px;">
+        {{ user[3] }}
+    </strong>
+  </div>
+     <!--count finished-->
+  <div class="task_description" style="width:15%;">
+    <small class="lineage_font_semi_bold">
+        # of tasks finished:
+    </small>
+    <strong class="lineage_font_semi_bold" style="font-size:18px;">
+        {{ user[4] }}
+    </strong>
+  </div >
+     <!-- change password-->
+<div class="task_description" style="width:16%;">
+     <form method="post">
+         <input type="submit" value="change password" class="lineage_grey_button">
+        <input type="hidden" value="{{user[0]}}" name="change_pass">
+    </form>
+</div>
+     <!-- delete user-->
+<div class="task_description" style="width:10%;">
+       <form method="post">
+         <input type="submit" value="delete" class="lineage_red_button">
+        <input type="hidden" value="{{user[0]}}" name="delete_user">
+    </form>
+</div>
 
+ </div>
+</div>
 {% endfor%}
 {% endblock%}

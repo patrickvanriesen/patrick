@@ -352,6 +352,17 @@ def users():
 
         return render_template('users.html', user_list=user_list)
 
+    if request.method == "POST":
+        # delete user function (delete from both tables pass table_and the other one)
+        if request.form.get('delete_user'):
+            print(request.form.get('delete_user'))
+        # change pass in both tables
+        if request.form.get('change_password'):
+            print(request.form.get('change_password'))
+
+        return redirect('/users')
+
+
 
 if __name__ == '__main__':
     app.run()
