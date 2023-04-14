@@ -25,8 +25,8 @@ def add_role(site):
 def add_user(site):
     user = Users(request.form.get('user_name'), request.form.get('user_password'), site,
                  request.form.get('user_email'), request.form.get('user_role'))
-    user.write_to_db()
     user.write_userkey()
+    user.write_to_db()
 
 
 def add_building(db):
@@ -119,4 +119,3 @@ def check_user_login():
     buildings = role['building']
     zones = role['zones']
     return user, role, rights, buildings, zones
-

@@ -18,10 +18,7 @@ def login(username, password):
 def find_key(user, pas):
     # used to return the db value of a user_key combo
     pas = hashlib.sha256(pas.encode('utf-8')).hexdigest()
-    # open the csv file, and read it
-    with open('userkeys.csv', newline='') as keys_csv:
-        keys = csv.reader(keys_csv)
-        for key in keys:
-            if key[0] == user + pas:
-                db = key[1]
-                return db
+    key = user+pas
+    db = DbCon('global_user.db').unpack_first_result(f'SELECT db FROM global_user where userkey = "{key}"')
+    db = db[0]
+    return db

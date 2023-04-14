@@ -1,6 +1,5 @@
 from datetime import date
 import hashlib
-import csv
 from Role import *
 
 
@@ -21,16 +20,22 @@ class Users:
         self.creation = date.today()
         # Holds the Role Object
         self.role = Role(self.site, self.role_name)
+        # holds the global_id
+        self.global_id = ''
 
     def write_to_db(self):
         # Create a Tuple of Values to be written
-        user = (self.name, self.password, self.site, self.email, self.role_name, self.creation)
+        user = (self.name, self.password, self.site, self.email, self.role_name, self.creation, self.global_id)
         # add user to DB, db = 'SITE''.db'
         db = f'{self.site}.db'
-        DbCon(db).insert('INSERT INTO USER_TABLE VALUES(?,?,?,?,?,?)', user)
+        DbCon(db).insert('INSERT INTO USER_TABLE VALUES(?,?,?,?,?,?,?)', user)
 
     def write_userkey(self):
-        with open('userkeys.csv', 'a', newline='') as u:
-            writer = csv.writer(u)
-            # write a key consisting of name+pass and site so we now the DB/Site to access
-            writer.writerow([f'{self.name}{self.password}', f'{self.site}.db'])
+        user = (self.name, self.name + self.password, f'{self.site}.db')
+        print(user)
+        DbCon('global_user.db').insert('INSERT INTO global_user VALUES(?,?,?)', user)
+        # retrieve global_key and input into object
+        global_key = DbCon('global_user.db').unpack_first_result('SELECT ROWID FROM global_user '
+                                                                 f'WHERE userkey = "{self.name + self.password}"')
+        self.global_id = global_key[0]
+        print(self.global_id)
