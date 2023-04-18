@@ -1,3 +1,11 @@
-SELECT USER_TABLE.ROWID, NAME, USER_TABLE.ROLE, USER_TABLE.creation, count(finished_by), SUM(duration) FROM USER_TABLE
+SELECT
+USER_TABLE.ROWID,
+NAME,
+USER_TABLE.ROLE,
+USER_TABLE.creation,
+count(finished_by),
+SUM(duration),
+global_id
+FROM USER_TABLE
 LEFT JOIN TASK_TABLE on finished_by = NAME
 GROUP BY USER_TABLE.ROWID
