@@ -221,7 +221,7 @@ def verify_tasks():
         if request.form.get('verify_task'):
             task_id = request.form.get('verify_task')
             verified_time = datetime.now().strftime("%d-%m-%Y %H:%M")
-            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Completed",'
+            DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "Verified",'
                                                    f' verified_on = "{verified_time}",'
                                                    f' verified_by = "{user_name}" '
                                                    f' where ROWID = {task_id}')

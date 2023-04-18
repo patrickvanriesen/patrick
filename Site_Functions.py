@@ -5,10 +5,10 @@ from reoccuring_tasks import add_reoccurring_task
 
 def convert_date(wrong_date):
     # correct later, for now is not working with edit modal
-    #try:
-        #wrong_date = datetime.strptime(wrong_date, "%Y-%m-%d")
-        #correct_date = datetime.strftime(wrong_date, "%d-%m-%Y")
-    #except:
+    # try:
+    # wrong_date = datetime.strptime(wrong_date, "%Y-%m-%d")
+    # correct_date = datetime.strftime(wrong_date, "%d-%m-%Y")
+    # except:
     correct_date = wrong_date
     return correct_date
 
@@ -63,7 +63,7 @@ def add_task():
     start = convert_date(request.form.get('task_start_date'))
     due = convert_date(request.form.get('task_due_date'))
 
-    # define task object and add the following to it : instructions Re-occur settings
+    # define task object and add the following to it : instructions, Re-occur settings
     task = Task(description, responsible, role, building, zone, start, due, duration)
     task.instructions = request.form.get('task_instruction')
     task.reoccur = request.form.get('task_reoccur')

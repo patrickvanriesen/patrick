@@ -108,7 +108,7 @@ if (task_status === "finished"){
 document.getElementById('verify_task').value = task[0].value;
 document.getElementById('reopen_task').value = task[0].value;}
 // if completed, hide buttons. think about changing completed to verified
-if (task_status === "Completed"){
+if (task_status === "Verified"){
 document.getElementById('task_modal_full_footer').style = "display:none;"}
 
 }
