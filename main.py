@@ -357,8 +357,8 @@ def users():
         if request.form.get('delete_user'):
             print(request.form.get('delete_user'))
         # change pass in both tables
-        if request.form.get('change_password'):
-            print(request.form.get('change_password'))
+        if request.form.get('change_pass'):
+            print(request.form.get('change_pass'))
 
         return redirect('/users')
 
