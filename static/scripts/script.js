@@ -166,14 +166,13 @@ var  task = document.getElementsByName(document.getElementById('task_rowid').val
 // retrieve info from SRC modal and fill in in the edit task modal
 document.getElementById('edit_task_description').value = document.getElementById('task_modal_head_description').innerHTML ;
 document.getElementById('edit_task_responsible').value = document.getElementById('task_responsible').innerHTML ;
-// the selected part is is not working properly. and it used to do
 document.getElementById('edit_task_role').value = task[3].value;
 document.getElementById('edit_task_building').selected = document.getElementById('task_building').innerHTML;
-document.getElementById('edit_task_zone').value = task[5].value ;
+document.getElementById('edit_task_zone').value = task[5].value;
 // this part is ok again
 document.getElementById('edit_task_duration').value = task[8].value;
-document.getElementById('edit_task_start_date').value = document.getElementById('task_start_date').innerHTML ;
-document.getElementById('edit_task_due_date').value = document.getElementById('task_end_date').innerHTML ;
+document.getElementById('edit_task_start_date').value = task[6].value;
+document.getElementById('edit_task_due_date').value = task[7].value;
 document.getElementById('edit_task_instruction').value = document.getElementById('task_instruction').innerHTML ;
 document.getElementById('edit_task').value = task[0].value;
 }

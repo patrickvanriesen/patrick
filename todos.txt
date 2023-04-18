@@ -14,7 +14,7 @@ fix the task modal in re-occuring tasks -->P9
 
 - implement a filter based on building, role and rights. --> p6
 
-- reformat date input --> DONE --> require start and end date.(or check if is input) --> P7
+- find out why the dates are no longer filled in, in the edit task modal -->p8 --> is due to date format
 
 - change completed to verified --> P3
 
