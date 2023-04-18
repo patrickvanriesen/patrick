@@ -46,10 +46,7 @@
   </div >
      <!-- change password-->
 <div class="task_description" style="width:16%;">
-     <form method="post">
-         <input type="submit" value="change password" class="lineage_grey_button">
-        <input type="hidden" value="{{user[6]}}" name="change_pass">
-    </form>
+    <button onclick="open_password_modal('{{user[1]}}','{{user[6]}}')" class="lineage_grey_button">change password</button>
 </div>
      <!-- delete user-->
 <div class="task_description" style="width:10%;">
@@ -62,4 +59,33 @@
  </div>
 </div>
 {% endfor%}
+   <!--change password modal-->
+    <!--to simplify placed in the for loop-->
+    <div id="change_password_modal" class="task_modal">
+    <div class="task_modal_content" style="padding:50px; padding-top:20px; height:33%; width:40%;">
+        <!--add user header-->
+         <div id="add_user_header" style="display:flex; align-items:center;">
+            <h2 class="lineage_font_bold" style="display:inline-flex; justify-content:center; width:95%;">change Password</h2>
+            <img src="static\close.png" height="40px;" style="margin:10px" onclick="close_modal('change_password_modal')">
+         </div>
+         <!-- underscore line-->
+        <div style="background-color:#0067a0; height:2px; width:100%; margin-bottom:10px;"></div>
+        <!-- add user form -->
+        <div>
+            <form method="post">
+                <!--user name-->
+                <div style="width:100%;margin-bottom:15px;display:flex;">
+                    <label class="lineage_font_semi_bold" style="font-size:18px;display:inline-flex;width:40%;">new password:</label>
+                    <input name="new_pass" class="lineage_font_semi_bold" style="color:#53565a;display:inline-flex;width:60%;" type="text">
+                    <input id="change_pass" type="hidden" value="" name="change_pass">
+                    <input id="change_pass_name" type="hidden" value="" name="user_name">
+                </div>
+                <div style="width:100%;margin-bottom:15px;display:flex;justify-content:flex-end;margin-top:25px;">
+                    <input name="pass_change" type="submit" value="change password" class="lineage_green_button">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock%}

@@ -355,10 +355,23 @@ def users():
     if request.method == "POST":
         # delete user function (delete from both tables pass table_and the other one)
         if request.form.get('delete_user'):
-            print(request.form.get('delete_user'))
+            global_id = request.form.get('delete_user')
+            query_local = f'DELETE FROM USER_TABLE WHERE global_id = "{global_id}"'
+            DbCon(session['db']).connection_simple(query_local)
+            query_global = f'DELETE FROM global_user WHERE ROWID = "{global_id}"'
+            DbCon('global_user.db').connection_simple(query_global)
+
         # change pass in both tables
         if request.form.get('change_pass'):
-            print(request.form.get('change_pass'))
+            global_id = request.form.get('change_pass')
+            new_pass = request.form.get('new_pass')
+            new_pass = hashlib.sha256(new_pass.encode('utf-8')).hexdigest()
+            query_local = f'UPDATE USER_TABLE SET PASSWORD = "{new_pass}" WHERE global_id = {global_id}'
+            # include name as key = name+pass
+            key = request.form.get('user_name') + new_pass
+            query_global = f'UPDATE global_user SET userkey = "{key}" WHERE ROWID = {global_id}'
+            DbCon(session['db']).connection_simple(query_local)
+            DbCon('global_user.db').connection_simple(query_global)
 
         return redirect('/users')
 

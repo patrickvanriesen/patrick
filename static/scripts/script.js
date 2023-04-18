@@ -185,3 +185,8 @@ document.getElementById('Report_issue_id').value = task[0].value;
 }
 
 function link_to_home(){window.location.replace('/');}
+
+function open_password_modal(name,key){
+open_modal('change_password_modal')
+document.getElementById('change_pass').value = key
+document.getElementById('change_pass_name').value = name}

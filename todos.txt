@@ -1,12 +1,8 @@
 
 fix the task modal in re-occuring tasks -->P9
 
-- Create a verify task page --> P1 --> done
-- extend verify page --> verify button and verify within filter option --> p11
 
-- make a users overview page --> P2
---> implement a way to update user passwords in csv file..or create seperate DB
---> change to DB handling in user.py and login.py
+- extend verify page --> verify button and verify within filter option --> p11
 
 -replace the separate session retrieves with check_user_login() everywhere -->p12
 
@@ -32,6 +28,9 @@ fix the task modal in re-occuring tasks -->P9
 
 -change the task finished by by user_id..and fix all that causes
 
+-- in the change date format function from edit task.. add a try and test
+
+--check if the add user works everywhere (add roles etc info to render_template() )
 
 <___implement @ KBL___>
 
