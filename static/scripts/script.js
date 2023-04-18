@@ -103,11 +103,19 @@ task_error_header.style = "display:block;";
 task_row_verified.style = "display:flex;";
 task_row_finished.style = "display:flex";
 document.getElementById('task_modal_full_footer').style = "display:flex";
-// for some reason below does not work in fill in info part.. will figure out why ? :(
+
+// if task status is issue then hide the finished and verified by pieces
+if (task_status === "issue"){
+task_row_verified.style = "display:none;"
+task_row_finished.style = "display:none"
+}
+// if status is finished then add values to buttons and hide verified row
 if (task_status === "finished"){
 document.getElementById('verify_task').value = task[0].value;
-document.getElementById('reopen_task').value = task[0].value;}
-// if completed, hide buttons. think about changing completed to verified
+document.getElementById('reopen_task').value = task[0].value;
+task_row_verified.style = "display:none;"
+}
+// if verified, hide buttons.
 if (task_status === "Verified"){
 document.getElementById('task_modal_full_footer').style = "display:none;"}
 

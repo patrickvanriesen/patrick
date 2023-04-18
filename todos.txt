@@ -1,29 +1,11 @@
-
-
 fix the task modal in re-occuring tasks -->P9
-
 - extend verify page --> verify button and verify within filter option --> p11
-
--replace the separate session retrieves with check_user_login() everywhere -->p12
-
 - implement a tablet view (restricted page) --> P10
-
 - implement finished date + time ,verified date + time in finished task --> P5
-
 - hide finished and verified times when status = issue --> P4
-
 - implement a filter based on building, role and rights. --> p6
-
-- find out why the dates are no longer filled in, in the edit task modal -->p8 --> is due to date format
-
-- change completed to verified --> P3
-
 -make re-occuring tasks working -->P8
-
-- extend finished tasks and verify tasks filters : finsished by, verified by etc
-
--- in the change date format function from edit task.. add a try and test
-
+- extend finished tasks and verify tasks filters : finished by, verified by etc
 --check if the add user works everywhere (add roles etc info to render_template() )
 
 <___implement @ KBL___>
@@ -34,7 +16,8 @@ fix the task modal in re-occuring tasks -->P9
 -record tasks by user_id...and then for finished verified tasks create join
 -change the task finished by by user_id..and fix all that causes
 -- add comment when is re-openend is report -->After impl.
-
+- find out why the dates are no longer filled in, in the edit task modal -->p8 --> is due to date format
+-replace the separate session retrieves with check_user_login() everywhere -->p12
 
 Known Bugs :
 ->Editing a task might create double rescheduled task (if reschedule is more then 1)
