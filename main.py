@@ -240,20 +240,18 @@ def verify_tasks():
 
 @app.route('/buildings_zones', methods=['GET', 'POST'])
 def building_zones():
-    # check if the user is login by checking their cookies
-    if not session['user']:
+    try:
+        db = session['db']
+        user, role, rights, buildings, zones = check_user_login()
+    except:
         return redirect('/log_in')
-
-    # to combine in verify function within site functions
-    user = session['user']
-    db = session['db']
 
     # the local admin page used to create Buildings and Zones
     if request.method == 'GET':
         # retrieve info needed to create
         buildings = DbCon(db).unpack_first_result('SELECT * FROM BUILDINGS')
         zones = DbCon(db).return_result('SELECT ROWID,* FROM Zone_table')
-        return render_template('buildings_zones.html', buildings=buildings, zones=zones)
+        return render_template('buildings_zones.html', buildings=buildings, rights=rights, zones=zones)
 
     # it there is a post request it means either a building,role,zone or user should be added
     if request.method == 'POST':
@@ -288,7 +286,7 @@ def building_zones():
 def roles_page():
     try:
         db = session['db']
-        user = session['user']
+        user, role, rights, buildings, zones = check_user_login()
     except:
         return redirect('/log_in')
 
@@ -304,7 +302,7 @@ def roles_page():
             # append an dict. version of the role object to the roles list
             roles.append(vars(role))
 
-        return render_template('/roles.html', buildings=buildings, roles=roles)
+        return render_template('/roles.html', buildings=buildings, roles=roles, rights=rights, zones=zones)
     if request.method == "POST":
 
         if request.form.get('delete_role'):
@@ -357,7 +355,7 @@ def users():
             query = query.read()
         user_list = DbCon(session['db']).return_result(query)
 
-        return render_template('users.html', user_list=user_list)
+        return render_template('users.html', user_list=user_list,rights=rights, buildings=buildings, zones=zones)
 
     if request.method == "POST":
         # delete user function (delete from both tables pass table_and the other one)

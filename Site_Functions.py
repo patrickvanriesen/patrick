@@ -132,3 +132,4 @@ def filter_tasks_on_rights(tasks, rights):
             tasks.pop(counter)
         counter += 1
     return tasks
+

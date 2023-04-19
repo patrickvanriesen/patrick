@@ -2,7 +2,6 @@ fix the task modal in re-occuring tasks -->P9
 - implement a tablet view (restricted page) --> P10
 - make re-occuring tasks working -->P8
 - extend finished tasks and verify tasks filters : finished by, verified by etc -->P7
-- check if the add user works everywhere (add roles etc info to render_template() )
 - implement new base on all pages
 
 <___implement @ KBL___>
@@ -15,6 +14,8 @@ fix the task modal in re-occuring tasks -->P9
 -- add comment when is re-openend is report -->After impl.
 - find out why the dates are no longer filled in, in the edit task modal -->p8 --> is due to date format
 -replace the separate session retrieves with check_user_login() everywhere -->p12
+- create global admin page, for creating/adding new sites
+- make log-in page prettier
 
 Known Bugs :
 ->Editing a task might create double rescheduled task (if reschedule is more then 1)
