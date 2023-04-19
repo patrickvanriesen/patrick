@@ -1,6 +1,5 @@
 fix the task modal in re-occuring tasks -->P9
 - implement a tablet view (restricted page) --> P10
-- implement a filter based on building, role and rights. --> p6
 - make re-occuring tasks working -->P8
 - extend finished tasks and verify tasks filters : finished by, verified by etc -->P7
 - check if the add user works everywhere (add roles etc info to render_template() )
