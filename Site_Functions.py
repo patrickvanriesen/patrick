@@ -149,10 +149,10 @@ def create_re_occuring_tasks():
         last_creation += timedelta(days=days)
         if last_creation <= datetime.today():
             # if in weekend skip this and exclude weekend is true skip
-            if day_of_week >= 5 and t[11] == True:
+            if day_of_week >= 5 and t[11] == "TRUE":
                 continue
             # if in weekday and exclude wkday is true then skip
-            if day_of_week < 5 and t[12] == True:
+            if day_of_week < 5 and t[12] == "TRUE":
                 continue
             task = Task(t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8])
             task.reoccur = days
