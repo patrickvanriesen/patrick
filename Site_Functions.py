@@ -123,3 +123,12 @@ def check_user_login():
     buildings = role['building']
     zones = role['zones']
     return user, role, rights, buildings, zones
+
+
+def filter_tasks_on_rights(tasks, rights):
+    counter = 0
+    for task in tasks:
+        if task[3] not in rights:
+            tasks.pop(counter)
+        counter += 1
+    return tasks

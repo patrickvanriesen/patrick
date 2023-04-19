@@ -46,6 +46,8 @@ def home():
             query = sort_tasks(query)
             tasks = DbCon(session['db']).return_result(query)
 
+        # filter tasks based on rights
+        tasks = filter_tasks_on_rights(tasks, rights)
         return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     # if there is an post request, check which form and execute the needed function from site functions
@@ -153,6 +155,8 @@ def finished_tasks():
             query = sort_tasks(query)
             tasks = DbCon(session['db']).return_result(query)
 
+        # filter tasks based on rights
+        tasks = filter_tasks_on_rights(tasks, rights)
         return render_template('finished_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     if request.method == 'POST':
@@ -212,6 +216,8 @@ def verify_tasks():
             query = sort_tasks(query)
             tasks = DbCon(session['db']).return_result(query)
 
+        # filter tasks based on rights
+        tasks = filter_tasks_on_rights(tasks, rights)
         return render_template('verify_tasks.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     if request.method == 'POST':
@@ -326,7 +332,8 @@ def reoccur_page():
 
         tasks = DbCon(session['db']).return_result(
             'SELECT reoccurring_tasks.ROWID,* FROM reoccurring_tasks JOIN Zone_table ON zone = Zone_description ')
-
+        # filter on rights
+        tasks = filter_tasks_on_rights(tasks, rights)
         return render_template('reoccuring.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     if request.method == 'POST':
