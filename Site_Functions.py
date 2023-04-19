@@ -1,3 +1,5 @@
+import datetime
+from datetime import timedelta
 from User import *
 from Tasks import *
 from reoccuring_tasks import add_reoccurring_task
@@ -133,3 +135,27 @@ def filter_tasks_on_rights(tasks, rights):
         counter += 1
     return tasks
 
+
+def create_re_occuring_tasks():
+    reoccuring_tasks = DbCon(session['db']).return_result('SELECT ROWID,* FROM REOCCURRING_TASKS')
+    now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    day_of_week = datetime.today().weekday()
+    for t in reoccuring_tasks:
+        # transform last creation to date-time object
+        last_creation = datetime.strptime(t[13], '%d-%m-%Y %H:%M:%S')
+        # find re-occur timer in days
+        days = int(t[10])
+        # add last-creation and days and compare to today
+        last_creation += timedelta(days=days)
+        if last_creation <= datetime.today():
+            # if in weekend skip this and exclude weekend is true skip
+            if day_of_week >= 5 and t[11] == True:
+                continue
+            # if in weekday and exclude wkday is true then skip
+            if day_of_week < 5 and t[12] == True:
+                continue
+            task = Task(t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8])
+            task.reoccur = days
+            task.write_to_db()
+            DbCon(session['db']).connection_simple(f'update REOCCURRING_TASKS set last_creation = "{now}" '
+                                                   f'where ROWID = "{t[0]}"')

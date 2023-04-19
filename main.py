@@ -19,6 +19,9 @@ def home():
         buildings = role['building']
         zones = role['zones']
 
+        # create new tasks based on re-occur tasks
+        create_re_occuring_tasks()
+
         # retrieve task information needed to show tasks
         query = 'SELECT TASK_TABLE.ROWID,* FROM TASK_TABLE JOIN Zone_table ON zone = Zone_description ' \
                 'WHERE (status = "new" or status = "issue")'
