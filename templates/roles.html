@@ -1,55 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Roles</title>
+{% extends "common.html" %}
+{% block title %} buildings and zones {% endblock %}
+<!-- block body contains all site specifics -->
+{% block body %}
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="\static\styles\style.css">
-</head>
-<body>
-<!-- Menu Bar  --><!-- to change to reg. css. + some restyling --><!--now just for looks -->
-<div class="w3-bar w3-card" style="background-image: linear-gradient(to right,#0067a0, #0067a0); color:white;">
-
- <div class="w3-bar-item w3-hover-teal "><img src="static\Lineage-Shield-RGB-White.png" alt="lineage-Logo" height="80" class="w3-round"></div>
-
-    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
-        <img src="static\clipboard.png" alt="tasks" height="80">
-        <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a onclick="open_add_task_modal()" class="w3-bar-item lineage_green_button">add Task</a>
-            <a class="w3-bar-item lineage_green_button">re-occurring tasks</a>
-            <a class="w3-bar-item lineage_green_button">verify tasks</a>
-        </div>
-    </div>
-
-    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
-        <img src="static\line-chart.png" alt="finished_tasks" height="80">
-      <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a class="w3-bar-item lineage_green_button">finished task list</a>
-            <a class="w3-bar-item lineage_green_button">Dashboard & metrics</a>
-        </div>
-    </div>
-
-    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
-        <img src="static\user.png" alt="users" height="80">
-         <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a class="w3-bar-item lineage_green_button">Add User</a>
-            <a class="w3-bar-item lineage_green_button">Manage Users</a>
-            <a class="w3-bar-item lineage_green_button">add/edit roles</a>
-            <a class="w3-bar-item lineage_green_button">User-info</a>
-        </div>
-    </div>
-
-    <div class="w3-bar-item w3-dropdown-hover w3-hover-teal">
-        <img src="static\settings.png" alt="settings" height="80">
-          <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-center">
-            <a class="w3-bar-item lineage_green_button">Log out</a>
-            <a href="/buildings_zones" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Buildings</a>
-            <a href="/buildings_zones" class="w3-bar-item lineage_green_button" style="text-decoration:none;">Zones</a>
-            <a class="w3-bar-item lineage_green_button">Email settings</a>
-        </div>
-    </div>
-</div>
+<!--body-->
 <div style="margin:10px; display:flex;justify-content:space-around;">
 <div style="width:30%;display:flex;flex-direction:column;">
  <!-- header and line-->
@@ -158,10 +112,5 @@
 </div>
 
 </div>
-<!-- where the javascript lives,guess i should clean that up at some point -->
-<script src="static/scripts/script.js"></script>
-</body>
-</html>
 
-
-
+{% endblock %}

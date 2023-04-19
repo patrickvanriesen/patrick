@@ -1,7 +1,5 @@
 fix the task modal in re-occuring tasks -->P9
 - implement a tablet view (restricted page) --> P10
-- implement new base on all pages
-- fix whats going wrong with filter_on_rights
 
 <___implement @ KBL___>
 - extend verify page --> verify button and verify within filter option --> p11

@@ -177,6 +177,13 @@ def finished_tasks():
             task_id = request.form.get('reopen_task')
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "new" WHERE ROWID = {task_id}')
 
+        if request.form.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
+        if request.form.get('task_add_task'):
+            add_task()
+
         return redirect('/finished_tasks')
 
 
@@ -238,6 +245,13 @@ def verify_tasks():
             task_id = request.form.get('reopen_task')
             DbCon(session['db']).connection_simple(f'UPDATE TASK_TABLE SET status = "new" WHERE ROWID = {task_id}')
 
+        if request.form.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
+        if request.form.get('task_add_task'):
+            add_task()
+
         return redirect('/verify_tasks')
 
 
@@ -278,9 +292,13 @@ def building_zones():
         if request.form.get('role_add'):
             # inputs the user to give the site info to the role object
             add_role(user['site'])
+
         if request.form.get('user_add'):
             # looks a bit strange but use the site of the making user for created user
             add_user(user['site'])
+
+        if request.form.get('task_add_task'):
+            add_task()
 
         return redirect('/buildings_zones')
 
@@ -319,6 +337,13 @@ def roles_page():
         if request.form.get('add_role'):
             add_role(user['site'])
 
+        if request.form.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
+        if request.form.get('task_add_task'):
+            add_task()
+
         return redirect('/role')
 
 
@@ -342,6 +367,13 @@ def reoccur_page():
         if request.form.get('cancel_task'):
             task_id = request.form.get('cancel_task')
             DbCon(session['db']).connection_simple(f'DELETE FROM REOCCURRING_TASKS WHERE ROWID = {task_id}')
+
+        if request.form.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
+        if request.form.get('task_add_task'):
+            add_task()
 
         return redirect('reoccur')
 
@@ -380,6 +412,13 @@ def users():
             query_global = f'UPDATE global_user SET userkey = "{key}" WHERE ROWID = {global_id}'
             DbCon(session['db']).connection_simple(query_local)
             DbCon('global_user.db').connection_simple(query_global)
+
+        if request.form.get('user_add'):
+            site = session['user']['site']
+            add_user(site)
+
+        if request.form.get('task_add_task'):
+            add_task()
 
         return redirect('/users')
 
