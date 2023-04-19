@@ -6,6 +6,11 @@ app = Flask(__name__)
 app.secret_key = '42,will do for now'
 
 
+@app.route('/index')
+def index():
+    return redirect('/')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # try to get user if fails go to log in , otherwise go to homepage
