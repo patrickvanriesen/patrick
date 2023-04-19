@@ -128,12 +128,11 @@ def check_user_login():
 
 
 def filter_tasks_on_rights(tasks, rights):
-    counter = 0
+    new_tasks = []
     for task in tasks:
-        if task[3] not in rights:
-            tasks.pop(counter)
-        counter += 1
-    return tasks
+        if task[3] in rights:
+            new_tasks.append(task)
+    return new_tasks
 
 
 def create_re_occuring_tasks():
