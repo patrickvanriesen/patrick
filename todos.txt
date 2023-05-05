@@ -1,16 +1,11 @@
 fix the task modal in re-occuring tasks -->P9
-- implement a tablet view (restricted page) --> P10
+
 
 <___implement @ KBL___>
 - extend verify page --> verify button and verify within filter option --> p11
 - add sort and filter to user-overview
-- some clean up, i am now passing info through the modals which is not needed,
- since i can find the info based on task ID (see edit task modal in JS)
 -record tasks by user_id...and then for finished verified tasks create join
 -change the task finished by by user_id..and fix all that causes
--- add comment when is re-openend is report -->After impl.
-- find out why the dates are no longer filled in, in the edit task modal -->p8 --> is due to date format
--replace the separate session retrieves with check_user_login() everywhere -->p12
 - create global admin page, for creating/adding new sites
 - make log-in page prettier
 

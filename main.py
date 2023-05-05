@@ -51,6 +51,8 @@ def home():
 
         # filter tasks based on rights
         tasks = filter_tasks_on_rights(tasks, rights)
+        if role['restricted'][0] == "TRUE":
+            return render_template('/restricted.html',tasks=tasks, rights=rights, buildings=buildings, zones=zones)
         return render_template('/home.html', tasks=tasks, rights=rights, buildings=buildings, zones=zones)
 
     # if there is an post request, check which form and execute the needed function from site functions
